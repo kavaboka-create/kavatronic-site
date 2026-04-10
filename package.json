@@ -1,0 +1,8 @@
+{
+    "name": "kavatronic-site",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "npx http-server . -p $PORT -a 0.0.0.0"
+    }
+  }
