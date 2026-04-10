@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kavatronic KVT-65R — технические характеристики</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
+      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+      </label>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="../index.html#home">Главная</a></li>
+          <li><a href="../index.html#products">Продукты</a></li>
+          <li><a href="../index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+          <li><a href="../index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="product-page">
+      <a class="product-page__back" href="../index.html#products">← Назад к продуктам</a>
+
+      <header class="product-page__header">
+        <h1>KVT-65R</h1>
+        <p class="product-page__subtitle">
+          Флагман линейки — Brushless 12V RS-485 с 135 RPM. Превосходит Dynamixel MX-64 по скорости и ресурсу
+        </p>
+      </header>
+
+      <section class="product-gallery" aria-label="Фото KVT-65R">
+        <div class="product-gallery__main product-img">
+          <img
+            src="../assets/images/kvt-65r.jpg"
+            alt="Kavatronic KVT-65R сервопривод"
+            onerror="this.style.display='none'"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="img-placeholder">📷 Фото модели</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="specs-kvt-65r">
+        <header class="section__header">
+          <h2 id="specs-kvt-65r">Технические характеристики</h2>
+        </header>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <tbody>
+              <tr>
+                <th scope="row" class="specs-table__param">Напряжение</th>
+                <td class="specs-table__value">9–16V (номинал 12V)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Момент (stall)</th>
+                <td class="specs-table__value">65 kg·cm @ 12V</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Скорость</th>
+                <td class="specs-table__value">135 RPM @ 12V (0.08 сек/60°)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Протокол</th>
+                <td class="specs-table__value">RS-485 Serial Bus (Half-Duplex)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Энкодер</th>
+                <td class="specs-table__value">12-bit магнитный (4096 шагов/360°)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Тип мотора</th>
+                <td class="specs-table__value">Brushless (BLDC)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Режимы</th>
+                <td class="specs-table__value">Position / Velocity / Current (Torque)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Обратная связь по току</th>
+                <td class="specs-table__value">Да (реализуем Constant Force)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Диапазон вращения</th>
+                <td class="specs-table__value">0–360° + multi-turn</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Корпус</th>
+                <td class="specs-table__value">полный алюминий</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Масса</th>
+                <td class="specs-table__value">106 г</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Ресурс</th>
+                <td class="specs-table__value">200 000 циклов</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">PID</th>
+                <td class="specs-table__value">настраиваемый</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Скорость шины</th>
+                <td class="specs-table__value">до 1 Mbps</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="compare-kvt-65r">
+        <header class="section__header">
+          <h2 id="compare-kvt-65r">Сравнение с Dynamixel</h2>
+        </header>
+        <div class="product-compare">
+          <div class="product-compare__col product-compare__col--kava">
+            <h3>Kavatronic KVT-65R</h3>
+            <dl class="product-compare__specs">
+              <div>
+                <dt>Момент</dt>
+                <dd>65 kg·cm</dd>
+              </div>
+              <div>
+                <dt>Скорость</dt>
+                <dd>135 RPM</dd>
+              </div>
+              <div>
+                <dt>Мотор</dt>
+                <dd>Brushless</dd>
+              </div>
+              <div>
+                <dt>Корпус</dt>
+                <dd>полный алюминий</dd>
+              </div>
+              <div>
+                <dt>Масса</dt>
+                <dd>106 г</dd>
+              </div>
+              <div>
+                <dt>Напряжение</dt>
+                <dd>9–16V</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="product-compare__col product-compare__col--dyn">
+            <h3>Dynamixel MX-64AR</h3>
+            <dl class="product-compare__specs">
+              <div>
+                <dt>Момент</dt>
+                <dd>61–64 kg·cm</dd>
+              </div>
+              <div>
+                <dt>Скорость</dt>
+                <dd>63 RPM (KVT-65R вдвое быстрее!)</dd>
+              </div>
+              <div>
+                <dt>Мотор</dt>
+                <dd>Coreless (щёточный)</dd>
+              </div>
+              <div>
+                <dt>Корпус</dt>
+                <dd>пластик + металл. рама</dd>
+              </div>
+              <div>
+                <dt>Масса</dt>
+                <dd>126 г (KVT-65R легче на 20 г)</dd>
+              </div>
+              <div>
+                <dt>Напряжение</dt>
+                <dd>10–14.8V</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product-applications" aria-labelledby="apps-kvt-65r">
+        <header class="section__header">
+          <h2 id="apps-kvt-65r">Применения</h2>
+        </header>
+        <ul>
+          <li>динамичные манипуляторы</li>
+          <li>коллаборативные роботы, требующие высокой скорости</li>
+          <li>медицинское оборудование</li>
+          <li>промышленные системы с постоянной нагрузкой</li>
+        </ul>
+      </section>
+
+      <p class="product-page__cta">
+        <a class="btn btn--primary" href="../index.html#contacts">Запросить цену / консультацию</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

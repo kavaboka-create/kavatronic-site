@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kavatronic — smart сервоприводы для робототехники и промышленности</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="about.html" class="logo-link">
+        <img src="assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
+      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+      </label>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#products">Продукты</a></li>
+          <li><a href="#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="articles/index.html">Полезная информация</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section id="hero">
+        <div class="hero__content">
+          <h1>Smart сервоприводы для робототехники и промышленности</h1>
+          <p class="hero__subtitle">
+            Линейка Kavatronic — smart сервоприводы с магнитным энкодером, шинным управлением RS-485/TTL и обратной
+            связью по положению, скорости и току. Для робототехники, промышленной автоматизации и R&amp;D.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#products">Смотреть продукты</a>
+            <a class="btn btn--secondary" href="#contacts">Запросить цену</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="comparison" class="section">
+        <header class="section__header">
+          <h2>Линейка Kavatronic vs Dynamixel</h2>
+        </header>
+        <div class="table-scroll" role="region" aria-label="Таблица сравнения сервоприводов" tabindex="0">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">Модель Kavatronic</th>
+                <th scope="col">Аналог Dynamixel</th>
+                <th scope="col">Напряжение</th>
+                <th scope="col">Момент (kg·cm)</th>
+                <th scope="col">Скорость (RPM)</th>
+                <th scope="col">Протокол</th>
+                <th scope="col">Тип мотора</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>KVT-30T</strong></td>
+                <td>MX-28 / XM430</td>
+                <td>12V</td>
+                <td>30</td>
+                <td>50</td>
+                <td>TTL</td>
+                <td>DC</td>
+              </tr>
+              <tr>
+                <td><strong>KVT-80R</strong></td>
+                <td>MX-64AR</td>
+                <td>12V</td>
+                <td>80</td>
+                <td>62</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><strong>KVT-260R</strong></td>
+                <td>XM540-W270</td>
+                <td>24V</td>
+                <td>260</td>
+                <td>52</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><strong>KVT-40R</strong></td>
+                <td>MX-64 класс</td>
+                <td>12V</td>
+                <td>40</td>
+                <td>65</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><strong>KVT-40D</strong></td>
+                <td>XM430-W350 (нет double shaft)</td>
+                <td>12V</td>
+                <td>40</td>
+                <td>85</td>
+                <td>TTL</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><strong>KVT-65R</strong></td>
+                <td>MX-64AR</td>
+                <td>12V</td>
+                <td>65</td>
+                <td>135</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="products" class="section">
+        <header class="section__header">
+          <h2>Продукты</h2>
+        </header>
+        <div class="cards-grid">
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-30t.jpg"
+                alt="Kavatronic KVT-30T сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
+            </div>
+            <h3 class="product-card__title">KVT-30T</h3>
+            <p class="product-card__meta">30 kg·cm • 12V • TTL</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-30t.html">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-80r.jpg"
+                alt="Kavatronic KVT-80R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
+            </div>
+            <h3 class="product-card__title">KVT-80R</h3>
+            <p class="product-card__meta">80 kg·cm • 12V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-80r.html">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-260r.jpg"
+                alt="Kavatronic KVT-260R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
+            </div>
+            <h3 class="product-card__title">KVT-260R</h3>
+            <p class="product-card__meta">260 kg·cm • 24V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-260r.html">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-40r.jpg"
+                alt="Kavatronic KVT-40R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
+            </div>
+            <h3 class="product-card__title">KVT-40R</h3>
+            <p class="product-card__meta">40 kg·cm • 12V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-40r.html">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-40d.jpg"
+                alt="Kavatronic KVT-40D сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
+            </div>
+            <h3 class="product-card__title">KVT-40D</h3>
+            <p class="product-card__meta">40 kg·cm • 12V • TTL</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-40d.html">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-65r.jpg"
+                alt="Kavatronic KVT-65R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
+            </div>
+            <h3 class="product-card__title">KVT-65R</h3>
+            <p class="product-card__meta">65 kg·cm • 12V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-65r.html">Подробнее</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="how-servo-works" class="section">
+        <header class="section__header">
+          <h2>Анатомия стальной мышцы</h2>
+          <p class="hero__subtitle">Что прячется внутри умного сервопривода</p>
+        </header>
+        <ul class="servo-intro-list">
+          <li>
+            <span class="servo-icon" aria-hidden="true">🔩</span>
+            <div>
+              <strong>Корпус и вал</strong>
+              <div>
+                Это броня модуля. Защищает электронику от пыли, воды и ударов. Чем жёстче корпус и точнее подшипники —
+                тем меньше люфт и выше ресурс.
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">⚡</span>
+            <div>
+              <strong>Электродвигатель (DC или BLDC)</strong>
+              <div>
+                Источник первобытного вращения. Щёточный (DC) — дешевле, но искрит и стирается. Бесщёточный (BLDC) —
+                тише, мощнее и живёт годами при круглосуточной работе.
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">⚙️</span>
+            <div>
+              <strong>Редуктор (шестерни)</strong>
+              <div>
+                Сам по себе мотор крутится слишком быстро и слабо. Редуктор превращает быстрые обороты мотора в медленное
+                и очень сильное движение вала. Только сталь — пластик оставьте производителям игрушек.
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">📡</span>
+            <div>
+              <strong>Энкодер</strong>
+              <div>
+                Энкодер — это глаза привода. Без него он крутится наугад. Датчик отслеживает угол и скорость вала с
+                точностью до долей градуса.
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">🧠</span>
+            <div>
+              <strong>Плата управления</strong>
+              <div>
+                Встроенный компьютер. Принимает команды по шине, считает ПИД-регулятор и выбирает режим: Position,
+                Velocity или Torque.
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">🔋</span>
+            <div>
+              <strong>Силовой драйвер</strong>
+              <div>
+                Берёт слабые сигналы от «мозгов» и превращает их в мощные токи для мотора. Обеспечивает плавный старт и
+                экстренное торможение без сгорания.
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">🔌</span>
+            <div>
+              <strong>Питание и интерфейс связи</strong>
+              <div>
+                Подключение питания (12–48В) и шины данных (RS-485 или TTL). Одна шина — много сервоприводов. Каждый имеет
+                свой ID, как адрес в сети.
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <button id="servo-expand-btn" type="button">Развернуть подробный разбор ▼</button>
+
+        <div id="servo-detail" style="display: none">
+          <div class="detail-block">
+            <strong>🔩 Корпус и вал — дополнение:</strong>
+            <div>
+              Если ставите модуль в кобота на фрезерном станке — нужен честный IP65. Основа механики — радиально-упорные
+              подшипники. Дешёвые подшипники с неправильным натягом дадут биение вала 0.1 мм через месяц, а это убьёт
+              редуктор.
+            </div>
+          </div>
+          <div class="detail-block">
+            <strong>⚡ Двигатель — дополнение:</strong>
+            <div>
+              Щёточный мотор создаёт угольную пыль и ЭМИ-помехи. Следите за азиатскими поставщиками BLDC: при нагреве выше
+              80°C дешёвые магниты N35 навсегда теряют до 20% момента. Требуйте высокотемпературные N42SH.
+            </div>
+          </div>
+          <div class="detail-block">
+            <strong>⚙️ Редуктор — дополнение:</strong>
+            <div>
+              Для манипуляторов применяют волновые редукторы (Strain wave gearing) — нулевой люфт, передаточное 1:100.
+              Требуют ювелирно подобранной смазки, иначе при высоких скоростях она коксуется.
+            </div>
+          </div>
+          <div class="detail-block">
+            <strong>📡 Энкодер — дополнение:</strong>
+            <div>
+              Современные модули используют магнитные или оптические абсолютные энкодеры с разрешением 17–21 бит. Часто
+              ставят два энкодера: до редуктора (для управления мотором) и после (для компенсации упругости шестерён).
+            </div>
+          </div>
+          <div class="detail-block">
+            <strong>🧠 Плата управления — дополнение:</strong>
+            <div>
+              Контроллер обрабатывает команды со скоростью 10–20 кГц. Режим Torque — самый сложный: управление не
+              позицией, а силой. Нужен FOC (векторное управление) чтобы устранить рывки мотора (Torque Ripple).
+            </div>
+          </div>
+          <div class="detail-block">
+            <strong>🔋 Драйвер — дополнение:</strong>
+            <div>
+              При экстренном торможении тяжёлый механизм вбрасывает в плату скачок напряжения (обратная ЭДС). Хороший
+              драйвер имеет защиту по току и перегреву. Плохой — сгорает при первой же аварийной остановке.
+            </div>
+          </div>
+          <div class="detail-block">
+            <strong>🔌 Интерфейс — дополнение:</strong>
+            <div>
+              Если всё в одном шкафу — TTL/UART. Если длинный робот на заводе с наводками — только RS-485 с гальванической
+              развязкой или CANopen/EtherCAT.
+            </div>
+          </div>
+        </div>
+
+        <a class="servo-read-more" href="articles/article-4.html">Читать полный инженерный разбор →</a>
+      </section>
+
+      <section id="contacts" class="section">
+        <header class="section__header">
+          <h2>Запросить цену / консультацию</h2>
+        </header>
+        <form class="lead-form" action="#" method="post">
+          <div class="form-grid">
+            <label class="field">
+              <span class="field__label">Имя</span>
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span class="field__label">Компания</span>
+              <input name="company" type="text" autocomplete="organization" />
+            </label>
+            <label class="field">
+              <span class="field__label">Email</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label class="field">
+              <span class="field__label">Телефон</span>
+              <input name="phone" type="tel" autocomplete="tel" />
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Интересующая модель</span>
+              <select name="model" required>
+                <option value="all">Все модели</option>
+                <option value="kvt-30t">KVT-30T</option>
+                <option value="kvt-80r">KVT-80R</option>
+                <option value="kvt-260r">KVT-260R</option>
+                <option value="kvt-40r">KVT-40R</option>
+                <option value="kvt-40d">KVT-40D</option>
+                <option value="kvt-65r">KVT-65R</option>
+              </select>
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Комментарий</span>
+              <textarea name="comment" rows="4"></textarea>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn--primary" type="submit">Отправить заявку</button>
+          </div>
+          <p class="contacts-note">
+            Telegram: <a href="#" aria-label="Telegram контакт">@kavatronic</a> • Email:
+            <a href="mailto:info@kavatronic.ru">info@kavatronic.ru</a>
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="articles/index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

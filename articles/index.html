@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Полезная информация — Kavatronic</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
+      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+      </label>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="../index.html#home">Главная</a></li>
+          <li><a href="../index.html#products">Продукты</a></li>
+          <li><a href="../index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="index.html">Полезная информация</a></li>
+          <li><a href="../index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <header class="articles-page__intro">
+        <h1>Полезная информация</h1>
+        <p class="articles-page__subtitle">
+          Прикладные статьи о сервоприводах, робототехнике и автоматизации
+        </p>
+      </header>
+
+      <div class="articles-grid" role="list">
+        <article class="article-card" role="listitem">
+          <span class="article-card__badge">Выбор оборудования</span>
+          <h2 class="article-card__title">
+            Стальная хватка: Как выбрать сервопривод для манипулятора и не сжечь лабораторию
+          </h2>
+          <p class="article-card__date">Апрель 2026</p>
+          <p class="article-card__excerpt">
+            Записки выжившего инженера: термодинамика вместо каталогов, FOC и энкодеры, редукторы, шины EtherCAT/CANopen и
+            чек-лист перед закупкой.
+          </p>
+          <a class="article-card__link" href="article-1.html">Читать →</a>
+        </article>
+
+        <article class="article-card" role="listitem">
+          <span class="article-card__badge">Техника</span>
+          <h2 class="article-card__title">
+            Свинец и Медь: TTL против RS-485. Как проложить нервную систему робота и не устроить восстание машин
+          </h2>
+          <p class="article-card__date">Апрель 2026</p>
+          <p class="article-card__excerpt">
+            Как выбрать шину под задачу: TTL для коротких линий и «тихих» систем, RS-485 для заводских условий, длинных
+            жгутов и десятков узлов. Без иллюзий и китайской экономии на развязке.
+          </p>
+          <a class="article-card__link" href="article-2.html">Читать →</a>
+        </article>
+
+        <article class="article-card" role="listitem">
+          <span class="article-card__badge">Техника</span>
+          <h2 class="article-card__title">
+            Искры и Пепел: Бесколлекторные против Щёточных сервоприводов. Как не сжечь завод ради пары центов
+          </h2>
+          <p class="article-card__date">Апрель 2026</p>
+          <p class="article-card__excerpt">
+            Brushed DC против BLDC: ресурс, помехи, термодинамика, подшипники и «азиатская рулетка» на магнитах и IP.
+            Что считать до старта проекта, чтобы не платить пеплом.
+          </p>
+          <a class="article-card__link" href="article-3.html">Читать →</a>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

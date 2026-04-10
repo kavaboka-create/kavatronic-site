@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kavatronic KVT-30T — технические характеристики</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
+      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+      </label>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="../index.html#home">Главная</a></li>
+          <li><a href="../index.html#products">Продукты</a></li>
+          <li><a href="../index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+          <li><a href="../index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="product-page">
+      <a class="product-page__back" href="../index.html#products">← Назад к продуктам</a>
+
+      <header class="product-page__header">
+        <h1>KVT-30T</h1>
+        <p class="product-page__subtitle">
+          Компактный smart-серво для образовательной робототехники, лёгких манипуляторов и R&amp;D
+        </p>
+      </header>
+
+      <section class="product-gallery" aria-label="Фото KVT-30T">
+        <div class="product-gallery__main product-img">
+          <img
+            src="../assets/images/kvt-30t.jpg"
+            alt="Kavatronic KVT-30T сервопривод"
+            onerror="this.style.display='none'"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="img-placeholder">📷 Фото модели</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="specs-kvt-30t">
+        <header class="section__header">
+          <h2 id="specs-kvt-30t">Технические характеристики</h2>
+        </header>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <tbody>
+              <tr>
+                <th scope="row" class="specs-table__param">Напряжение</th>
+                <td class="specs-table__value">12V (диапазон 6–12.6V)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Момент (stall)</th>
+                <td class="specs-table__value">30 kg·cm @ 12V</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Скорость</th>
+                <td class="specs-table__value">50 RPM @ 12V (0.2 сек/60°)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Протокол</th>
+                <td class="specs-table__value">TTL Serial Bus (Half-Duplex)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Энкодер</th>
+                <td class="specs-table__value">12-bit магнитный (4096 шагов/360°)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Тип мотора</th>
+                <td class="specs-table__value">DC (coreless)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Диапазон вращения</th>
+                <td class="specs-table__value">0–360° + multi-turn</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Размер</th>
+                <td class="specs-table__value">45.2 × 24.7 × 35 мм</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Масса</th>
+                <td class="specs-table__value">55 г</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Скорость шины</th>
+                <td class="specs-table__value">38400 bps – 1 Mbps</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">ID диапазон</th>
+                <td class="specs-table__value">0–253</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Обратная связь</th>
+                <td class="specs-table__value">позиция, скорость, ток, температура, нагрузка</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Режимы работы</th>
+                <td class="specs-table__value">Position / Velocity / Step</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="compare-kvt-30t">
+        <header class="section__header">
+          <h2 id="compare-kvt-30t">Сравнение с Dynamixel</h2>
+        </header>
+        <div class="product-compare">
+          <div class="product-compare__col product-compare__col--kava">
+            <h3>Kavatronic KVT-30T</h3>
+            <dl class="product-compare__specs">
+              <div>
+                <dt>Момент</dt>
+                <dd>30 kg·cm</dd>
+              </div>
+              <div>
+                <dt>Протокол</dt>
+                <dd>TTL</dd>
+              </div>
+              <div>
+                <dt>Энкодер</dt>
+                <dd>12-bit магнитный</dd>
+              </div>
+              <div>
+                <dt>Мотор</dt>
+                <dd>DC</dd>
+              </div>
+              <div>
+                <dt>Масса</dt>
+                <dd>55 г</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="product-compare__col product-compare__col--dyn">
+            <h3>Dynamixel MX-28 / XM430-W210</h3>
+            <dl class="product-compare__specs">
+              <div>
+                <dt>Момент</dt>
+                <dd>28.2 / 21 kg·cm</dd>
+              </div>
+              <div>
+                <dt>Протокол</dt>
+                <dd>TTL</dd>
+              </div>
+              <div>
+                <dt>Энкодер</dt>
+                <dd>12-bit магнитный</dd>
+              </div>
+              <div>
+                <dt>Мотор</dt>
+                <dd>DC</dd>
+              </div>
+              <div>
+                <dt>Масса</dt>
+                <dd>72 / 82 г</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product-applications" aria-labelledby="apps-kvt-30t">
+        <header class="section__header">
+          <h2 id="apps-kvt-30t">Применения</h2>
+        </header>
+        <ul>
+          <li>образовательные роботы</li>
+          <li>университеты и техникумы</li>
+          <li>R&amp;D лаборатории</li>
+          <li>лёгкие манипуляторы</li>
+          <li>стартапы и прототипирование</li>
+        </ul>
+      </section>
+
+      <p class="product-page__cta">
+        <a class="btn btn--primary" href="../index.html#contacts">Запросить цену / консультацию</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

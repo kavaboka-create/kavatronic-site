@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О бренде Kavatronic</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo-static">
+        <img src="assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </div>
+      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
+      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+        <span class="nav-burger__bar" aria-hidden="true"></span>
+      </label>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="index.html#products">Продукты</a></li>
+          <li><a href="index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="articles/index.html">Полезная информация</a></li>
+          <li><a href="index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="about-page">
+      <section class="about-hero" aria-labelledby="about-brand-title">
+        <img src="assets/logo.png" alt="" class="about-hero__logo" width="320" height="120" />
+        <h1 id="about-brand-title" class="about-hero__title">Kavatronic</h1>
+        <p class="about-hero__tagline">
+          Smart сервоприводы для робототехники и промышленной автоматизации
+        </p>
+        <hr class="about-hero__rule" />
+      </section>
+
+      <section class="about-section" aria-labelledby="about-who">
+        <header class="section__header">
+          <h2 id="about-who">Кто мы</h2>
+        </header>
+        <div class="about-prose">
+          <p>
+            Kavatronic — российская линейка smart сервоприводов для промышленной автоматизации, образовательной
+            робототехники и R&amp;D.
+          </p>
+          <p>
+            Мы предлагаем инженерам и интеграторам доступные, надёжные и технически современные сервоприводы с шинным
+            управлением, магнитным энкодером и обратной связью по положению, скорости и току.
+          </p>
+          <p>
+            Наша линейка охватывает широкий диапазон применений — от компактных образовательных роботов до тяжёлых
+            промышленных манипуляторов.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="about-values">
+        <header class="section__header">
+          <h2 id="about-values">Наши ценности</h2>
+        </header>
+        <div class="about-values">
+          <div class="about-values__item">
+            <span class="about-values__icon" aria-hidden="true">⚙️</span>
+            <h3>Технологичность</h3>
+            <p>
+              Современные BLDC-моторы, магнитный энкодер, настраиваемый PID, три режима управления
+            </p>
+          </div>
+          <div class="about-values__item">
+            <span class="about-values__icon" aria-hidden="true">🔌</span>
+            <h3>Совместимость</h3>
+            <p>Стандартные протоколы TTL и RS-485, SDK для Python, C++, Arduino</p>
+          </div>
+          <div class="about-values__item">
+            <span class="about-values__icon" aria-hidden="true">🛠️</span>
+            <h3>Поддержка</h3>
+            <p>Техническая документация, помощь в интеграции, работа с B2B-клиентами в РФ и РБ</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section about-products-cta" aria-labelledby="about-lineup">
+        <header class="section__header">
+          <h2 id="about-lineup">6 моделей для любых задач</h2>
+        </header>
+        <p class="about-prose">От 30 до 260 кг·см момента. TTL и RS-485. 12V и 24V. Brushless и DC.</p>
+        <a class="btn btn--primary" href="index.html#products">Смотреть все продукты</a>
+      </section>
+
+      <section class="about-section" aria-labelledby="about-markets-title">
+        <header class="section__header">
+          <h2 id="about-markets-title">Для кого</h2>
+        </header>
+        <div class="about-markets">
+          <article class="about-markets__tile">
+            <span class="about-markets__icon" aria-hidden="true">🏭</span>
+            <h3>Промышленные интеграторы</h3>
+            <p>Манипуляторы, AGV, автоматизация производств</p>
+          </article>
+          <article class="about-markets__tile">
+            <span class="about-markets__icon" aria-hidden="true">🎓</span>
+            <h3>Университеты и колледжи</h3>
+            <p>Образовательная робототехника, замена дорогих Dynamixel</p>
+          </article>
+          <article class="about-markets__tile">
+            <span class="about-markets__icon" aria-hidden="true">🔬</span>
+            <h3>R&amp;D и стартапы</h3>
+            <p>Прототипирование, исследовательские установки</p>
+          </article>
+          <article class="about-markets__tile">
+            <span class="about-markets__icon" aria-hidden="true">🏥</span>
+            <h3>Медицина</h3>
+            <p>Реабилитационные экзоскелеты, сервисные роботы</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-cta" aria-labelledby="about-cta-title">
+        <h2 id="about-cta-title" class="about-cta__title">Заинтересованы в сотрудничестве?</h2>
+        <div class="about-cta__actions">
+          <a class="btn btn--orange" href="index.html#contacts">Написать нам</a>
+          <a class="btn btn--outline" href="index.html#products">Смотреть продукты</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="articles/index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
