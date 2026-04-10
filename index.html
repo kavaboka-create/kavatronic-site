@@ -358,49 +358,33 @@
         <header class="section__header">
           <h2>Запросить цену / консультацию</h2>
         </header>
-        <form class="lead-form" action="#" method="post">
-          <div class="form-grid">
-            <label class="field">
-              <span class="field__label">Имя</span>
-              <input name="name" type="text" autocomplete="name" required />
-            </label>
-            <label class="field">
-              <span class="field__label">Компания</span>
-              <input name="company" type="text" autocomplete="organization" />
-            </label>
-            <label class="field">
-              <span class="field__label">Email</span>
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-            <label class="field">
-              <span class="field__label">Телефон</span>
-              <input name="phone" type="tel" autocomplete="tel" />
-            </label>
-            <label class="field field--full">
-              <span class="field__label">Интересующая модель</span>
-              <select name="model" required>
-                <option value="all">Все модели</option>
-                <option value="kvt-30t">KVT-30T</option>
-                <option value="kvt-80r">KVT-80R</option>
-                <option value="kvt-260r">KVT-260R</option>
-                <option value="kvt-40r">KVT-40R</option>
-                <option value="kvt-40d">KVT-40D</option>
-                <option value="kvt-65r">KVT-65R</option>
-              </select>
-            </label>
-            <label class="field field--full">
-              <span class="field__label">Комментарий</span>
-              <textarea name="comment" rows="4"></textarea>
-            </label>
+        <form class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
+          <input type="hidden" name="_subject" value="Новая заявка — Kavatronic" />
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Имя *" required />
+            <input type="text" name="company" placeholder="Компания" />
           </div>
-          <div class="form-actions">
-            <button class="btn btn--primary" type="submit">Отправить заявку</button>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="Email *" required />
+            <input type="tel" name="phone" placeholder="Телефон" />
           </div>
-          <p class="contacts-note">
-            Telegram: <a href="#" aria-label="Telegram контакт">@kavatronic</a> • Email:
-            <a href="mailto:info@kavatronic.ru">info@kavatronic.ru</a>
-          </p>
+          <select name="model">
+            <option value="">Интересующая модель</option>
+            <option value="KVT-30T">KVT-30T (12V, 30 кг·см, TTL)</option>
+            <option value="KVT-80R">KVT-80R (12V, 80 кг·см, RS-485)</option>
+            <option value="KVT-260R">KVT-260R (24V, 260 кг·см, RS-485)</option>
+            <option value="KVT-40R">KVT-40R (12V, 40 кг·см, RS-485)</option>
+            <option value="KVT-40D">KVT-40D (12V, 40 кг·см, double shaft)</option>
+            <option value="KVT-65R">KVT-65R (12V, 65 кг·см, 135 RPM)</option>
+            <option value="all">Все модели / не определился</option>
+          </select>
+          <textarea name="message" placeholder="Комментарий, задача, вопрос" rows="4"></textarea>
+          <button type="submit" class="btn btn-accent2">Отправить заявку</button>
         </form>
+        <p class="contacts-note">
+          Telegram: <a href="#" aria-label="Telegram контакт">@kavatronic</a> • Email:
+          <a href="mailto:info@kavatronic.ru">info@kavatronic.ru</a>
+        </p>
       </section>
     </main>
 
