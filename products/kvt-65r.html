@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="KVT-65R — smart сервопривод Kavatronic 65 кг·см, 12V, RS-485, 135 RPM, BLDC. Технические характеристики."
+    />
+    <meta property="og:title" content="Kavatronic KVT-65R — технические характеристики" />
+    <meta property="og:description" content="Smart сервопривод 65 кг·см, высокая скорость 135 RPM, RS-485. Kavatronic." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kavatronic-site-production.up.railway.app/products/kvt-65r.html" />
+    <meta property="og:image" content="https://kavatronic-site-production.up.railway.app/assets/logo.png" />
     <title>Kavatronic KVT-65R — технические характеристики</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
@@ -11,13 +20,17 @@
       <a href="../about.html" class="logo-link">
         <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
       </a>
-      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
-      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-      </label>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
         <ul>
           <li><a href="../index.html#home">Главная</a></li>
           <li><a href="../index.html#products">Продукты</a></li>

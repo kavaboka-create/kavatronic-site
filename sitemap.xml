@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://kavatronic-site-production.up.railway.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/about.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/products/kvt-30t.html</loc><priority>0.9</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/products/kvt-80r.html</loc><priority>0.9</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/products/kvt-260r.html</loc><priority>0.9</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/products/kvt-40r.html</loc><priority>0.9</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/products/kvt-40d.html</loc><priority>0.9</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/products/kvt-65r.html</loc><priority>0.9</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/articles/index.html</loc><priority>0.8</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/articles/article-1.html</loc><priority>0.7</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/articles/article-2.html</loc><priority>0.7</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/articles/article-3.html</loc><priority>0.7</priority></url>
+  <url><loc>https://kavatronic-site-production.up.railway.app/articles/article-4.html</loc><priority>0.7</priority></url>
+</urlset>

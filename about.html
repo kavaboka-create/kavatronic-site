@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kavatronic — бренд smart сервоприводов для робототехники и промышленности. Кто мы, ценности, линейка моделей, рынки РФ и РБ."
+    />
+    <meta property="og:title" content="О бренде Kavatronic" />
+    <meta property="og:description" content="Smart сервоприводы с магнитным энкодером и шинным управлением RS-485/TTL." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kavatronic-site-production.up.railway.app/about.html" />
+    <meta property="og:image" content="https://kavatronic-site-production.up.railway.app/assets/logo.png" />
     <title>О бренде Kavatronic</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -11,13 +20,17 @@
       <div class="logo-static">
         <img src="assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
       </div>
-      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
-      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-      </label>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
         <ul>
           <li><a href="index.html">Главная</a></li>
           <li><a href="index.html#products">Продукты</a></li>
@@ -40,7 +53,7 @@
 
       <section class="about-section" aria-labelledby="about-who">
         <header class="section__header">
-          <h2 id="about-who">Кто мы</h2>
+          <h2 id="about-who" class="section-title">Кто мы</h2>
         </header>
         <div class="about-prose">
           <p>
@@ -60,7 +73,7 @@
 
       <section class="about-section" aria-labelledby="about-values">
         <header class="section__header">
-          <h2 id="about-values">Наши ценности</h2>
+          <h2 id="about-values" class="section-title">Наши ценности</h2>
         </header>
         <div class="about-values">
           <div class="about-values__item">
@@ -85,7 +98,7 @@
 
       <section class="about-section about-products-cta" aria-labelledby="about-lineup">
         <header class="section__header">
-          <h2 id="about-lineup">6 моделей для любых задач</h2>
+          <h2 id="about-lineup" class="section-title">6 моделей для любых задач</h2>
         </header>
         <p class="about-prose">От 30 до 260 кг·см момента. TTL и RS-485. 12V и 24V. Brushless и DC.</p>
         <a class="btn btn--primary" href="index.html#products">Смотреть все продукты</a>
@@ -93,7 +106,7 @@
 
       <section class="about-section" aria-labelledby="about-markets-title">
         <header class="section__header">
-          <h2 id="about-markets-title">Для кого</h2>
+          <h2 id="about-markets-title" class="section-title">Для кого</h2>
         </header>
         <div class="about-markets">
           <article class="about-markets__tile">

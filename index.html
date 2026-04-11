@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kavatronic — линейка smart сервоприводов для робототехники и промышленной автоматизации. 6 моделей от 30 до 260 кг·см, TTL и RS-485, 12V и 24V. Поставки в РФ и РБ."
+    />
+    <meta property="og:title" content="Kavatronic — Smart сервоприводы для робототехники" />
+    <meta
+      property="og:description"
+      content="Линейка smart сервоприводов с магнитным энкодером и шинным управлением. Аналог Dynamixel для рынка РФ и РБ."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kavatronic-site-production.up.railway.app/" />
+    <meta property="og:image" content="https://kavatronic-site-production.up.railway.app/assets/logo.png" />
     <title>Kavatronic — smart сервоприводы для робототехники и промышленности</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -12,13 +24,17 @@
         <img src="assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
         <span class="site-brand__name">KAVATRONIC</span>
       </a>
-      <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
-      <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-        <span class="nav-burger__bar" aria-hidden="true"></span>
-      </label>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
         <ul>
           <li><a href="#home">Главная</a></li>
           <li><a href="#products">Продукты</a></li>
@@ -29,8 +45,8 @@
       </nav>
     </header>
 
-    <main id="home">
-      <section id="hero">
+    <main id="home" class="container">
+      <section id="hero" class="hero">
         <div class="hero__content">
           <h1>Smart сервоприводы для робототехники и промышленности</h1>
           <p class="hero__subtitle">
@@ -46,10 +62,15 @@
 
       <section id="comparison" class="section">
         <header class="section__header">
-          <h2>Линейка Kavatronic vs Dynamixel</h2>
+          <h2 class="section-title">Линейка Kavatronic vs Dynamixel</h2>
         </header>
-        <div class="table-scroll" role="region" aria-label="Таблица сравнения сервоприводов" tabindex="0">
-          <table class="compare-table">
+        <div
+          class="table-scroll table-wrapper"
+          role="region"
+          aria-label="Таблица сравнения сервоприводов"
+          tabindex="0"
+        >
+          <table class="compare-table comparison-table">
             <thead>
               <tr>
                 <th scope="col">Модель Kavatronic</th>
@@ -123,9 +144,9 @@
 
       <section id="products" class="section">
         <header class="section__header">
-          <h2>Продукты</h2>
+          <h2 class="section-title">Продукты</h2>
         </header>
-        <div class="cards-grid">
+        <div class="cards-grid products-grid">
           <article class="product-card">
             <div class="product-card__image product-img">
               <img
@@ -221,7 +242,7 @@
 
       <section id="how-servo-works" class="section">
         <header class="section__header">
-          <h2>Анатомия стальной мышцы</h2>
+          <h2 class="section-title">Анатомия стальной мышцы</h2>
           <p class="hero__subtitle">Что прячется внутри умного сервопривода</p>
         </header>
         <ul class="servo-intro-list">
@@ -357,7 +378,7 @@
 
       <section id="contacts" class="section">
         <header class="section__header">
-          <h2>Запросить цену / консультацию</h2>
+          <h2 class="section-title">Запросить цену / консультацию</h2>
         </header>
         <!-- Formspree: при проблемах с доставкой проверьте endpoint и подтверждённый email в кабинете Formspree -->
         <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
