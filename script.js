@@ -1,29 +1,67 @@
-document.addEventListener("DOMContentLoaded", function () {
+/**
+ * Отладка формы: откройте главную с ?debugForm=1 или в консоли:
+ * sessionStorage.setItem('kvt_debug_form','1'); location.reload();
+ */
+function kvtFormDebugEnabled() {
+  try {
+    if (typeof window === "undefined" || !window.location) return false;
+    if (/[?&]debugForm=1(?:&|$)/.test(String(window.location.search))) return true;
+    if (window.sessionStorage && window.sessionStorage.getItem("kvt_debug_form") === "1") return true;
+  } catch (e) {
+    /* private mode и т.п. */
+  }
+  return false;
+}
+
+function kvtFormLog(msg) {
+  if (kvtFormDebugEnabled() && typeof console !== "undefined" && console.log) {
+    console.log(msg);
+  }
+}
+
+function initKvtServoExpand() {
   var btn = document.getElementById("servo-expand-btn");
   var detail = document.getElementById("servo-detail");
 
-  if (btn && detail) {
-    btn.addEventListener("click", function () {
-      if (detail.style.display === "none" || detail.style.display === "") {
-        detail.style.display = "block";
-        this.textContent = "Свернуть ▲";
-      } else {
-        detail.style.display = "none";
-        this.textContent = "Развернуть подробный разбор ▼";
-      }
-    });
-  }
+  if (!btn || !detail) return;
 
-  initKvtContactFormAjax();
-});
+  btn.addEventListener("click", function () {
+    if (detail.style.display === "none" || detail.style.display === "") {
+      detail.style.display = "block";
+      this.textContent = "Свернуть ▲";
+    } else {
+      detail.style.display = "none";
+      this.textContent = "Развернуть подробный разбор ▼";
+    }
+  });
+}
 
 /**
  * Formspree без редиректа: fetch + Accept: application/json.
  * При сбоях доставки проверьте endpoint и подтверждение формы/email в Formspree.
  */
 function initKvtContactFormAjax() {
-  var form = document.getElementById("contact-form");
-  if (!form || !form.classList.contains("contact-form")) return;
+  var form =
+    document.getElementById("contact-form") ||
+    document.querySelector("#contacts form[action*='formspree']") ||
+    document.querySelector("#contacts form");
+
+  if (!form) {
+    kvtFormLog("contact form NOT found (нет #contact-form и формы в #contacts)");
+    return;
+  }
+
+  if (form.dataset.kvtAjaxBound === "1") {
+    kvtFormLog("contact form: обработчик уже привязан, пропуск");
+    return;
+  }
+
+  if (!form.action || String(form.action).indexOf("formspree") === -1) {
+    kvtFormLog("contact form found, но action не похож на Formspree — привязка всё равно выполняется");
+  }
+
+  kvtFormLog("contact form found");
+  form.dataset.kvtAjaxBound = "1";
 
   var modal = document.getElementById("kvt-success-modal");
   var errorEl = document.getElementById("contact-form-error");
@@ -109,9 +147,15 @@ function initKvtContactFormAjax() {
     });
   }
 
-  form.addEventListener("submit", function (e) {
+  function onFormSubmit(e) {
     e.preventDefault();
-    if (form.getAttribute("data-submitting") === "1") return;
+    e.stopPropagation();
+    kvtFormLog("submit intercepted");
+
+    if (form.getAttribute("data-submitting") === "1") {
+      kvtFormLog("submit ignored: уже идёт отправка");
+      return;
+    }
 
     var focusAfterClose = submitBtn || document.activeElement;
 
@@ -136,6 +180,8 @@ function initKvtContactFormAjax() {
       showError("Форма настроена некорректно. Сообщите администратору сайта.");
       return;
     }
+
+    kvtFormLog("fetch started");
 
     fetch(action, {
       method: "POST",
@@ -167,11 +213,15 @@ function initKvtContactFormAjax() {
         }
 
         if (result.ok) {
+          kvtFormLog("success response");
           form.reset();
+          kvtFormLog("form reset executed");
           hideError();
           openModal(focusAfterClose);
           return;
         }
+
+        kvtFormLog("error response: " + (result.status || "") + " " + JSON.stringify(result.data || {}));
 
         var detailMsg = parseFormspreeError(result.data);
         var msg =
@@ -184,5 +234,19 @@ function initKvtContactFormAjax() {
         }
         showError(msg);
       });
-  });
+  }
+
+  /* capture: true — срабатывает до всплытия; stopPropagation в обработчике блокирует обычный submit */
+  form.addEventListener("submit", onFormSubmit, true);
+}
+
+function initKvtSite() {
+  initKvtServoExpand();
+  initKvtContactFormAjax();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initKvtSite, { once: true });
+} else {
+  initKvtSite();
 }
