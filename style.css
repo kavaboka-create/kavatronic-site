@@ -80,8 +80,11 @@ p {
 .product-card p,
 .article-card p,
 .contacts-note,
+.contacts-direct,
 .kvt-modal__text,
-.about-hero__tagline {
+.about-hero__tagline,
+.contact-form__hint,
+.contact-form__micro {
   max-width: none;
 }
 
@@ -292,6 +295,81 @@ main.container {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 18px;
+}
+
+.hero__bullets {
+  margin: 16px 0 0;
+  padding-left: 1.2em;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: min(70ch, 100%);
+}
+
+.hero__bullets li {
+  margin-bottom: 8px;
+}
+
+.hero__bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.section-intro {
+  margin: 0 0 var(--space-md);
+  max-width: 72ch;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.table-footnote {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.product-card__tagline {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.section-form-intro {
+  margin: 0 0 var(--space-md);
+  max-width: 72ch;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.contact-form__hint {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.contact-form__micro {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.contacts-direct {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.servo-section-lead {
+  margin: 0 auto 16px;
+  max-width: 800px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 /* Полосатые секции главной (чётные по порядку, без hero) */
@@ -883,7 +961,12 @@ h2.section-title::after {
 .servo-intro-list strong {
   color: var(--color-accent);
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.servo-intro-list .servo-intro__text {
+  margin: 0;
+  line-height: 1.55;
 }
 
 #servo-expand-btn {
@@ -990,6 +1073,14 @@ textarea:focus {
   margin: 12px 0 0;
   color: var(--color-text-muted);
   font-size: 13px;
+}
+
+.contacts-direct + .contacts-note {
+  margin-top: 8px;
+}
+
+.contacts-note + .contacts-note {
+  margin-top: 6px;
 }
 
 .contacts-note a {
