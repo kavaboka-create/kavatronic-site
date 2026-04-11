@@ -8,8 +8,9 @@
   </head>
   <body>
     <header class="site-header">
-      <a href="about.html" class="logo-link">
-        <img src="assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      <a href="about.html" class="logo-link logo-link--home" aria-label="KAVATRONIC — о компании">
+        <img src="assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
+        <span class="site-brand__name">KAVATRONIC</span>
       </a>
       <input type="checkbox" id="site-nav-toggle" class="nav-toggle" />
       <label for="site-nav-toggle" class="nav-burger" aria-label="Открыть меню">
@@ -358,8 +359,10 @@
         <header class="section__header">
           <h2>Запросить цену / консультацию</h2>
         </header>
-        <form class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
+        <!-- Formspree: при проблемах с доставкой проверьте endpoint и подтверждённый email в кабинете Formspree -->
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
           <input type="hidden" name="_subject" value="Новая заявка — Kavatronic" />
+          <p id="contact-form-error" class="contact-form__error" role="alert" aria-live="polite" hidden></p>
           <div class="form-row">
             <input type="text" name="name" placeholder="Имя *" required />
             <input type="text" name="company" placeholder="Компания" />
@@ -396,6 +399,29 @@
         </ul>
       </div>
     </footer>
+
+    <div
+      id="kvt-success-modal"
+      class="kvt-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kvt-success-modal-title"
+      aria-describedby="kvt-success-modal-desc"
+      hidden
+    >
+      <div class="kvt-modal__backdrop" data-kvt-modal-dismiss tabindex="-1" aria-hidden="true"></div>
+      <div class="kvt-modal__panel">
+        <div class="kvt-modal__brand">
+          <img src="assets/logo.png" alt="" class="kvt-modal__logo" width="160" height="48" />
+        </div>
+        <h2 id="kvt-success-modal-title" class="kvt-modal__title">Отправлено</h2>
+        <p id="kvt-success-modal-desc" class="kvt-modal__text">
+          Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.
+        </p>
+        <button type="button" class="btn btn--primary kvt-modal__close" data-kvt-modal-dismiss>Понятно</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -68,6 +68,26 @@ a:focus-visible {
   flex-shrink: 0;
 }
 
+/* Главная: крупнее логотип + словесный знак KAVATRONIC */
+.logo-link--home {
+  gap: 12px;
+  max-width: min(100%, 420px);
+}
+
+.logo-img--home {
+  height: 56px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.site-brand__name {
+  font-size: clamp(14px, 2.4vw, 19px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #e8eef7;
+  line-height: 1.1;
+}
+
 .logo-link:hover,
 .logo-link:focus-visible {
   text-decoration: none;
@@ -878,6 +898,148 @@ textarea:focus {
   color: #5ec8ff;
 }
 
+.contact-form {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px;
+  background: rgba(17, 34, 68, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+}
+
+.contact-form__error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 98, 42, 0.45);
+  background: rgba(212, 98, 42, 0.12);
+  color: #f0c4a8;
+  font-size: 14px;
+}
+
+.contact-form__error[hidden] {
+  display: none !important;
+}
+
+.btn-accent2 {
+  background: var(--color-accent2);
+  color: #fff;
+  border-color: transparent;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.btn-accent2:hover,
+.btn-accent2:focus-visible {
+  background: #b55825;
+  text-decoration: none;
+}
+
+.btn-accent2:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+body.kvt-modal-open {
+  overflow: hidden;
+}
+
+.kvt-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.kvt-modal[hidden] {
+  display: none !important;
+}
+
+.kvt-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 14, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.kvt-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 400px);
+  padding: 28px 24px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.kvt-modal--open .kvt-modal__panel {
+  animation: kvt-modal-in 0.22s ease-out;
+}
+
+@keyframes kvt-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kvt-modal--open .kvt-modal__panel {
+    animation: none;
+  }
+}
+
+.kvt-modal__brand {
+  margin-bottom: 16px;
+}
+
+.kvt-modal__logo {
+  height: 52px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.kvt-modal__title {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  color: #fff;
+}
+
+.kvt-modal__text {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.kvt-modal__close {
+  width: 100%;
+}
+
 /* About page */
 .about-hero {
   margin: -32px -20px 0;
@@ -1463,6 +1625,14 @@ textarea:focus {
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-img--home {
+    height: 50px;
   }
 
   .product-compare {
