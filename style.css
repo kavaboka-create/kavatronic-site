@@ -151,10 +151,19 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 12px 20px;
-  min-height: 64px;
-  padding: 0 20px;
+  min-height: 72px;
+  padding: 0 24px;
   background: var(--color-header-bg);
   border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__cta {
+  white-space: nowrap;
+}
+
+.site-header__cta:focus-visible {
+  outline: 2px solid rgba(77, 168, 212, 0.7);
+  outline-offset: 2px;
 }
 
 /* Старое чекбокс-меню отключено — используется #hamburger + #mobile-menu */
@@ -294,15 +303,15 @@ main.container {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 .hero__bullets {
-  margin: 16px 0 0;
+  margin: 18px 0 0;
   padding-left: 1.2em;
   color: var(--color-text-muted);
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.55;
   max-width: min(70ch, 100%);
 }
 
@@ -327,6 +336,14 @@ main.container {
   font-size: 13px;
   color: var(--color-text-muted);
   line-height: 1.5;
+}
+
+.comparison-disclaimer {
+  margin: 10px 0 0;
+  max-width: 78ch;
+  font-size: 13px;
+  color: color-mix(in srgb, var(--color-text-muted) 92%, var(--color-text) 8%);
+  line-height: 1.55;
 }
 
 .product-card__tagline {
@@ -462,14 +479,14 @@ h2.section-title::after {
 }
 
 .hero__actions .btn--secondary {
-  background: var(--color-accent2);
-  color: #fff;
-  border-color: transparent;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .hero__actions .btn--secondary:hover,
 .hero__actions .btn--secondary:focus-visible {
-  background: #b55825;
+  background: rgba(255, 255, 255, 0.09);
   text-decoration: none;
 }
 
@@ -1796,6 +1813,11 @@ body.kvt-modal-open {
   .site-header {
     flex-wrap: wrap;
     align-items: center;
+  }
+
+  .site-header__cta {
+    order: 2;
+    margin-left: auto;
   }
 
   .hamburger {
