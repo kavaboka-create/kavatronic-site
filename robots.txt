@@ -3,6 +3,3 @@ Disallow:
 
 Host: www.kavatronic.tech
 Sitemap: https://www.kavatronic.tech/sitemap.xml
-User-agent: *
-Allow: /
-Sitemap: https://kavatronic-site-production.up.railway.app/sitemap.xml
