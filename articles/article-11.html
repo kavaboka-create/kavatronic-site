@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Пошаговый железный кодекс инженера-интегратора: motion profile, RMS и пиковый момент, выбор редуктора по матрице, тепловой расчёт узла и жесткий стенд-тест азиатских редукторов."
+    />
+    <meta
+      property="og:title"
+      content="ЖЕЛЕЗНЫЙ КОДЕКС СЕРВООТДЕЛА. РАСПЕЧАТАТЬ И ПРИБИТЬ К СТЕНЕ! — Kavatronic"
+    />
+    <meta
+      property="og:description"
+      content="Пять шагов перед CAD: motion profile, RMS/peak момент, матрица выбора редуктора, тепловой расчёт узла и стенд-тест азиатских аналогов."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kavatronic-site-production.up.railway.app/articles/article-11.html" />
+    <meta property="og:image" content="https://kavatronic-site-production.up.railway.app/assets/logo.png" />
+    <title>ЖЕЛЕЗНЫЙ КОДЕКС СЕРВООТДЕЛА. РАСПЕЧАТАТЬ И ПРИБИТЬ К СТЕНЕ! — Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/articles/article-11.html" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="../index.html#home">Главная</a></li>
+          <li><a href="../index.html#products">Продукты</a></li>
+          <li><a href="../index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+          <li><a href="../index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article-page">
+      <ol class="breadcrumbs" aria-label="Хлебные крошки">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="index.html">Полезная информация</a></li>
+        <li aria-current="page">статья</li>
+      </ol>
+
+      <header class="article-head">
+        <span class="article-head__badge">Кодекс сервов отдела</span>
+        <h1 class="article-head__title">ЖЕЛЕЗНЫЙ КОДЕКС СЕРВООТДЕЛА. РАСПЕЧАТАТЬ И ПРИБИТЬ К СТЕНЕ!</h1>
+        <p class="article-head__meta">Директива выживания инженера-интегратора | Ревизия: Май 2026</p>
+      </header>
+
+      <article class="article-body">
+        <p>
+          Наш отдел верит не в маркетинг и рендеры, а в физику, сопромат и термодинамику. Любая красивая презентация
+          сгорает при первом же реальном реверсе.
+        </p>
+        <p>
+          К каждому проекту мы подходим с холодным расчётом. Пока не выполнены эти пять шагов — открывать CAD запрещено.
+        </p>
+
+        <h2>Шаг 1. Допрос с пристрастием (Motion Profile)</h2>
+        <p>Никаких ТЗ уровня «он будет примерно таскать коробки».</p>
+        <p><strong>Обязательные параметры:</strong></p>
+        <ul>
+          <li>Максимальные скорости и ускорения.</li>
+          <li>Реальные массы инструмента и груза.</li>
+          <li>Худшие вылеты стрелы (максимальные плечи рычага).</li>
+          <li>Частота резких экстренных реверсов.</li>
+        </ul>
+        <p><strong>Нет цифр циклограммы — нет начала работы.</strong></p>
+
+        <h2>Шаг 2. Двойной осмотр момента (RMS &amp; Peak)</h2>
+        <p>Статика убивает проект незаметно, а динамика — мгновенно.</p>
+        <ul>
+          <li>
+            <strong>RMS (среднеквадратичный) момент</strong> считают, чтобы оценить тепловую нагрузку и медные потери в
+            обмотках и драйвере.
+          </li>
+          <li>
+            <strong>Пиковый момент</strong> считают с учётом момента инерции ротора и нагрузки, чтобы не срезать зубья и
+            крепёж при жёстких остановках и реверсах.
+          </li>
+        </ul>
+
+        <h2>Шаг 3. Матрица выбора оружия (выбор редуктора)</h2>
+        <p><strong>Правило:</strong> редуктор выбирается по матрице «Нагрузка / Скорость / Точность», а не по моде.</p>
+        <ul>
+          <li><strong>Прецизионная планетарка</strong> — для массовки, конвейеров, укладчиков.</li>
+          <li>
+            <strong>Волна (Harmonic)</strong> — для снайперской точности, нулевого люфта и малых габаритов, но без жёстких
+            ударов.
+          </li>
+          <li>
+            <strong>Циклоида (RV)</strong> — для базовых осей тяжёлых роботов, где возможны столкновения и удары, до уровня
+            «выдержит удар погрузчика».
+          </li>
+        </ul>
+
+        <h2>Шаг 4. Анатомия интеграции (проектирование узла)</h2>
+        <p>Узел — это организм: мотор + электроника + редуктор. Ошибка в одном органе убивает весь модуль.</p>
+        <ul>
+          <li>
+            Стыковочный фланец проектируется с микроскопической точностью: малейшая несоосность убивает подшипники за
+            считанные месяцы.
+          </li>
+          <li>
+            Обязательный расчёт отвода тепла (Thermal Flow): нельзя допускать, чтобы тепло от редуктора шло в драйвер —
+            иначе MOSFET‑ключи перегреются.
+          </li>
+          <li>
+            Учёт IP‑защиты: «налог» на тугие сальники закладывают в баланс момента и КПД — часть крутящего момента уходит
+            на преодоление сопротивления уплотнений.
+          </li>
+        </ul>
+
+        <h2>Шаг 5. Пыточная камера (азиатская рулетка)</h2>
+        <p>
+          Мы не верим красивым спецификациям no‑name фабрик и цифре люфта «&lt; 3 arcmin» в PDF. Мы верим только стенду.
+        </p>
+        <p><strong>Процедура квалификации:</strong></p>
+        <ul>
+          <li>Берётся опытный образец китайского аналога.</li>
+          <li>Его отправляют на стенд и гоняют 24/7 с жёсткими перегрузками и реверсами.</li>
+          <li>Замеряют реальный механический люфт до и после испытаний.</li>
+          <li>Только если узел выжил и сохранил точность — его допускают в серию.</li>
+        </ul>
+
+        <h2>Итог</h2>
+        <p>
+          Выполнение этого кодекса должно быть инстинктивным стандартом работы отдела. Не обсуждается. Не «по возможности».
+          Всегда.
+        </p>
+        <p>
+          Только так получаются сервомодули, которые честно отрабатывают 20 000+ часов в цеху, а не умирают с дымом и
+          искрами на пусконаладке.
+        </p>
+        <p><strong>Прочитал. Осознал. Приступил к работе.</strong></p>
+      </article>
+
+      <aside class="article-promo article-promo--card" aria-label="Предложение Kavatronic">
+        <p class="article-promo__text">
+          Этот подход — стандарт практики Kavatronic: мы проектируем и подбираем smart‑сервомодули и сервосети под конкретные
+          задачи, а не под красивые цифры в каталоге.
+        </p>
+        <div class="article-promo__actions">
+          <a class="btn btn--primary" href="../index.html#products">Смотреть сервоприводы</a>
+          <a class="btn btn--orange" href="../index.html#contacts">Заказать аудит сервоприводов и сервосети</a>
+        </div>
+      </aside>
+
+      <nav class="article-nav" aria-label="Навигация по статьям">
+        <div class="article-nav__prev">
+          <a href="article-10.html">← Предыдущая: уровень Senior</a>
+        </div>
+        <div class="article-nav__center">
+          <a href="index.html">Все статьи</a>
+        </div>
+        <div class="article-nav__next" aria-hidden="true"></div>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

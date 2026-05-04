@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Четыре «грязных» секрета механики для интегрированных сервомодулей: dual-loop управление волновыми редукторами, тепловой апокалипсис, азиатские поставки и налог на герметичность IP67."
+    />
+    <meta
+      property="og:title"
+      content="Уровень Senior: четыре грязных секрета механики, о которых молчат каталоги — Kavatronic"
+    />
+    <meta
+      property="og:description"
+      content="Четыре секрета механики интегрированных сервомодулей: dual-loop, тепловой режим, поставки редукторов и налог на герметичность IP67."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kavatronic-site-production.up.railway.app/articles/article-10.html" />
+    <meta property="og:image" content="https://kavatronic-site-production.up.railway.app/assets/logo.png" />
+    <title>Уровень Senior: четыре грязных секрета механики, о которых молчат каталоги — Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/articles/article-10.html" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="../index.html#home">Главная</a></li>
+          <li><a href="../index.html#products">Продукты</a></li>
+          <li><a href="../index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+          <li><a href="../index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article-page">
+      <ol class="breadcrumbs" aria-label="Хлебные крошки">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="index.html">Полезная информация</a></li>
+        <li aria-current="page">статья</li>
+      </ol>
+
+      <header class="article-head">
+        <span class="article-head__badge">Senior-механика</span>
+        <h1 class="article-head__title">Уровень Senior: четыре грязных секрета механики, о которых молчат каталоги</h1>
+        <p class="article-head__meta">Записки выжившего инженера | Пособие по выживанию в цеху. Дополнение | Май 2026</p>
+      </header>
+
+      <article class="article-body">
+        <p>
+          Вы уже знаете разницу между планетаркой и волной. Это хороший старт — базовый уровень. Но как только вы переходите
+          к плотно скомпонованным интегрированным сервомодулям, правила из учебника начинают ломаться.
+        </p>
+        <p>
+          Там, где вы пытаетесь упаковать мотор, драйвер и безлюфтовый редуктор в один герметичный цилиндр, физика начинает
+          бить ниже пояса. Ниже — четыре поправки уровня Senior.
+        </p>
+
+        <h2>Секрет 1: укрощение непокорной стали (математика против звона)</h2>
+        <p>
+          Волновые редукторы прекрасны: точность, компактность, большие передаточные числа. Но за это вы платите пружинящей
+          механикой. Ось остановилась — а рука звенит, как натянутая струна.
+        </p>
+        <p>
+          Взрослое решение — <strong>Dual-Loop Control</strong>: два абсолютных энкодера. Один — на валу мотора, второй — на
+          выходном валу после редуктора.
+        </p>
+        <p>
+          Внутренний контроллер сравнивает показания, оценивает угол паразитной деформации (torsion, wind-up) и
+          компенсирует его микротоками. Сопромат вы не отмените — но для инструмента робота эта упругость становится
+          «невидимой».
+        </p>
+
+        <h2>Секрет 2: термальный апокалипсис интегрированного привода</h2>
+        <p>
+          Волновые и циклоидальные передачи при больших передаточных числах (например, 1:160) часто имеют повышенное трение
+          и ниже КПД. По сути они работают как печи: часть мощности превращается в тепло — внутри вашего же корпуса.
+        </p>
+        <p>
+          В интегрированном модуле это тепло не исчезает. Оно уходит в электронику: текстолит, MOSFET‑ключи, драйвер. И
+          дальше начинается каскад.
+        </p>
+        <p>
+          Нужен расчёт тепловых потоков (Thermal Flow): куда уходит тепло, как оно проходит через корпус, где «пробка» и
+          где вы получите локальный перегрев. Иначе узел погибает не от ошибки, а от температуры.
+        </p>
+        <p>
+          И отдельно — смазка. Если сэкономить на правильной синтетической консистентной смазке, то при ~+90°C она
+          коксуется. Редуктор клинит. Драйвер продолжает «качать» ток — и плата сгорает на коротком замыкании. Каталог вам
+          это не покажет.
+        </p>
+
+        <h2>Секрет 3: геополитика и азиатская рулетка (дилемма поставок)</h2>
+        <p>
+          На бумаге всё красиво: «поставьте Nabtesco/Harmonic Drive». В реальности — цена как за платину и lead time в
+          месяцы. А вам нужно не через квартал, а вчера.
+        </p>
+        <p>Грамотная работа с азиатскими производителями выглядит так:</p>
+        <ul>
+          <li>
+            <strong>Волновые передачи:</strong> Leaderdrive и Laifual — но только с жёстким входным контролем (IQC).
+          </li>
+          <li>
+            <strong>Входной контроль:</strong> проверка пятна контакта зубьев краской на партии. Если пятно «убежало» —
+            геометрия и термообработка гуляют, и вы покупаете будущий люфт.
+          </li>
+          <li><strong>Прецизионные планетарники:</strong> Liming и APEX Dynamics (Тайвань).</li>
+        </ul>
+        <p>
+          И теперь предупреждение без смягчителей: no‑name редукторы с маркетинговым люфтом «&lt; 3 arcmin» могут быть
+          правдой только первые дни. Потом из‑за мягкой стали и плохой термообработки зубья стираются — и люфт выходит за
+          все рамки.
+        </p>
+
+        <h2>Секрет 4: налог на герметичность (IP-класс съедает момент)</h2>
+        <p>
+          Вы уже видели «кровотечение» редуктора: чёрная смазка, деградация уплотнений, грязь и смерть ресурса. Поэтому все
+          хотят честный IP67.
+        </p>
+        <p>
+          Но честный IP67 — это тугой сальник вокруг вала. Он создаёт паразитное трение. В небольших DC‑моторах до
+          <strong>15%</strong> крутящего момента может уходить «в никуда» — только на проворачивание собственного сальника.
+        </p>
+        <p>
+          Простой пример: привод с паспортными 5 Н·м на выходе после герметизации может дать около 4,2 Н·м реального
+          полезного момента. Это и есть налог на герметичность.
+        </p>
+
+        <h2>Итог</h2>
+        <p>
+          Архитектура прецизионной механики — это война компромиссов между софтом, трением, мощностью и защитой. Софт
+          маскирует механическую кривизну, трение съедает энергию, а защита от воды забирает момент.
+        </p>
+        <p>
+          Накладывайте эти четыре поправки на чертежи каждый раз, когда проектируете сложные модули. И тогда каталог начнёт
+          совпадать с реальностью хотя бы иногда. Конец брифинга.
+        </p>
+      </article>
+
+      <aside class="article-promo article-promo--card" aria-label="Предложение Kavatronic">
+        <p class="article-promo__text">
+          Kavatronic проектирует smart‑сервомодули с учётом реальных ограничений: dual‑loop, тепловой режим, выбор редуктора
+          и класса защиты — чтобы модуль работал в цеху, а не только в каталоге.
+        </p>
+        <div class="article-promo__actions">
+          <a class="btn btn--primary" href="../index.html#products">Смотреть сервоприводы</a>
+          <a class="btn btn--orange" href="../index.html#contacts">Обсудить интеграцию сервомодулей</a>
+        </div>
+      </aside>
+
+      <nav class="article-nav" aria-label="Навигация по статьям">
+        <div class="article-nav__prev">
+          <a href="article-9.html">← Предыдущая: как редуктор убивает проект</a>
+        </div>
+        <div class="article-nav__center">
+          <a href="index.html">Все статьи</a>
+        </div>
+        <div class="article-nav__next">
+          <a href="article-11.html">Следующая: железный кодекс →</a>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
