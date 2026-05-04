@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Практическое руководство по выбору напряжения питания 12В или 24В для распределённых сервосистем. Формулы потерь, сечения кабелей, падение напряжения, архитектурные решения."
+    />
+    <meta property="og:title" content="12V или 24V для сервосети: как выбрать напряжение — Kavatronic" />
+    <meta
+      property="og:description"
+      content="Как выбрать 12В или 24В для распределённой сервосистемы: токи, потери, падение напряжения и практические решения."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kavatronic-site-production.up.railway.app/articles/article-6.html" />
+    <meta property="og:image" content="https://kavatronic-site-production.up.railway.app/assets/logo.png" />
+    <title>12V или 24V для сервосети: как выбрать напряжение и не спалить провода — Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/articles/article-6.html" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="../index.html#home">Главная</a></li>
+          <li><a href="../index.html#products">Продукты</a></li>
+          <li><a href="../index.html#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="../articles/index.html">Полезная информация</a></li>
+          <li><a href="../index.html#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article-page">
+      <ol class="breadcrumbs" aria-label="Хлебные крошки">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="index.html">Полезная информация</a></li>
+        <li aria-current="page">статья</li>
+      </ol>
+
+      <header class="article-head">
+        <span class="article-head__badge">Электротехника</span>
+        <h1 class="article-head__title">12V или 24V для сервосети: как выбрать напряжение и не спалить провода</h1>
+        <p class="article-head__meta">Инженерные заметки Kavatronic | Май 2026 | ~6 минут чтения</p>
+      </header>
+
+      <article class="article-body">
+        <p>
+          Представьте классическую ситуацию: вы собрали прототип многоосевого манипулятора на столе. Кабели короткие, блок
+          питания рядом — всё работает идеально. Но стоит перенести систему на конвейер, удлинить провода до 3–5 метров,
+          как начинаются чудеса: дальние сервоприводы дёргаются, недобирают момент, а кабели ощутимо греются.
+        </p>
+
+        <p>
+          Причина почти всегда одна — неправильно выбранное напряжение питания для вашей сети. В этой статье мы спустимся
+          на уровень физики 8-го класса и отраслевых стандартов, чтобы раз и навсегда снять вопрос: когда достаточно 12 В,
+          а когда переход на 24 В — это единственный способ заставить робота работать.
+        </p>
+
+        <h2>Физику не обманешь: базовые формулы</h2>
+
+        <h3>Закон мощности (P = U · I)</h3>
+        <p>Допустим, сервосеть из 5 приводов в моменте потребляет 250 Вт:</p>
+        <ul>
+          <li>При <strong>12 В</strong> — ток в магистрали <strong>≈ 21 А</strong></li>
+          <li>При <strong>24 В</strong> — ток вдвое меньше <strong>≈ 10,5 А</strong></li>
+        </ul>
+
+        <h3>Тепловые потери Джоуля–Ленца (P = I² · R)</h3>
+        <p>
+          Уменьшив ток в 2 раза (переход с 12 В на 24 В), вы снижаете тепловые потери в кабеле <strong>в 4 раза</strong>.
+          Драгоценная энергия идёт на вращение вала, а не на обогрев помещения.
+        </p>
+
+        <h2>Битва за сечение и падение напряжения</h2>
+        <p>Ток диктует толщину кабеля:</p>
+        <ul>
+          <li>
+            При 21 А (12 В) нужен кабель <strong>минимум 2,5 мм²</strong>, а с учётом пиковых токов — лучше 4 мм².
+            Толстый, негибкий, неудобный внутри подвижных суставов робота.
+          </li>
+          <li>
+            При 10,5 А (24 В) с запасом хватит гибкого кабеля <strong>1,0–1,5 мм²</strong>.
+          </li>
+        </ul>
+
+        <h3>Падение напряжения на длинной линии</h3>
+        <ul>
+          <li>При 12 В потеря 1 В = падение <strong>~8%</strong> — логика может перезагрузиться, момент просядет.</li>
+          <li>При 24 В потеря того же 1 В = всего <strong>~4%</strong> — система этого не заметит.</li>
+        </ul>
+        <p>Именно поэтому длинные линии на 12 В быстро превращаются в инженерный кошмар.</p>
+
+        <h2>Что происходит внутри самого сервопривода?</h2>
+        <ol>
+          <li>
+            <strong>Меньше нагрев корпуса.</strong> Часть тепловых потерь — медные потери в обмотках (I²R). Снижая ток,
+            снижаем нагрев внутри тесного корпуса привода.
+          </li>
+          <li>
+            <strong>Лучшая динамика.</strong> Обмотка мотора — катушка индуктивности. Более высокое напряжение (24 В)
+            позволяет быстрее «протолкнуть» нужный ток в обмотку. На высоких оборотах мотор 24 В сохраняет лучший момент и
+            точнее отрабатывает резкие команды разгона/торможения.
+          </li>
+        </ol>
+
+        <h2>Архитектура: что выбрать на практике?</h2>
+
+        <h3>12 В достаточно, если:</h3>
+        <ul>
+          <li>Настольный или RC-проект (Arduino, маленький манипулятор)</li>
+          <li>Суммарная мощность системы до 50–100 Вт</li>
+          <li>Длина проводов питания — десятки сантиметров</li>
+          <li>Питание от стандартного авто-аккумулятора или 3S LiPo</li>
+        </ul>
+
+        <h3>24 В реально «спасает», когда:</h3>
+        <ul>
+          <li>Промышленность, ЧПУ, сотни ватт суммарной мощности</li>
+          <li>
+            Топология Daisy-chain: 10+ приводов на одной длинной шине — при 12 В через контакты разъёмов потечёт 30+ А,
+            контакты расплавятся
+          </li>
+          <li>Нужна высокая динамика: резкие и точные движения без потери момента</li>
+        </ul>
+
+        <h3>Продвинутый подход — комбинированная архитектура</h3>
+        <p>
+          Пускайте по длинным проводам силовую магистраль 24 В — тонкую, холодную, без просадок. Там, где отдельному
+          датчику или модулю нужно меньшее напряжение, ставьте локальный DC-DC преобразователь.
+        </p>
+
+        <h2>Резюме</h2>
+        <p>
+          Выбор между 12 В и 24 В — это не спор о брендах, это математика. Повышая напряжение вдвое, вы уменьшаете токи
+          вдвое и тепловые потери в четыре раза, получая лучшую динамику двигателей.
+        </p>
+        <p>
+          <strong>
+            Оставляйте 12 В для коротких настольных экспериментов. Если строите серьёзного робота или станок — 24 В должен
+            стать вашим минимальным стандартом.
+          </strong>
+        </p>
+      </article>
+
+      <aside class="article-promo article-promo--card" aria-label="Предложение Kavatronic">
+        <p class="article-promo__text">
+          Проектируете распределённую сервосеть? Подскажем по питанию, разводке и шине связи — и подберём приводы Kavatronic
+          под вашу кинематику.
+        </p>
+        <div class="article-promo__actions">
+          <a class="btn btn--primary" href="../index.html#products">Смотреть продукты</a>
+          <a class="btn btn--orange" href="../index.html#contacts">Запросить консультацию</a>
+        </div>
+      </aside>
+
+      <nav class="article-nav" aria-label="Навигация по статьям">
+        <div class="article-nav__prev">
+          <a href="article-5.html">← Предыдущая: анатомия шагохода</a>
+        </div>
+        <div class="article-nav__center">
+          <a href="index.html">Все статьи</a>
+        </div>
+        <div class="article-nav__next" aria-hidden="true"></div>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
