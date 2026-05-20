@@ -174,11 +174,11 @@
 
       <section id="products" class="section">
         <header class="section__header">
-          <h2 class="section-title">Линейка Kavatronic</h2>
+          <h2 class="section-title">Продукты Kavatronic для мехатроники и управления</h2>
         </header>
         <p class="section-intro">
-          Шесть моделей — от компактных сервоприводов для лёгких узлов до тяговых модулей для тяжёлых осей и
-          промышленных механизмов.
+          Сервоприводы KVT — основа узла. Компоненты пространственной обратной связи (IMU) — расширение для систем, где важно
+          поведение механизма в пространстве, а не только вращение вала.
         </p>
         <div class="cards-grid products-grid">
           <article class="product-card">
@@ -212,6 +212,44 @@
             <p class="product-card__tagline">Универсальный модуль для средних осей, колёсных платформ и робототехнических узлов.</p>
             <p class="product-card__meta">80 kg·cm • 12V • RS-485</p>
             <a class="btn btn--primary btn--sm" href="products/kvt-80r.html">Страница модели</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/imu118.jpg"
+                alt="IMU118 — инерциальный модуль (UART) для AGV и мобильных платформ"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Рендер / фото будет добавлено</div>
+            </div>
+            <h3 class="product-card__title">IMU118</h3>
+            <p class="product-card__tagline">
+              Инерциальный модуль (UART) для пространственной обратной связи в AGV/AMR: дополняет энкодер при проскальзывании
+              колёс.
+            </p>
+            <p class="product-card__meta">UART • 200 Гц • ±500°/s • ±16g</p>
+            <a class="btn btn--primary btn--sm" href="products/imu118.html">Страница продукта</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/imu488.jpg"
+                alt="IMU488 — промышленный инерциальный модуль (SPI) для робототехники и ЧПУ"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Рендер / фото будет добавлено</div>
+            </div>
+            <h3 class="product-card__title">IMU488</h3>
+            <p class="product-card__tagline">
+              Промышленный IMU для высокоскоростной пространственной обратной связи в многоосевых системах, манипуляторах и
+              ЧПУ.
+            </p>
+            <p class="product-card__meta">SPI до 12 МГц • до 2 кГц • ±2000°/s • ±32g</p>
+            <a class="btn btn--primary btn--sm" href="products/imu488.html">Страница продукта</a>
           </article>
           <article class="product-card">
             <div class="product-card__image product-img">
@@ -452,6 +490,8 @@
             <option value="KVT-40R">KVT-40R (12V, 40 кг·см, RS-485)</option>
             <option value="KVT-40D">KVT-40D (12V, 40 кг·см, double shaft)</option>
             <option value="KVT-65R">KVT-65R (12V, 65 кг·см, 135 RPM)</option>
+            <option value="IMU118">IMU118 (UART, 200 Гц)</option>
+            <option value="IMU488">IMU488 (SPI до 12 МГц, до 2 кГц)</option>
             <option value="all">Все модели / не определился</option>
           </select>
           <textarea name="message" placeholder="Комментарий, задача, вопрос" rows="4"></textarea>

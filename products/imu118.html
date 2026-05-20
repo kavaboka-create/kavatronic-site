@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="IMU118 — инерциальный модуль с UART и частотой выдачи данных 200 Гц для AGV/AMR и мобильных платформ. Пространственная обратная связь как дополнение к энкодерам колесных сервомодулей."
+    />
+    <meta property="og:title" content="IMU118 (UART) — инерциальный модуль для AGV и мобильных платформ" />
+    <meta
+      property="og:description"
+      content="IMU118 — компонент пространственной обратной связи: помогает фиксировать реальную динамику платформы, когда энкодер видит только вал."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.kavatronic.tech/products/imu118.html" />
+    <meta property="og:image" content="https://www.kavatronic.tech/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IMU118 (UART) — инерциальный модуль для AGV и мобильных платформ" />
+    <meta
+      name="twitter:description"
+      content="IMU118 — инерциальный модуль с UART и частотой выдачи данных 200 Гц для AGV/AMR и мобильных платформ. Пространственная обратная связь как дополнение к энкодерам колесных сервомодулей."
+    />
+    <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
+    <title>IMU118 (UART) — инерциальный модуль для AGV и мобильных платформ | Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/products/imu118.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "IMU118",
+        "description": "IMU118 — инерциальный модуль с UART и частотой выдачи данных 200 Гц для AGV/AMR и мобильных платформ. Пространственная обратная связь как дополнение к энкодерам колесных сервомодулей.",
+        "url": "https://www.kavatronic.tech/products/imu118.html",
+        "brand": { "@type": "Organization", "name": "Kavatronic" }
+      }
+    </script>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/#home">Главная</a></li>
+          <li><a href="/#products">Продукты</a></li>
+          <li><a href="/#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="/#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="product-page">
+      <a class="product-page__back" href="/#products">← Назад к продуктам</a>
+
+      <header class="product-page__header">
+        <h1>Инерциальный модуль IMU118 (UART) для AGV и мобильных платформ</h1>
+        <p class="product-page__subtitle">
+          Пространственная обратная связь как дополнение к энкодерам: когда вал “считает обороты”, а платформа живёт своей
+          динамикой
+        </p>
+      </header>
+
+      <section class="product-gallery" aria-label="Изображения IMU118">
+        <div class="product-gallery__main product-img">
+          <img
+            src="../assets/images/imu118.jpg"
+            alt="IMU118 — инерциальный модуль (UART)"
+            onerror="this.style.display='none'"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="img-placeholder">📷 Рендер / фото будет добавлено</div>
+        </div>
+        <p class="product-page__note">
+          Здесь будет размещён рендер или фото модуля и/или пример установки в узле. Страница уже готова к добавлению
+          изображений без изменения структуры.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="positioning-imu118">
+        <header class="section__header">
+          <h2 id="positioning-imu118">Зачем IMU, если уже есть энкодер?</h2>
+        </header>
+        <p class="section-intro">
+          Энкодер честно измеряет угол/скорость вала. Но в колесных модулях, мобильных платформах и механизмах с
+          проскальзыванием он не видит то, что важно системе управления: реальные ускорения и поведение платформы в
+          пространстве.
+        </p>
+        <div class="workflow" aria-label="Ключевая логика пространственной обратной связи">
+          <h3 class="workflow__title">Инженерная логика</h3>
+          <div class="workflow__steps" role="list">
+            <div class="workflow__step" role="listitem">
+              <div class="workflow__step-title">Энкодер</div>
+              <div class="workflow__step-text">Контроль вала двигателя и кинематики привода.</div>
+            </div>
+            <div class="workflow__arrow" aria-hidden="true">→</div>
+            <div class="workflow__step" role="listitem">
+              <div class="workflow__step-title">IMU</div>
+              <div class="workflow__step-text">Контроль динамики узла/машины в пространстве: ускорения и угловые скорости.</div>
+            </div>
+            <div class="workflow__arrow" aria-hidden="true">→</div>
+            <div class="workflow__step" role="listitem">
+              <div class="workflow__step-title">Результат</div>
+              <div class="workflow__step-text">
+                Более стабильная навигация и настройка защитных алгоритмов при проскальзывании, ударах и “грязной” динамике.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="specs-imu118">
+        <header class="section__header">
+          <h2 id="specs-imu118">Ключевые характеристики</h2>
+        </header>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <tbody>
+              <tr>
+                <th scope="row" class="specs-table__param">Интерфейс</th>
+                <td class="specs-table__value">UART</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Частота выдачи данных</th>
+                <td class="specs-table__value">200 Гц</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Гироскоп</th>
+                <td class="specs-table__value">±500°/s</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Акселерометр</th>
+                <td class="specs-table__value">±16g</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section product-applications" aria-labelledby="apps-imu118">
+        <header class="section__header">
+          <h2 id="apps-imu118">Сценарии применения</h2>
+        </header>
+        <ul>
+          <li>AGV / AMR</li>
+          <li>мобильные платформы</li>
+          <li>складская автоматизация</li>
+          <li>конвейерные балансиры</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="budget-imu">
+        <header class="section__header">
+          <h2 id="budget-imu">Почему точная пространственная обратная связь экономит ваш бюджет?</h2>
+        </header>
+        <p class="section-intro">
+          В B2B-проектах цена ошибки редко ограничивается заменой одного узла. Отказ механики или “плавающая” динамика под
+          перегрузками обычно тянут цепочку затрат: простой, логистика, повторная закупка, повторная наладка и управленческие
+          издержки.
+        </p>
+        <p class="section-intro">
+          На практике повреждение узла стоимостью условно 10&nbsp;000 у.е. может приводить к суммарным потерям порядка
+          40&nbsp;000 у.е. — за счёт времени и остановки процесса, а не только “железа”.
+        </p>
+        <p class="section-intro">
+          Промышленный IMU в составе сервосистемы помогает раньше фиксировать нештатную динамику, точнее настраивать
+          защитные алгоритмы и снижать риск каскадных отказов в мехатронном узле.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="commercial-imu118">
+        <header class="section__header">
+          <h2 id="commercial-imu118">Коммерческие условия</h2>
+        </header>
+        <div class="article-promo article-promo--card" aria-label="Коммерческий блок IMU118">
+          <p class="article-promo__text">
+            <strong>Цена — по запросу.</strong> Для интеграторов, OEM и пилотных проектов возможен запрос тестового образца.
+            Условия поставки зависят от объёма, задачи и схемы интеграции.
+          </p>
+          <div class="article-promo__actions">
+            <a class="btn btn--primary" href="/#contacts">Запросить подбор</a>
+            <a class="btn btn--secondary" href="mailto:info@kavatronic.tech?subject=IMU118%20—%20ТЗ%20на%20подбор">
+              Отправить ТЗ на email
+            </a>
+            <a class="btn btn--outline" href="/#contacts">Запросить тестовый образец</a>
+          </div>
+          <p class="product-page__note">
+            Для корректного подбора укажите платформу/узел, тип контроллера, частоты обновления и требования к задержке в
+            контуре управления.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="related-imu118">
+        <header class="section__header">
+          <h2 id="related-imu118">Связанные материалы</h2>
+        </header>
+        <div class="workflow" aria-label="Связанные материалы по IMU (будут добавлены)">
+          <h3 class="workflow__title">Скоро в “Полезной информации”</h3>
+          <div class="workflow__steps" role="list">
+            <div class="workflow__step" role="listitem">
+              <div class="workflow__step-title">IMU в сервосети</div>
+              <div class="workflow__step-text">Как связать энкодер, IMU и защитные алгоритмы в мехатронном узле.</div>
+            </div>
+            <div class="workflow__step" role="listitem">
+              <div class="workflow__step-title">Пространственная обратная связь</div>
+              <div class="workflow__step-text">Практика интеграции IMU в AGV/AMR: частоты, задержки, фильтрация.</div>
+            </div>
+          </div>
+          <p class="product-page__note">
+            Ссылки будут добавлены после публикации статей, без изменения структуры страницы.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="/articles/">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
+
