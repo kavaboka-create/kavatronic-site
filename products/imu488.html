@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="IMU488 — промышленный инерциальный модуль для многоосевой робототехники и ЧПУ: SPI до 12 МГц, внутренняя частота обновления до 2 кГц, UART до 1000 Гц, гироскоп ±2000°/s, акселерометр ±32g, магнитометр и барометр."
+      content="IMU488 — высокопроизводительный IMU: гироскоп ±2000°/s, акселерометр ±32 g, магнетометр и барометр, SPI до 12 МГц и UART до 1000 Гц, 3.3 В, калибровка по температуре. Для многоосевой робототехники, ЧПУ и стабилизированных платформ."
     />
     <meta property="og:title" content="IMU488 (SPI до 12 МГц) — промышленный IMU для робототехники и ЧПУ" />
     <meta
       property="og:description"
-      content="IMU488 — компонент пространственной обратной связи для динамически нагруженных систем: акцент на задержку, частоту обновления и интеграцию в мехатронный узел."
+      content="IMU488 — высокопроизводительный IMU: гироскоп ±2000°/s, акселерометр ±32 g, SPI до 12 МГц, UART до 1000 Гц, 3.3 В. Для робототехники, ЧПУ и стабилизированных платформ."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.kavatronic.tech/products/imu488.html" />
@@ -19,7 +19,7 @@
     <meta name="twitter:title" content="IMU488 (SPI до 12 МГц) — промышленный IMU для робототехники и ЧПУ" />
     <meta
       name="twitter:description"
-      content="IMU488 — промышленный инерциальный модуль для многоосевой робототехники и ЧПУ: SPI до 12 МГц, внутренняя частота обновления до 2 кГц, UART до 1000 Гц, гироскоп ±2000°/s, акселерометр ±32g, магнитометр и барометр."
+      content="IMU488 — высокопроизводительный IMU: гироскоп ±2000°/s, акселерометр ±32 g, магнетометр и барометр, SPI до 12 МГц и UART до 1000 Гц, 3.3 В, калибровка по температуре. Для многоосевой робототехники, ЧПУ и стабилизированных платформ."
     />
     <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
     <title>IMU488 (SPI до 12 МГц) — промышленный модуль пространственной обратной связи | Kavatronic</title>
@@ -29,8 +29,9 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "IMU488",
-        "description": "IMU488 — промышленный инерциальный модуль для многоосевой робототехники и ЧПУ: SPI до 12 МГц, внутренняя частота обновления до 2 кГц, UART до 1000 Гц, гироскоп ±2000°/s, акселерометр ±32g, магнитометр и барометр.",
+        "description": "IMU488 — высокопроизводительный IMU: гироскоп ±2000°/s, акселерометр ±32 g, магнетометр и барометр, SPI до 12 МГц и UART до 1000 Гц, 3.3 В, калибровка по температуре. Для многоосевой робототехники, ЧПУ и стабилизированных платформ.",
         "url": "https://www.kavatronic.tech/products/imu488.html",
+        "image": "https://www.kavatronic.tech/assets/images/imu488.jpg",
         "brand": { "@type": "Organization", "name": "Kavatronic" }
       }
     </script>
@@ -76,6 +77,11 @@
           Высокоскоростные инерциальные данные для контроллера движения, серводрайвера или системы управления: акцент на
           частоту обновления и минимизацию задержки на уровне интерфейса
         </p>
+        <p class="section-intro">
+          IMU488 — высокопроизводительный инерциальный измерительный модуль с прецизионной калибровкой по всему
+          температурному диапазону. В одном корпусе совмещены трёхосевой гироскоп, трёхосевой акселерометр, магнетометр,
+          барометр и датчик температуры; скомпенсированные данные выдаются через SPI или UART.
+        </p>
       </header>
 
       <section class="product-gallery" aria-label="Изображения IMU488">
@@ -83,16 +89,10 @@
           <img
             src="../assets/images/imu488.jpg"
             alt="IMU488 — промышленный инерциальный модуль (SPI)"
-            onerror="this.style.display='none'"
             loading="eager"
             decoding="async"
           />
-          <div class="img-placeholder">📷 Рендер / фото будет добавлено</div>
         </div>
-        <p class="product-page__note">
-          Здесь будет размещён рендер или фото модуля и/или пример интеграции в мехатронный узел. Страница готова к
-          добавлению изображений без изменения структуры.
-        </p>
       </section>
 
       <section class="section" aria-labelledby="positioning-imu488">
@@ -127,6 +127,23 @@
         </div>
       </section>
 
+      <section class="section" aria-labelledby="purpose-imu488">
+        <header class="section__header">
+          <h2 id="purpose-imu488">Назначение и область применения</h2>
+        </header>
+        <p class="section-intro">
+          IMU488 предназначен для измерения угловых скоростей, линейных ускорений, магнитного поля и давления (высоты) в
+          системах навигации, ориентации и стабилизации. Широкие диапазоны сенсоров и калибровка по температуре позволяют
+          использовать модуль в динамически нагруженных установках: многоосевая робототехника, манипуляторы, ЧПУ,
+          стабилизированные платформы, промышленная мобильная техника.
+        </p>
+        <p class="section-intro">
+          Ключевой акцент — высокая частота обновления и низкие задержки на уровне интерфейса: SPI до 12&nbsp;МГц с
+          внутренней частотой обновления до 2&nbsp;кГц, UART с заводской конфигурацией 921600 бод и 1000&nbsp;Гц (с
+          настройкой скорости и частоты кадров). IMU488 остаётся измерительным модулем, а не законченной INS-системой.
+        </p>
+      </section>
+
       <section class="section" aria-labelledby="specs-imu488">
         <header class="section__header">
           <h2 id="specs-imu488">Ключевые характеристики</h2>
@@ -135,36 +152,129 @@
           <table class="specs-table">
             <tbody>
               <tr>
-                <th scope="row" class="specs-table__param">Интерфейс</th>
-                <td class="specs-table__value">SPI до 12 МГц</td>
+                <th scope="row" class="specs-table__param">Архитектура</th>
+                <td class="specs-table__value">
+                  9-осевой IMU + барометр (3-axis gyro, 3-axis accelerometer, 3-axis magnetometer, barometer, temperature
+                  sensor)
+                </td>
               </tr>
               <tr>
-                <th scope="row" class="specs-table__param">Внутренняя частота обновления</th>
-                <td class="specs-table__value">до 2 кГц</td>
+                <th scope="row" class="specs-table__param">Интерфейсы</th>
+                <td class="specs-table__value">SPI + UART</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">SPI</th>
+                <td class="specs-table__value">до 12 МГц; внутренняя частота обновления данных до 2 кГц</td>
               </tr>
               <tr>
                 <th scope="row" class="specs-table__param">UART</th>
-                <td class="specs-table__value">до 1000 Гц</td>
+                <td class="specs-table__value">
+                  заводские настройки: 921600 бод, 1000 Гц; настраиваемые 921600 / 460800 / 230400 бод и 1000 / 500 / 200 Гц
+                </td>
               </tr>
               <tr>
-                <th scope="row" class="specs-table__param">Гироскоп</th>
+                <th scope="row" class="specs-table__param">Гироскоп, диапазон</th>
                 <td class="specs-table__value">±2000°/s</td>
               </tr>
               <tr>
-                <th scope="row" class="specs-table__param">Акселерометр</th>
+                <th scope="row" class="specs-table__param">Гироскоп, Allan deviation</th>
+                <td class="specs-table__value">0.8°/h</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Гироскоп, стабильность нуля (10 s RMS)</th>
+                <td class="specs-table__value">2°/h</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Гироскоп, случайное блуждание</th>
+                <td class="specs-table__value">0.13°/√h</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Гироскоп, полоса (−3 дБ)</th>
+                <td class="specs-table__value">150–280 Гц</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Акселерометр, диапазон</th>
                 <td class="specs-table__value">±32g</td>
               </tr>
               <tr>
-                <th scope="row" class="specs-table__param">Дополнительно</th>
-                <td class="specs-table__value">магнитометр и барометр</td>
+                <th scope="row" class="specs-table__param">Акселерометр, Allan deviation</th>
+                <td class="specs-table__value">10 µg</td>
               </tr>
               <tr>
-                <th scope="row" class="specs-table__param">Ударная стойкость</th>
-                <td class="specs-table__value">до 2000g</td>
+                <th scope="row" class="specs-table__param">Акселерометр, стабильность нуля (10 s RMS)</th>
+                <td class="specs-table__value">20 µg</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Акселерометр, случайное блуждание</th>
+                <td class="specs-table__value">0.015 м/с/√ч</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Акселерометр, полоса (−3 дБ)</th>
+                <td class="specs-table__value">150–280 Гц</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Магнетометр, диапазон</th>
+                <td class="specs-table__value">2 / 8 гаусс</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Магнетометр, разрешение</th>
+                <td class="specs-table__value">0.1 мГаусс</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Барометр, диапазон</th>
+                <td class="specs-table__value">260–1260 гПа</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Барометр, разрешение</th>
+                <td class="specs-table__value">4096 LSB/гПа</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Питание</th>
+                <td class="specs-table__value">3.0–3.6 В (типично 3.3 В)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Потребляемая мощность</th>
+                <td class="specs-table__value">до 1 Вт</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Рабочая температура</th>
+                <td class="specs-table__value">−40…+85 °C</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Температура хранения</th>
+                <td class="specs-table__value">−55…+105 °C</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Устойчивость к ударам</th>
+                <td class="specs-table__value">2000g</td>
               </tr>
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section class="section" aria-labelledby="interfaces-imu488">
+        <header class="section__header">
+          <h2 id="interfaces-imu488">Интерфейсы и подключение</h2>
+        </header>
+
+        <h3>Интерфейсы связи</h3>
+        <p class="section-intro">
+          SPI — основной высокоскоростной канал: до 12&nbsp;МГц, внутренняя частота обновления данных до 2&nbsp;кГц. Подходит
+          для контуров, где критичны задержка и плотность потока измерений на стороне MCU или FPGA.
+        </p>
+        <p class="section-intro">
+          UART — для конфигурации и работы в системах, где удобнее последовательный порт: частота выдачи до 1000&nbsp;Гц,
+          настраиваемые скорости 921600 / 460800 / 230400 бод и частоты кадров 1000 / 500 / 200&nbsp;Гц. Заводская конфигурация:
+          921600 бод, 1000&nbsp;Гц.
+        </p>
+
+        <h3>Конструкция и разъём</h3>
+        <p class="section-intro">
+          Разъём FPC-SMD FH34SRJ-8S-0.5SH(50), ответная часть ZX-PM1.0-2-12PU-W, 8 выводов (распиновка SPI, UART, питание —
+          по документации производителя). Крепление — четыре сквозных отверстия Ø2.5&nbsp;мм; требования к монтажной поверхности:
+          плоскостность ≤0.02&nbsp;мм, перпендикулярность ≤0.04&nbsp;мм.
+        </p>
       </section>
 
       <section class="section product-applications" aria-labelledby="apps-imu488">
@@ -178,6 +288,27 @@
           <li>активное гашение вибраций</li>
           <li>тяжёлые стабилизированные платформы</li>
         </ul>
+      </section>
+
+      <section class="section" aria-labelledby="project-fit-imu488">
+        <header class="section__header">
+          <h2 id="project-fit-imu488">Как IMU488 вписывается в проект</h2>
+        </header>
+        <p class="section-intro">
+          IMU488 рассчитан на динамически нагруженные системы, где нужны высокие частоты обновления и невысокие задержки
+          интерфейса: многоосевая робототехника, манипуляторы, порталы, ЧПУ, стабилизированные платформы, промышленная
+          мобильная техника.
+        </p>
+        <p class="section-intro">
+          Баланс параметров — широкие диапазоны (±2000°/s, ±32g), низкий Allan deviation, встроенные магнетометр и барометр,
+          цифровая калибровка по температуре — делает модуль уместным там, где IMU — центральное звено внутрироботной
+          навигации или стабилизации, а не только «датчик наклона».
+        </p>
+        <p class="section-intro">
+          IMU488 не является готовым INS-блоком: это измерительный модуль для вашего контроллера движения, INS или
+          навигационного стека. Точность позиционирования и устойчивость контура определяются архитектурой системы и
+          алгоритмами обработки, а не только выбором датчика.
+        </p>
       </section>
 
       <section class="section" aria-labelledby="budget-imu">
