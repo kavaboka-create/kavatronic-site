@@ -587,6 +587,46 @@ h2.section-title::after {
   border-bottom: none;
 }
 
+/* Product catalog subgroups (home #products) */
+.products-catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.products-subgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.products-subgroup__title {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.product-card__eyebrow {
+  display: inline-block;
+  padding: 3px 8px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  line-height: 1.2;
+}
+
+.products-subgroup .products-grid:has(.product-card__eyebrow) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 720px;
+}
+
 /* Product cards */
 .cards-grid,
 .products-grid {

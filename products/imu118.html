@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="IMU118 — инерциальный модуль с UART и частотой выдачи данных 200 Гц для AGV/AMR и мобильных платформ. Пространственная обратная связь как дополнение к энкодерам колесных сервомодулей."
+      content="IMU118 — 6-осевой IMU: гироскоп ±500°/s, акселерометр ±16g, UART + PPS, 200 Гц, 5 В, 22.4 × 22.4 × 8.8 мм. Для AGV/AMR, стабилизации и навигационных систем."
     />
     <meta property="og:title" content="IMU118 (UART) — инерциальный модуль для AGV и мобильных платформ" />
     <meta
       property="og:description"
-      content="IMU118 — компонент пространственной обратной связи: помогает фиксировать реальную динамику платформы, когда энкодер видит только вал."
+      content="IMU118 — 6-осевой IMU с UART и PPS, 200 Гц. Компактный модуль для AGV/AMR и промышленных систем стабилизации."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.kavatronic.tech/products/imu118.html" />
@@ -19,7 +19,7 @@
     <meta name="twitter:title" content="IMU118 (UART) — инерциальный модуль для AGV и мобильных платформ" />
     <meta
       name="twitter:description"
-      content="IMU118 — инерциальный модуль с UART и частотой выдачи данных 200 Гц для AGV/AMR и мобильных платформ. Пространственная обратная связь как дополнение к энкодерам колесных сервомодулей."
+      content="IMU118 — 6-осевой IMU: гироскоп ±500°/s, акселерометр ±16g, UART + PPS, 200 Гц, 5 В, 22.4 × 22.4 × 8.8 мм. Для AGV/AMR, стабилизации и навигационных систем."
     />
     <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
     <title>IMU118 (UART) — инерциальный модуль для AGV и мобильных платформ | Kavatronic</title>
@@ -29,8 +29,9 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "IMU118",
-        "description": "IMU118 — инерциальный модуль с UART и частотой выдачи данных 200 Гц для AGV/AMR и мобильных платформ. Пространственная обратная связь как дополнение к энкодерам колесных сервомодулей.",
+        "description": "IMU118 — 6-осевой IMU: гироскоп ±500°/s, акселерометр ±16g, UART + PPS, 200 Гц, 5 В, 22.4 × 22.4 × 8.8 мм. Для AGV/AMR, стабилизации и навигационных систем.",
         "url": "https://www.kavatronic.tech/products/imu118.html",
+        "image": "https://www.kavatronic.tech/assets/images/imu118.jpg",
         "brand": { "@type": "Organization", "name": "Kavatronic" }
       }
     </script>
@@ -73,8 +74,12 @@
       <header class="product-page__header">
         <h1>Инерциальный модуль IMU118 (UART) для AGV и мобильных платформ</h1>
         <p class="product-page__subtitle">
-          Пространственная обратная связь как дополнение к энкодерам: когда вал “считает обороты”, а платформа живёт своей
-          динамикой
+          6-осевой IMU с UART и PPS — пространственная обратная связь там, где энкодера по валу недостаточно
+        </p>
+        <p class="section-intro">
+          IMU118 — компактный 6-осевой инерциальный модуль (3-осевой гироскоп и 3-осевой акселерометр) в стальном корпусе с
+          UART и входом PPS. Питается от 5&nbsp;В и выдает данные с частотой 200&nbsp;Гц, что делает его удобным для интеграции в
+          AGV/AMR, мобильные платформы и узлы стабилизации с собственным контроллером или навигационным стеком.
         </p>
       </header>
 
@@ -83,16 +88,10 @@
           <img
             src="../assets/images/imu118.jpg"
             alt="IMU118 — инерциальный модуль (UART)"
-            onerror="this.style.display='none'"
             loading="eager"
             decoding="async"
           />
-          <div class="img-placeholder">📷 Рендер / фото будет добавлено</div>
         </div>
-        <p class="product-page__note">
-          Здесь будет размещён рендер или фото модуля и/или пример установки в узле. Страница уже готова к добавлению
-          изображений без изменения структуры.
-        </p>
       </section>
 
       <section class="section" aria-labelledby="positioning-imu118">
@@ -100,8 +99,8 @@
           <h2 id="positioning-imu118">Зачем IMU, если уже есть энкодер?</h2>
         </header>
         <p class="section-intro">
-          Энкодер честно измеряет угол/скорость вала. Но в колесных модулях, мобильных платформах и механизмах с
-          проскальзыванием он не видит то, что важно системе управления: реальные ускорения и поведение платформы в
+          Энкодер измеряет угол и скорость вала привода. В колесных модулях, на мобильных платформах и при проскальзывании
+          этого недостаточно: системе управления нужны угловые скорости и линейные ускорения самой машины или узла в
           пространстве.
         </p>
         <div class="workflow" aria-label="Ключевая логика пространственной обратной связи">
@@ -120,11 +119,28 @@
             <div class="workflow__step" role="listitem">
               <div class="workflow__step-title">Результат</div>
               <div class="workflow__step-text">
-                Более стабильная навигация и настройка защитных алгоритмов при проскальзывании, ударах и “грязной” динамике.
+                Более устойчивый контур навигации и стабилизации, точнее защитные алгоритмы при ударах и «грязной» динамике.
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="section" aria-labelledby="purpose-imu118">
+        <header class="section__header">
+          <h2 id="purpose-imu118">Назначение и область применения</h2>
+        </header>
+        <p class="section-intro">
+          IMU118 измеряет угловые скорости по трём осям и линейные ускорения по трём осям. Модуль рассчитан на задачи
+          навигации, ориентации и стабилизации — там, где нужен компактный 6D-сенсор с предсказуемым UART-потоком, а не
+          только обратная связь по валу.
+        </p>
+        <p class="section-intro">
+          По классу применения производитель ориентирует IMU118 на автопилоты БПЛА, автономное вождение, стабилизированные
+          платформы и спутниковые интегрированные навигационные системы. В контексте Kavatronic тот же класс задач
+          проявляется в AGV/AMR, мобильных роботах, складской автоматизации и промышленных узлах стабилизации, где важно
+          поведение платформы в пространстве, а не только вращение колесного привода.
+        </p>
       </section>
 
       <section class="section" aria-labelledby="specs-imu118">
@@ -135,8 +151,16 @@
           <table class="specs-table">
             <tbody>
               <tr>
+                <th scope="row" class="specs-table__param">Архитектура</th>
+                <td class="specs-table__value">6-осевой IMU (3-axis gyro + 3-axis accelerometer)</td>
+              </tr>
+              <tr>
                 <th scope="row" class="specs-table__param">Интерфейс</th>
-                <td class="specs-table__value">UART</td>
+                <td class="specs-table__value">UART + PPS (вход синхронизации)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Настройки UART</th>
+                <td class="specs-table__value">230400 бод, 8N1</td>
               </tr>
               <tr>
                 <th scope="row" class="specs-table__param">Частота выдачи данных</th>
@@ -147,12 +171,123 @@
                 <td class="specs-table__value">±500°/s</td>
               </tr>
               <tr>
+                <th scope="row" class="specs-table__param">Allan deviation (гироскоп)</th>
+                <td class="specs-table__value">1.8°/h</td>
+              </tr>
+              <tr>
                 <th scope="row" class="specs-table__param">Акселерометр</th>
                 <td class="specs-table__value">±16g</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Allan deviation (акселерометр)</th>
+                <td class="specs-table__value">0.04 mg</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">VRW (акселерометр)</th>
+                <td class="specs-table__value">0.025 м/с/√ч</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Питание</th>
+                <td class="specs-table__value">5 В (4.5–5.5 В)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Потребление</th>
+                <td class="specs-table__value">типично 0,2 А; max 0,5 А</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Корпус</th>
+                <td class="specs-table__value">стальной</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Габариты</th>
+                <td class="specs-table__value">22.4 × 22.4 × 8.8 мм</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Масса</th>
+                <td class="specs-table__value">14 ± 1 г</td>
+              </tr>
+              <tr>
+                <th scope="row" class="specs-table__param">Рабочая температура</th>
+                <td class="specs-table__value">−40…+85 °C</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p class="product-page__note">
+          Allan deviation и VRW — показатели шума и стабильности сенсоров; при выборе IMU для конкретного контура навигации
+          их стоит сопоставлять с требуемой точностью и временем работы без внешней коррекции.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="interfaces-imu118">
+        <header class="section__header">
+          <h2 id="interfaces-imu118">Интерфейсы и подключение</h2>
+        </header>
+
+        <h3>Интерфейсы</h3>
+        <p class="section-intro">
+          Основной канал данных — UART: поток угловых скоростей, ускорений и температуры с фиксированной частотой 200&nbsp;Гц.
+          Вход PPS служит для привязки временной шкалы модуля к внешнему источнику (GPS, мастер-контроллер, синхронизатор
+          шины) — это упрощает совмещение IMU с INS, логами и другими датчиками в одном проекте.
+        </p>
+
+        <h3>Разъём и сигналы</h3>
+        <p class="section-intro">
+          Разъём Molex 5015680607, 6 контактов. У производителя возможны варианты корпуса с разной распиновкой (suffix);
+          перед монтажом сверяйте положение pin&nbsp;1 с чертежом вашей партии.
+        </p>
+        <div class="specs-table-wrap">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th scope="col">Pin</th>
+                <th scope="col">Сигнал</th>
+                <th scope="col">Назначение</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="specs-table__value">6</td>
+                <td class="specs-table__value">VIN</td>
+                <td class="specs-table__value">4.5–5.5 В</td>
+              </tr>
+              <tr>
+                <td class="specs-table__value">5</td>
+                <td class="specs-table__value">GND</td>
+                <td class="specs-table__value">общий</td>
+              </tr>
+              <tr>
+                <td class="specs-table__value">4</td>
+                <td class="specs-table__value">UART_TX</td>
+                <td class="specs-table__value">3.3 В, выход модуля</td>
+              </tr>
+              <tr>
+                <td class="specs-table__value">3</td>
+                <td class="specs-table__value">UART_RX</td>
+                <td class="specs-table__value">3.3 В, вход модуля</td>
+              </tr>
+              <tr>
+                <td class="specs-table__value">2</td>
+                <td class="specs-table__value">PPS</td>
+                <td class="specs-table__value">3.3 В, вход</td>
+              </tr>
+              <tr>
+                <td class="specs-table__value">1</td>
+                <td class="specs-table__value">NC</td>
+                <td class="specs-table__value">не используется</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Формат обмена</h3>
+        <p class="section-intro">
+          По умолчанию: UART 230400, 8N1, кадр 200&nbsp;Гц. Последовательность начинается с заголовка
+          <span class="mono">0xBD 0xDB 0x0A</span>, далее передаются GyroX/Y/Z, AcceX/Y/Z, температура и контрольная сумма BCC.
+          Числовые поля — little-endian. Этого достаточно для приёма потока на собственном MCU, SBC или в составе
+          навигационного/INS-стека без разборки полного протокола на странице — детали кадра уточняйте по user manual при
+          интеграции.
+        </p>
       </section>
 
       <section class="section product-applications" aria-labelledby="apps-imu118">
@@ -165,6 +300,27 @@
           <li>складская автоматизация</li>
           <li>конвейерные балансиры</li>
         </ul>
+      </section>
+
+      <section class="section" aria-labelledby="project-fit-imu118">
+        <header class="section__header">
+          <h2 id="project-fit-imu118">Как IMU118 вписывается в проект</h2>
+        </header>
+        <p class="section-intro">
+          IMU118 даёт практичный баланс между шумом сенсоров, дрейфом, габаритами и простотой интеграции: компактный
+          стальной корпус, UART + PPS и фиксированный поток 200&nbsp;Гц без избыточной сложности интерфейса.
+        </p>
+        <p class="section-intro">
+          Модуль уместен там, где нужен 6D IMU с UART и синхронизацией по PPS, а обработка выполняется на вашем контроллере,
+          в INS или в готовом навигационном стеке. Для линейки Kavatronic это типичные AGV/AMR, мобильные роботы,
+          стабилизированные платформы и промышленные узлы, где энкодера по валу колесного привода недостаточно для оценки
+          реальной динамики системы.
+        </p>
+        <p class="section-intro">
+          IMU118 не заменяет полноценную инерциальную навигацию «из коробки» и не обещает автономную точность позиционирования
+          без внешних опорных данных — это компонент измерения движения. Его задача — дать стабильный и понятный поток
+          инерциальных данных в ваш контур управления.
+        </p>
       </section>
 
       <section class="section" aria-labelledby="budget-imu">
