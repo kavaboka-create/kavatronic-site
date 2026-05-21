@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Kavatronic — линейка smart сервоприводов для робототехники и промышленной автоматизации. 6 моделей от 30 до 260 кг·см, TTL и RS-485, 12V и 24V."
+      content="Kavatronic — мехатронная платформа компонентов для робототехники и промышленной автоматизации: сервоприводы KVT, IMU, контроллер, PDU и LiDAR. Подбор для integrator и OEM."
     />
-    <meta property="og:title" content="Kavatronic — Smart сервоприводы для робототехники" />
+    <meta
+      property="og:title"
+      content="Kavatronic — мехатронная платформа для робототехники и автоматизации"
+    />
     <meta
       property="og:description"
-      content="Линейка smart сервоприводов с магнитным энкодером и шинным управлением. Сопоставимы по классу задач с популярными решениями Dynamixel."
+      content="Промышленные компоненты для мехатронных узлов: исполнение, измерение движения, вычисление, питание и восприятие среды. Сервоприводы KVT — ядро линейки."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.kavatronic.tech/" />
     <meta property="og:image" content="https://www.kavatronic.tech/assets/logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kavatronic — Smart сервоприводы для робототехники" />
+    <meta
+      name="twitter:title"
+      content="Kavatronic — мехатронная платформа для робототехники и автоматизации"
+    />
     <meta
       name="twitter:description"
-      content="Kavatronic — линейка smart сервоприводов для робототехники и промышленной автоматизации. 6 моделей от 30 до 260 кг·см, TTL и RS-485, 12V и 24V."
+      content="Kavatronic — мехатронная платформа компонентов: сервоприводы KVT, IMU, контроллер, PDU и LiDAR. Подбор для integrator и OEM."
     />
     <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
-    <title>Kavatronic — smart сервоприводы для робототехники и промышленности</title>
+    <title>Kavatronic — мехатронная платформа для робототехники и промышленной автоматизации</title>
     <link rel="canonical" href="https://www.kavatronic.tech/" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
@@ -51,8 +57,8 @@
       <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
         <ul>
           <li><a href="#home">Главная</a></li>
-          <li><a href="#products">Продукты</a></li>
-          <li><a href="#how-servo-works">Как работает сервопривод</a></li>
+          <li><a href="#platform">Продукты</a></li>
+          <li><a href="#applications">Применения</a></li>
           <li><a href="/articles/">Полезная информация</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
@@ -60,422 +66,248 @@
     </header>
 
     <main id="home" class="container">
+      <span id="products" class="page-anchor" aria-hidden="true"></span>
+
       <section id="hero" class="hero">
         <div class="hero__content">
-          <h1>Smart-сервоприводы уровня Dynamixel для робототехники и промышленности</h1>
+          <h1>Мехатронная платформа компонентов Kavatronic для робототехники и промышленной автоматизации</h1>
           <p class="hero__subtitle">
-            Линейка Kavatronic — smart-сервоприводы с магнитным энкодером, шиной RS-485/TTL и обратной связью по
-            положению, скорости и току. Подходят для манипуляторов, мобильных платформ, промышленной автоматизации и
-            инженерных R&amp;D-проектов.
+            Сервоприводы KVT — ядро исполнения в узле: smart-приводы с энкодером и шиной RS-485/TTL. Вокруг них — согласованные
+            линейки IMU, Master Controller, Smart PDU и 2D/3D LiDAR / Depth Camera для полного контура движения, данных,
+            питания и восприятия среды.
           </p>
           <ul class="hero__bullets">
-            <li>Аналоги популярных решений Dynamixel по классу задач и моменту</li>
-            <li>Режимы Position / Velocity / Torque и телеметрия по току</li>
-            <li>Подбор модели и консультация по интеграции от команды Kavatronic</li>
+            <li>Пять продуктовых линеек под типовой мехатронный узел — подбор по задаче, не «магазин SKU»</li>
+            <li>Инженерная поддержка integrator и OEM: спецификации, пилоты, консультация по интеграции</li>
+            <li>Промышленный B2B-фокус: AGV/AMR, манипуляторы, мобильные платформы, автоматизация и R&amp;D</li>
           </ul>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#contacts">Подобрать сервопривод</a>
-            <a class="btn btn--secondary" href="#products">Смотреть линейку</a>
+            <a class="btn btn--primary" href="#contacts">Запросить подбор</a>
+            <a class="btn btn--secondary" href="#platform">Смотреть линейки</a>
           </div>
         </div>
       </section>
 
-      <section id="comparison" class="section">
+      <section id="platform" class="section" aria-labelledby="platform-title">
         <header class="section__header">
-          <h2 class="section-title">Линейка Kavatronic vs Dynamixel</h2>
+          <h2 id="platform-title" class="section-title">Из чего состоит мехатронный узел</h2>
         </header>
         <p class="section-intro">
-          Ниже — ориентировочное сопоставление моделей Kavatronic с популярными сервоприводами Dynamixel по моменту,
-          напряжению, скорости и типу мотора.
+          Kavatronic задаёт пять функциональных ролей в типовой системе. Не каждый проект требует все модули сразу — состав
+          узла подбирается по нагрузке, интерфейсам и требованиям к контуру управления.
         </p>
-        <div
-          class="table-scroll table-wrapper"
-          role="region"
-          aria-label="Таблица сравнения сервоприводов"
-          tabindex="0"
-        >
-          <table class="compare-table comparison-table">
-            <thead>
-              <tr>
-                <th scope="col">Модель Kavatronic</th>
-                <th scope="col">Аналог Dynamixel</th>
-                <th scope="col">Напряжение</th>
-                <th scope="col">Момент (kg·cm)</th>
-                <th scope="col">Скорость (RPM)</th>
-                <th scope="col">Протокол</th>
-                <th scope="col">Тип мотора</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>KVT-30T</strong></td>
-                <td>MX-28 / XM430</td>
-                <td>12&nbsp;V</td>
-                <td>30</td>
-                <td>50</td>
-                <td>TTL</td>
-                <td>DC</td>
-              </tr>
-              <tr>
-                <td><strong>KVT-80R</strong></td>
-                <td>MX-64AR</td>
-                <td>12&nbsp;V</td>
-                <td>80</td>
-                <td>62</td>
-                <td>RS-485</td>
-                <td>BLDC</td>
-              </tr>
-              <tr>
-                <td><strong>KVT-260R</strong></td>
-                <td>XM540-W270</td>
-                <td>24&nbsp;V</td>
-                <td>260</td>
-                <td>52</td>
-                <td>RS-485</td>
-                <td>BLDC</td>
-              </tr>
-              <tr>
-                <td><strong>KVT-40R</strong></td>
-                <td>MX-64 класс</td>
-                <td>12&nbsp;V</td>
-                <td>40</td>
-                <td>65</td>
-                <td>RS-485</td>
-                <td>BLDC</td>
-              </tr>
-              <tr>
-                <td><strong>KVT-40D</strong></td>
-                <td>XM430-W350 (нет double shaft)</td>
-                <td>12&nbsp;V</td>
-                <td>40</td>
-                <td>85</td>
-                <td>TTL</td>
-                <td>BLDC</td>
-              </tr>
-              <tr>
-                <td><strong>KVT-65R</strong></td>
-                <td>MX-64AR</td>
-                <td>12&nbsp;V</td>
-                <td>65</td>
-                <td>135</td>
-                <td>RS-485</td>
-                <td>BLDC</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="platform-scheme" role="list" aria-label="Роли платформы Kavatronic">
+          <div class="platform-role" role="listitem">
+            <span class="platform-role__label">Исполнение</span>
+            <strong class="platform-role__name">Servos / Actuators</strong>
+            <p class="platform-role__text">Момент, энкодер, шина — движение привода</p>
+          </div>
+          <div class="platform-role" role="listitem">
+            <span class="platform-role__label">Измерение</span>
+            <strong class="platform-role__name">IMU</strong>
+            <p class="platform-role__text">Угловые скорости и ускорения платформы</p>
+          </div>
+          <div class="platform-role" role="listitem">
+            <span class="platform-role__label">Вычисление</span>
+            <strong class="platform-role__name">Master Controller</strong>
+            <p class="platform-role__text">Синхронизация данных и контур узла</p>
+          </div>
+          <div class="platform-role" role="listitem">
+            <span class="platform-role__label">Питание</span>
+            <strong class="platform-role__name">Smart PDU</strong>
+            <p class="platform-role__text">Питание, защита, телеметрия узла</p>
+          </div>
+          <div class="platform-role" role="listitem">
+            <span class="platform-role__label">Восприятие</span>
+            <strong class="platform-role__name">LiDAR / Depth</strong>
+            <p class="platform-role__text">Дальность и облако точек среды</p>
+          </div>
         </div>
-        <p class="table-footnote">DC — щёточный мотор, BLDC — бесщёточный мотор.</p>
-        <p class="comparison-disclaimer">
-          Сопоставление носит ориентировочный характер и используется для предварительного подбора по классу задач и
-          ключевым параметрам (момент, напряжение, скорость, тип мотора, интерфейс). Финальный выбор зависит от режима
-          работы, механики узла, нагрузки, питания и требований к управлению.
-        </p>
       </section>
 
-      <section id="products" class="section">
+      <section id="product-lines" class="section" aria-labelledby="product-lines-title">
         <header class="section__header">
-          <h2 class="section-title">Продукты Kavatronic для мехатроники и управления</h2>
+          <h2 id="product-lines-title" class="section-title">Продуктовые линейки Kavatronic</h2>
         </header>
         <p class="section-intro">
-          Сервоприводы KVT — исполнительная часть узла. IMU — дополнительный канал пространственной обратной связи для систем,
-          где одного энкодера недостаточно.
+          Пять согласованных направлений — от исполнения до восприятия среды. Карточки ведут в линейку или в форму подбора.
         </p>
-
-        <div class="products-catalog">
-          <div class="products-subgroup">
-            <h3 class="products-subgroup__title">Сервоприводы KVT</h3>
-            <div class="cards-grid products-grid">
-              <article class="product-card">
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/kvt-30t.jpg"
-                    alt="Kavatronic KVT-30T сервопривод"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">KVT-30T</h3>
-                <p class="product-card__tagline">Компактный привод для лёгких манипуляторов и pan-tilt систем.</p>
-                <p class="product-card__meta">30 kg·cm • 12V • TTL</p>
-                <a class="btn btn--primary btn--sm" href="products/kvt-30t.html">Страница модели</a>
-              </article>
-              <article class="product-card">
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/kvt-80r.jpg"
-                    alt="Kavatronic KVT-80R сервопривод"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">KVT-80R</h3>
-                <p class="product-card__tagline">Универсальный модуль для средних осей, колёсных платформ и робототехнических узлов.</p>
-                <p class="product-card__meta">80 kg·cm • 12V • RS-485</p>
-                <a class="btn btn--primary btn--sm" href="products/kvt-80r.html">Страница модели</a>
-              </article>
-              <article class="product-card">
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/kvt-260r.jpg"
-                    alt="Kavatronic KVT-260R сервопривод"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">KVT-260R</h3>
-                <p class="product-card__tagline">Тяговый привод для тяжёлых осей, мощных шарниров и силовых механизмов.</p>
-                <p class="product-card__meta">260 kg·cm • 24V • RS-485</p>
-                <a class="btn btn--primary btn--sm" href="products/kvt-260r.html">Страница модели</a>
-              </article>
-              <article class="product-card">
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/kvt-40r.jpg"
-                    alt="Kavatronic KVT-40R сервопривод"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">KVT-40R</h3>
-                <p class="product-card__tagline">Сервопривод общего назначения для робототехники, автоматизации и R&amp;D.</p>
-                <p class="product-card__meta">40 kg·cm • 12V • RS-485</p>
-                <a class="btn btn--primary btn--sm" href="products/kvt-40r.html">Страница модели</a>
-              </article>
-              <article class="product-card">
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/kvt-40d.jpg"
-                    alt="Kavatronic KVT-40D сервопривод"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">KVT-40D</h3>
-                <p class="product-card__tagline">Исполнение с double shaft для гибкой механической компоновки.</p>
-                <p class="product-card__meta">40 kg·cm • 12V • TTL</p>
-                <a class="btn btn--primary btn--sm" href="products/kvt-40d.html">Страница модели</a>
-              </article>
-              <article class="product-card">
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/kvt-65r.jpg"
-                    alt="Kavatronic KVT-65R сервопривод"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">KVT-65R</h3>
-                <p class="product-card__tagline">Высокоскоростной привод для быстрых разворотов и динамичных систем.</p>
-                <p class="product-card__meta">65 kg·cm • 12V • RS-485</p>
-                <a class="btn btn--primary btn--sm" href="products/kvt-65r.html">Страница модели</a>
-              </article>
-            </div>
-          </div>
-
-          <div class="products-subgroup">
-            <h3 class="products-subgroup__title">Пространственная обратная связь (IMU)</h3>
-            <div class="cards-grid products-grid">
-              <article class="product-card">
-                <span class="product-card__eyebrow">IMU</span>
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/imu118.jpg"
-                    alt="IMU118 — инерциальный модуль (UART)"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">IMU118</h3>
-                <p class="product-card__tagline">Для AGV/AMR и мобильных платформ</p>
-                <p class="product-card__meta">UART • 200 Гц • ±500°/s • ±16g</p>
-                <a class="btn btn--primary btn--sm" href="products/imu118.html">Страница продукта</a>
-              </article>
-              <article class="product-card">
-                <span class="product-card__eyebrow">IMU</span>
-                <div class="product-card__image product-img">
-                  <img
-                    src="assets/images/imu488.jpg"
-                    alt="IMU488 — промышленный инерциальный модуль (SPI)"
-                    onerror="this.style.display='none'"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div class="img-placeholder">📷 Фото модели</div>
-                </div>
-                <h3 class="product-card__title">IMU488</h3>
-                <p class="product-card__tagline">Для робототехники, ЧПУ и динамически нагруженных систем</p>
-                <p class="product-card__meta">SPI до 12 МГц • до 2 кГц • ±2000°/s • ±32g</p>
-                <a class="btn btn--primary btn--sm" href="products/imu488.html">Страница продукта</a>
-              </article>
-            </div>
-          </div>
+        <div class="product-lines-grid">
+          <article class="product-line-card">
+            <span class="product-line-card__role">Исполнение</span>
+            <span class="product-line-card__status product-line-card__status--available">Доступно</span>
+            <h3 class="product-line-card__title">Servos / Actuators</h3>
+            <p class="product-line-card__text">Smart-приводы KVT: момент, энкодер, RS-485/TTL — ядро исполнения в узле</p>
+            <a class="btn btn--outline btn--sm" href="#servos-highlight">К линейке KVT</a>
+          </article>
+          <article class="product-line-card">
+            <span class="product-line-card__role">Измерение</span>
+            <span class="product-line-card__status product-line-card__status--available">Доступно</span>
+            <h3 class="product-line-card__title">IMU</h3>
+            <p class="product-line-card__text">Инерциальные модули для динамики платформы и навигационного контура</p>
+            <a class="btn btn--outline btn--sm" href="products/imu118.html">Линейка IMU</a>
+          </article>
+          <article class="product-line-card">
+            <span class="product-line-card__role">Вычисление</span>
+            <span class="product-line-card__status product-line-card__status--request">По запросу</span>
+            <h3 class="product-line-card__title">Master Controller</h3>
+            <p class="product-line-card__text">Вычислительный модуль и шлюз данных для синхронизации узла</p>
+            <a class="btn btn--outline btn--sm" href="#contacts">Обсудить линейку</a>
+          </article>
+          <article class="product-line-card">
+            <span class="product-line-card__role">Питание</span>
+            <span class="product-line-card__status product-line-card__status--request">По запросу</span>
+            <h3 class="product-line-card__title">Smart PDU</h3>
+            <p class="product-line-card__text">Интеллектуальное питание, защита и телеметрия мехатронного узла</p>
+            <a class="btn btn--outline btn--sm" href="#contacts">Обсудить линейку</a>
+          </article>
+          <article class="product-line-card">
+            <span class="product-line-card__role">Восприятие</span>
+            <span class="product-line-card__status product-line-card__status--request">По запросу</span>
+            <h3 class="product-line-card__title">2D/3D LiDAR / Depth Camera</h3>
+            <p class="product-line-card__text">Сенсорика восприятия среды для мобильных и промышленных систем</p>
+            <a class="btn btn--outline btn--sm" href="#contacts">Обсудить линейку</a>
+          </article>
         </div>
       </section>
 
-      <section id="how-servo-works" class="section">
+      <section id="servos-highlight" class="section" aria-labelledby="servos-highlight-title">
         <header class="section__header">
-          <h2 class="section-title">Анатомия стальной мышцы</h2>
-          <p class="hero__subtitle">Что находится внутри smart-сервопривода — от корпуса до шины связи.</p>
+          <h2 id="servos-highlight-title" class="section-title">Сервоприводы KVT</h2>
         </header>
-        <p class="servo-section-lead">
-          Ниже — краткая схема основных узлов. Полный инженерный разбор вынесен в отдельную статью.
+        <p class="section-intro">
+          Основной коммерческий продукт Kavatronic — smart-сервоприводы с магнитным энкодером и шинным управлением. Ниже —
+          флагманские модели; полная линейка — шесть исполнений KVT.
         </p>
-        <ul class="servo-intro-list">
-          <li>
-            <span class="servo-icon" aria-hidden="true">🔩</span>
-            <div>
-              <strong>Корпус и вал</strong>
-              <p class="servo-intro__text">
-                Это броня модуля. Защищает электронику от пыли, воды и ударов. Чем жёстче корпус и точнее подшипники, тем
-                меньше люфт и выше ресурс.
-              </p>
+        <div class="cards-grid products-grid servos-highlight__grid">
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-80r.jpg"
+                alt="Kavatronic KVT-80R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
             </div>
-          </li>
-          <li>
-            <span class="servo-icon" aria-hidden="true">⚡</span>
-            <div>
-              <strong>Электродвигатель (DC или BLDC)</strong>
-              <p class="servo-intro__text">
-                Источник крутящего момента на входе редуктора. Щёточный (DC) — проще и дешевле, но требует обслуживания
-                (щёточный узел, износ, помехи). Бесщёточный (BLDC) — выше ресурс, стабильнее в длительных режимах и лучше
-                подходит для непрерывной работы.
-              </p>
+            <h3 class="product-card__title">KVT-80R</h3>
+            <p class="product-card__tagline">Универсальный модуль для средних осей и мобильных платформ.</p>
+            <p class="product-card__meta">80 kg·cm • 12V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-80r.html">Страница модели</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-260r.jpg"
+                alt="Kavatronic KVT-260R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
             </div>
-          </li>
-          <li>
-            <span class="servo-icon" aria-hidden="true">⚙️</span>
-            <div>
-              <strong>Редуктор (шестерни)</strong>
-              <p class="servo-intro__text">
-                Сам по себе мотор крутится слишком быстро и слабо. Редуктор превращает быстрые обороты мотора в медленное
-                и сильное движение вала. В силовых узлах критичны материал и точность зубчатых пар, термообработка и
-                смазка: это напрямую влияет на люфт, шум и ресурс.
-              </p>
+            <h3 class="product-card__title">KVT-260R</h3>
+            <p class="product-card__tagline">Тяговый привод для тяжёлых осей и силовых механизмов.</p>
+            <p class="product-card__meta">260 kg·cm • 24V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-260r.html">Страница модели</a>
+          </article>
+          <article class="product-card">
+            <div class="product-card__image product-img">
+              <img
+                src="assets/images/kvt-40r.jpg"
+                alt="Kavatronic KVT-40R сервопривод"
+                onerror="this.style.display='none'"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="img-placeholder">📷 Фото модели</div>
             </div>
-          </li>
-          <li>
-            <span class="servo-icon" aria-hidden="true">📡</span>
-            <div>
-              <strong>Энкодер</strong>
-              <p class="servo-intro__text">
-                Энкодер — это глаза привода. Без него он крутится наугад. Датчик отслеживает угол и скорость вала с
-                точностью до долей градуса.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="servo-icon" aria-hidden="true">🧠</span>
-            <div>
-              <strong>Плата управления</strong>
-              <p class="servo-intro__text">
-                Встроенный компьютер. Принимает команды по шине, считает ПИД-регулятор и выбирает режим: Position,
-                Velocity или Torque.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="servo-icon" aria-hidden="true">🔋</span>
-            <div>
-              <strong>Силовой драйвер</strong>
-              <p class="servo-intro__text">
-                Берёт слабые сигналы от «мозгов» и превращает их в мощные токи для мотора. Обеспечивает плавный старт и
-                экстренное торможение без сгорания.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="servo-icon" aria-hidden="true">🔌</span>
-            <div>
-              <strong>Питание и интерфейс связи</strong>
-              <p class="servo-intro__text">
-                Подключение питания (12–48&nbsp;В) и шины данных (RS-485 или TTL). Одна шина — много сервоприводов. У
-                каждого свой ID, как адрес в сети.
-              </p>
-            </div>
-          </li>
+            <h3 class="product-card__title">KVT-40R</h3>
+            <p class="product-card__tagline">Сервопривод общего назначения для робототехники и автоматизации.</p>
+            <p class="product-card__meta">40 kg·cm • 12V • RS-485</p>
+            <a class="btn btn--primary btn--sm" href="products/kvt-40r.html">Страница модели</a>
+          </article>
+        </div>
+        <p class="servos-highlight__all">
+          <span class="servos-highlight__label">Вся линейка KVT:</span>
+          <a href="products/kvt-30t.html">KVT-30T</a>,
+          <a href="products/kvt-40d.html">KVT-40D</a>,
+          <a href="products/kvt-40r.html">KVT-40R</a>,
+          <a href="products/kvt-65r.html">KVT-65R</a>,
+          <a href="products/kvt-80r.html">KVT-80R</a>,
+          <a href="products/kvt-260r.html">KVT-260R</a>
+        </p>
+      </section>
+
+      <section id="applications" class="section" aria-labelledby="applications-title">
+        <header class="section__header">
+          <h2 id="applications-title" class="section-title">Применения</h2>
+        </header>
+        <p class="section-intro">
+          Типовые задачи, где уместен состав из нескольких линеек Kavatronic. Конкретный набор модулей зависит от механики,
+          шины и требований к контуру управления.
+        </p>
+        <ul class="applications-list">
+          <li><strong>AGV / AMR</strong> — привод, IMU для динамики платформы, питание узла, сенсорика среды</li>
+          <li><strong>Манипуляторы и cobots</strong> — сервоприводы по осям, обратная связь, синхронизация контроллера</li>
+          <li><strong>ЧПУ и порталы</strong> — высокие перегрузки, IMU/вибродиагностика, стабильное питание</li>
+          <li><strong>Мобильные платформы</strong> — исполнение, инерциальные данные, восприятие для навигации</li>
+          <li><strong>Промышленная автоматизация</strong> — узлы с жёсткими требованиями к ресурсу и повторяемости</li>
+          <li><strong>Инженерные R&amp;D-проекты</strong> — пилотные сборки и поэтапная интеграция линеек</li>
         </ul>
+        <p class="applications-cta">
+          <a class="btn btn--primary" href="#contacts">Обсудить задачу</a>
+        </p>
+      </section>
 
-        <button id="servo-expand-btn" type="button">Развернуть подробный разбор ▼</button>
-
-        <div id="servo-detail" style="display: none">
-          <div class="detail-block">
-            <strong>🔩 Корпус и вал — дополнение:</strong>
-            <div>
-              Если ставите модуль в кобота на фрезерном станке — нужен честный IP65. Основа механики — радиально-упорные
-              подшипники. Дешёвые подшипники с неправильным натягом дадут биение вала 0.1 мм через месяц, а это убьёт
-              редуктор.
-            </div>
-          </div>
-          <div class="detail-block">
-            <strong>⚡ Двигатель — дополнение:</strong>
-            <div>
-              Щёточный мотор создаёт угольную пыль и ЭМИ-помехи. Следите за азиатскими поставщиками BLDC: при нагреве выше
-              80°C дешёвые магниты N35 навсегда теряют до 20% момента. Требуйте высокотемпературные N42SH.
-            </div>
-          </div>
-          <div class="detail-block">
-            <strong>⚙️ Редуктор — дополнение:</strong>
-            <div>
-              Для манипуляторов применяют волновые редукторы (Strain wave gearing) — нулевой люфт, передаточное 1:100.
-              Требуют ювелирно подобранной смазки, иначе при высоких скоростях она коксуется.
-            </div>
-          </div>
-          <div class="detail-block">
-            <strong>📡 Энкодер — дополнение:</strong>
-            <div>
-              Современные модули используют магнитные или оптические абсолютные энкодеры с разрешением 17–21 бит. Часто
-              ставят два энкодера: до редуктора (для управления мотором) и после (для компенсации упругости шестерён).
-            </div>
-          </div>
-          <div class="detail-block">
-            <strong>🧠 Плата управления — дополнение:</strong>
-            <div>
-              Контроллер обрабатывает команды со скоростью 10–20 кГц. Режим Torque — самый сложный: управление не
-              позицией, а силой. Нужен FOC (векторное управление) чтобы устранить рывки мотора (Torque Ripple).
-            </div>
-          </div>
-          <div class="detail-block">
-            <strong>🔋 Драйвер — дополнение:</strong>
-            <div>
-              При экстренном торможении тяжёлый механизм вбрасывает в плату скачок напряжения (обратная ЭДС). Хороший
-              драйвер имеет защиту по току и перегреву. Плохой — сгорает при первой же аварийной остановке.
-            </div>
-          </div>
-          <div class="detail-block">
-            <strong>🔌 Интерфейс — дополнение:</strong>
-            <div>
-              Если всё в одном шкафу — TTL/UART. Если длинный робот на заводе с наводками — только RS-485 с гальванической
-              развязкой или CANopen/EtherCAT.
-            </div>
-          </div>
+      <section id="insights" class="section" aria-labelledby="insights-title">
+        <header class="section__header">
+          <h2 id="insights-title" class="section-title">Полезная информация</h2>
+        </header>
+        <p class="section-intro">
+          Инженерные материалы по приводам, шинам и сборке узла — без маркетинговых обещаний, с опорой на практику цеха и
+          лаборатории.
+        </p>
+        <div class="articles-grid insights-grid">
+          <article class="article-card insight-card">
+            <span class="article-card__badge">Выбор привода</span>
+            <h3 class="article-card__title">Как выбрать сервопривод для манипулятора</h3>
+            <p class="article-card__excerpt">Момент, редуктор, энкодер и шина — чек-лист перед закупкой.</p>
+            <a class="article-card__link" href="articles/article-1.html">Читать →</a>
+          </article>
+          <article class="article-card insight-card">
+            <span class="article-card__badge">Анатомия узла</span>
+            <h3 class="article-card__title">Анатомия smart-сервопривода и роль IMU</h3>
+            <p class="article-card__excerpt">От корпуса до шины — и когда энкодера по валу недостаточно.</p>
+            <a class="article-card__link" href="articles/article-4.html">Читать →</a>
+          </article>
+          <article class="article-card insight-card">
+            <span class="article-card__badge">Интерфейсы</span>
+            <h3 class="article-card__title">TTL против RS-485 в сервосети</h3>
+            <p class="article-card__excerpt">Как проложить «нервную систему» робота без помех и обрывов.</p>
+            <a class="article-card__link" href="articles/article-2.html">Читать →</a>
+          </article>
+          <article class="article-card insight-card">
+            <span class="article-card__badge">Моторы</span>
+            <h3 class="article-card__title">BLDC и щёточные сервоприводы</h3>
+            <p class="article-card__excerpt">Ресурс, помехи и термодинамика — что считать до старта проекта.</p>
+            <a class="article-card__link" href="articles/article-3.html">Читать →</a>
+          </article>
         </div>
-
-        <a class="servo-read-more" href="articles/article-4.html">Читать полный инженерный разбор →</a>
+        <p class="insights-more">
+          <a class="btn btn--secondary btn--sm" href="/articles/">Все материалы</a>
+        </p>
       </section>
 
       <section id="contacts" class="section">
         <header class="section__header">
-          <h2 class="section-title">Запросить цену / консультацию</h2>
+          <h2 class="section-title">Запросить подбор / консультацию</h2>
         </header>
         <p class="section-form-intro">
-          Опишите задачу и выберите модель — мы поможем подобрать сервопривод под ваш проект и ответим в течение 2
-          рабочих дней.
+          Опишите узел, платформу или задачу — поможем подобрать линейку и состав компонентов. Ответим в течение 2 рабочих
+          дней.
         </p>
-        <!-- Formspree: при проблемах с доставкой проверьте endpoint и подтверждённый email в кабинете Formspree -->
         <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
           <input type="hidden" name="_subject" value="Новая заявка — Kavatronic" />
           <p id="contact-form-error" class="contact-form__error" role="alert" aria-live="polite" hidden></p>
@@ -487,37 +319,47 @@
             <input type="email" name="email" placeholder="Email *" required />
             <input type="tel" name="phone" placeholder="Телефон" />
           </div>
-          <p class="contact-form__hint">
-            Можно выбрать конкретную модель или вариант «Все модели / не определился».
-          </p>
+          <p class="contact-form__hint">Выберите линейку, модель или опишите задачу целиком.</p>
           <select name="model">
-            <option value="">Интересующая модель</option>
-            <option value="KVT-30T">KVT-30T (12V, 30 кг·см, TTL)</option>
-            <option value="KVT-80R">KVT-80R (12V, 80 кг·см, RS-485)</option>
-            <option value="KVT-260R">KVT-260R (24V, 260 кг·см, RS-485)</option>
-            <option value="KVT-40R">KVT-40R (12V, 40 кг·см, RS-485)</option>
-            <option value="KVT-40D">KVT-40D (12V, 40 кг·см, double shaft)</option>
-            <option value="KVT-65R">KVT-65R (12V, 65 кг·см, 135 RPM)</option>
-            <option value="IMU118">IMU118 (UART, 200 Гц)</option>
-            <option value="IMU488">IMU488 (SPI до 12 МГц, до 2 кГц)</option>
-            <option value="all">Все модели / не определился</option>
+            <option value="">Что интересует</option>
+            <optgroup label="Продуктовые линейки">
+              <option value="line-servos">Сервоприводы KVT (линейка)</option>
+              <option value="line-imu">IMU (линейка)</option>
+              <option value="line-controller">Master Controller</option>
+              <option value="line-pdu">Smart PDU</option>
+              <option value="line-lidar">LiDAR / Depth Camera</option>
+              <option value="line-system">Весь узел / несколько линеек</option>
+              <option value="consult">Нужна консультация / не определился</option>
+            </optgroup>
+            <optgroup label="Модели KVT">
+              <option value="KVT-30T">KVT-30T (12V, 30 кг·см, TTL)</option>
+              <option value="KVT-80R">KVT-80R (12V, 80 кг·см, RS-485)</option>
+              <option value="KVT-260R">KVT-260R (24V, 260 кг·см, RS-485)</option>
+              <option value="KVT-40R">KVT-40R (12V, 40 кг·см, RS-485)</option>
+              <option value="KVT-40D">KVT-40D (12V, 40 кг·см, double shaft)</option>
+              <option value="KVT-65R">KVT-65R (12V, 65 кг·см, 135 RPM)</option>
+            </optgroup>
+            <optgroup label="Модели IMU">
+              <option value="IMU118">IMU118 (UART, 200 Гц)</option>
+              <option value="IMU488">IMU488 (SPI до 12 МГц, до 2 кГц)</option>
+            </optgroup>
           </select>
-          <textarea name="message" placeholder="Комментарий, задача, вопрос" rows="4"></textarea>
+          <textarea name="message" placeholder="Задача, узел, интерфейсы, требования к контуру" rows="4"></textarea>
           <button type="submit" class="btn btn-accent2">Отправить заявку</button>
           <p class="contact-form__micro">
-            Мы ответим на указанный email или Telegram и при необходимости предложим близкие аналоги под вашу задачу.
+            Ответим на email или Telegram. При необходимости предложим варианты под вашу механику и шину.
           </p>
         </form>
         <p class="contacts-direct">Если удобнее, можно написать напрямую:</p>
         <p class="contacts-note">
           Telegram:
           <a href="https://t.me/kavatronic" aria-label="Telegram контакт">@kavatronic</a>
-          — для быстрых вопросов по выбору сервоприводов
+          — быстрые вопросы по подбору компонентов
         </p>
         <p class="contacts-note">
           Email:
           <a href="mailto:info@kavatronic.tech">info@kavatronic.tech</a>
-          — для технических запросов и спецификаций
+          — технические запросы и спецификации
         </p>
       </section>
     </main>
@@ -547,12 +389,12 @@
         </div>
         <h2 id="kvt-success-modal-title" class="kvt-modal__title">Отправлено</h2>
         <p id="kvt-success-modal-desc" class="kvt-modal__text">
-          Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.
+          Заявка отправлена. Мы свяжемся с вами в ближайшее время.
         </p>
         <button type="button" class="btn btn--primary kvt-modal__close" data-kvt-modal-dismiss>Понятно</button>
       </div>
     </div>
 
-    <script src="script.js?v=kvt-form-ajax-1"></script>
+    <script src="script.js?v=kvt-p0-1"></script>
   </body>
 </html>

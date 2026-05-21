@@ -19,23 +19,6 @@ function kvtFormLog(msg) {
   }
 }
 
-function initKvtServoExpand() {
-  var btn = document.getElementById("servo-expand-btn");
-  var detail = document.getElementById("servo-detail");
-
-  if (!btn || !detail) return;
-
-  btn.addEventListener("click", function () {
-    if (detail.style.display === "none" || detail.style.display === "") {
-      detail.style.display = "block";
-      this.textContent = "Свернуть ▲";
-    } else {
-      detail.style.display = "none";
-      this.textContent = "Развернуть подробный разбор ▼";
-    }
-  });
-}
-
 /**
  * Formspree без редиректа: fetch + Accept: application/json.
  * При сбоях доставки проверьте endpoint и подтверждение формы/email в Formspree.
@@ -260,7 +243,9 @@ function initKvtHamburger() {
 }
 
 function initKvtScrollReveal() {
-  var targets = document.querySelectorAll(".product-card, .education-block, .article-card, .section-title");
+  var targets = document.querySelectorAll(
+    ".product-card, .product-line-card, .platform-role, .education-block, .article-card, .insight-card, .section-title"
+  );
   if (!("IntersectionObserver" in window)) {
     for (var j = 0; j < targets.length; j++) {
       targets[j].classList.add("fade-in", "visible");
@@ -284,7 +269,6 @@ function initKvtScrollReveal() {
 }
 
 function initKvtSite() {
-  initKvtServoExpand();
   initKvtContactFormAjax();
   initKvtHamburger();
   initKvtScrollReveal();

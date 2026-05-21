@@ -587,7 +587,199 @@ h2.section-title::after {
   border-bottom: none;
 }
 
-/* Product catalog subgroups (home #products) */
+/* Legacy anchor for old /#products links (P0) */
+.page-anchor {
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+/* Platform scheme (home #platform) */
+.platform-scheme {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.platform-role {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.platform-role__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.platform-role__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+.platform-role__text {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  max-width: none;
+}
+
+/* Product line cards (home #product-lines) */
+.product-lines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.product-line-card {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-line-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.product-line-card__role {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.product-line-card__status {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+
+.product-line-card__status--available {
+  color: #8fd4a8;
+  border-color: rgba(143, 212, 168, 0.35);
+}
+
+.product-line-card__status--request {
+  color: var(--color-text-muted);
+}
+
+.product-line-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.product-line-card__text {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  max-width: none;
+}
+
+.product-line-card .btn {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* Servos highlight (home #servos-highlight) */
+.servos-highlight__grid {
+  margin-top: 8px;
+}
+
+.servos-highlight__all {
+  margin: 20px 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  max-width: none;
+}
+
+.servos-highlight__label {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-right: 8px;
+}
+
+.servos-highlight__all a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.servos-highlight__all a:hover,
+.servos-highlight__all a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Applications (home #applications) */
+.applications-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 720px;
+}
+
+.applications-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: none;
+}
+
+.applications-list li:last-child {
+  border-bottom: none;
+}
+
+.applications-list strong {
+  color: var(--color-text);
+}
+
+.applications-cta {
+  margin-top: 24px;
+}
+
+/* Insights on home (#insights) */
+.insights-grid {
+  margin-top: 8px;
+}
+
+.insight-card .article-card__title {
+  font-size: 1rem;
+}
+
+.insights-more {
+  margin-top: 20px;
+}
+
+/* Product catalog subgroups (legacy, may remain in CSS) */
 .products-catalog {
   display: flex;
   flex-direction: column;
@@ -1850,6 +2042,18 @@ body.kvt-modal-open {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .platform-scheme {
+    grid-template-columns: 1fr;
+  }
+
+  .product-lines-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .servos-highlight__grid {
+    grid-template-columns: 1fr;
+  }
+
   .site-header {
     flex-wrap: wrap;
     align-items: center;
