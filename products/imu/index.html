@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Линейка IMU Kavatronic: IMU118 (UART, 200 Гц) и IMU488 (SPI до 2 кГц). Сравнение по интерфейсу и частоте, подбор для AGV, мобильных платформ и контуров управления."
+    />
+    <title>IMU118 и IMU488 — линейка инерциальных модулей | Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/products/imu/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Чем IMU118 отличается от IMU488?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IMU118 — компактный 6-осевой модуль с UART и PPS, 200 Гц, для AGV и стабилизации. IMU488 — 9-осевой модуль с магнетометром и барометром, SPI до 12 МГц и внутренним обновлением до 2 кГц — для контуров движения с жёсткими требованиями к задержке."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как выбирать IMU по частоте и интерфейсу?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UART 200 Гц (IMU118) — когда достаточно потока для навигации и стабилизации платформы. SPI до 2 кГц (IMU488) — когда контроллеру нужны плотные инерциальные данные с минимальной задержкой. Сводная таблица на hub — для предварительного выбора; точные параметры — на страницах моделей."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как IMU интегрируется с контроллером и сервоприводами?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IMU даёт угловые скорости и ускорения платформы; энкодеры на сервоприводах — состояние осей. Master Controller или ваш ПЛК объединяет потоки: IMU для стабилизации и навигации, приводы — для исполнения. См. technical page IMU и линейку KVT."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли использовать IMU в промышленной среде с вибрациями?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Оба модуля рассчитаны на −40…+85 °C; IMU488 дополнительно указан на устойчивость к ударам 2000g. Важны крепление, экранирование кабеля и фильтрация на стороне контроллера — детали на SKU-страницах."
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../../index.html" class="logo-link logo-link--home" aria-label="KAVATRONIC — главная">
+        <img src="../../assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
+        <span class="site-brand__name">KAVATRONIC</span>
+      </a>
+      <a class="btn btn--orange btn--sm site-header__cta" href="../../contacts.html">Запросить подбор</a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container hub-page">
+      <nav class="product-breadcrumb" aria-label="Навигация">
+        <ol class="product-breadcrumb__list">
+          <li class="product-breadcrumb__item"><a href="/">Главная</a></li>
+          <li class="product-breadcrumb__item product-breadcrumb__item--current" aria-current="page">IMU</li>
+        </ol>
+      </nav>
+      <p class="hub-page__back"><a href="../../platform/imu/">← Роль в мехатронном узле</a></p>
+
+      <header class="hub-page__header">
+        <h1>IMU — инерциальные модули для измерения движения</h1>
+        <p class="section-intro hub-page__intro">
+          Инерциальный модуль измеряет угловые скорости и ускорения платформы или узла — дополнение к энкодеру на валу
+          привода. Линейка Kavatronic: <strong>IMU118</strong> (UART, 200&nbsp;Гц) и <strong>IMU488</strong> (SPI, до
+          2&nbsp;кГц). Ниже — каталог моделей, сводное сравнение по интерфейсу и частоте, материалы по интеграции в узел.
+        </p>
+      </header>
+
+      <section class="hub-catalog" aria-labelledby="hub-imu-catalog">
+        <h2 id="hub-imu-catalog" class="section-title hub-catalog__title">Модели линейки IMU</h2>
+        <div class="hub-sku-grid hub-sku-grid--imu">
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../imu118.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/imu118.jpg"
+                  alt="Kavatronic IMU118 инерциальный модуль"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">IMU118</h3>
+                <p class="hub-sku-card__tagline">6-осевой IMU: AGV/AMR, стабилизация, навигационный контур с UART</p>
+                <p class="hub-sku-card__meta"><span>UART + PPS</span><span>200 Гц</span><span>±500°/s · ±16g</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../imu488.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/imu488.jpg"
+                  alt="Kavatronic IMU488 инерциальный модуль"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">IMU488</h3>
+                <p class="hub-sku-card__tagline">Высокочастотный IMU: контур движения, робототехника, ЧПУ, динамика</p>
+                <p class="hub-sku-card__meta"><span>SPI + UART</span><span>до 2 кГц</span><span>±2000°/s · ±32g</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="imu-compare" class="section" aria-labelledby="imu-compare-title">
+        <header class="section__header">
+          <h2 id="imu-compare-title" class="section-title">Сравнение IMU118 и IMU488</h2>
+        </header>
+        <p class="section-intro">
+          Таблица для предварительного выбора по интерфейсу, частоте выдачи и классу динамики. Не заменяет datasheet;
+          точные Allan deviation, разводку и протокол — на страницах моделей.
+        </p>
+        <div
+          class="table-scroll table-wrapper"
+          role="region"
+          aria-label="Сводное сравнение IMU118 и IMU488"
+          tabindex="0"
+        >
+          <table class="compare-table comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Модель</th>
+                <th scope="col">Интерфейс</th>
+                <th scope="col">Частота данных</th>
+                <th scope="col">Сенсоры</th>
+                <th scope="col">Гироскоп</th>
+                <th scope="col">Акселерометр</th>
+                <th scope="col">Класс применения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="../imu118.html"><strong>IMU118</strong></a></td>
+                <td>UART + PPS</td>
+                <td>200&nbsp;Гц (фикс.)</td>
+                <td>6-осевой (gyro + accel)</td>
+                <td>±500°/s</td>
+                <td>±16g</td>
+                <td>AGV/AMR, мобильные платформы, стабилизация</td>
+              </tr>
+              <tr>
+                <td><a href="../imu488.html"><strong>IMU488</strong></a></td>
+                <td>SPI + UART</td>
+                <td>SPI до 2&nbsp;кГц; UART до 1000&nbsp;Гц</td>
+                <td>9-осевой + барометр</td>
+                <td>±2000°/s</td>
+                <td>±32g</td>
+                <td>Контур движения, многоосевая робототехника, ЧПУ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="comparison-disclaimer">
+          Параметры приведены для ориентировочного подбора. Питание: IMU118 — 5&nbsp;В; IMU488 — 3.3&nbsp;В. Финальный
+          выбор — по требованиям к задержке, точности, EMI и месту установки в узле.
+        </p>
+        <p class="hub-crosslink section-intro">
+          Роль IMU в архитектуре узла (связь с контроллером, приводами, питанием) —
+          <a href="../../platform/imu/">technical page IMU</a>.
+        </p>
+      </section>
+
+      <section class="section hub-materials" aria-labelledby="hub-imu-materials">
+        <header class="section__header">
+          <h2 id="hub-imu-materials" class="section-title">Инженерные материалы</h2>
+        </header>
+        <ul class="platform-page__list">
+          <li>
+            <a href="../../platform/imu/">IMU в мехатронном узле</a> — роль, интерфейсы, интеграция (technical layer).
+          </li>
+          <li>
+            <a href="../../articles/article-4.html">Анатомия сервомодуля</a> — контекст узла: когда нужна инерциальная
+            обратная связь помимо энкодера.
+          </li>
+          <li>
+            <a href="../../products/servos/">Сервоприводы KVT</a> — исполнительный контур, с которым IMU работает в одной
+            системе.
+          </li>
+          <li>
+            <a href="../../articles/article-12.html">IMU для защиты механики и точности</a> — когда энкодера на валу
+            недостаточно, фьюжн и алгоритмы выживания.
+          </li>
+          <li>
+            <a href="../../articles/article-13.html">IMU в навигации и выживании AGV/AMR</a> — слепые зоны лидара, EKF,
+            задержки шин.
+          </li>
+          <li>
+            <a href="../../articles/article-14.html">Safety-архитектура и цепочка поставок</a> — IQC, стресс-тесты, STO/OSSD
+            для AGV/AMR.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section hub-platform-link" aria-labelledby="hub-imu-platform">
+        <header class="section__header">
+          <h2 id="hub-imu-platform" class="section-title">Роль IMU в мехатронном узле</h2>
+        </header>
+        <p class="section-intro">
+          IMU не заменяет энкодер на валу: она даёт состояние корпуса или платформы в пространстве. Для проектирования
+          контура стабилизации и навигации см. technical page направления.
+        </p>
+        <p>
+          <a class="btn btn--secondary btn--sm" href="../../platform/imu/">Измерение движения в узле</a>
+        </p>
+      </section>
+
+      <section class="section hub-faq" aria-labelledby="hub-imu-faq">
+        <header class="section__header">
+          <h2 id="hub-imu-faq" class="section-title">Частые вопросы</h2>
+        </header>
+        <dl class="hub-faq__list">
+          <dt>Чем IMU118 отличается от IMU488?</dt>
+          <dd>
+            IMU118 — компактный 6-осевой модуль, UART + PPS, 200&nbsp;Гц, 5&nbsp;В — типичный выбор для AGV и
+            стабилизации. IMU488 — расширенный набор сенсоров, SPI до 12&nbsp;МГц, внутреннее обновление до 2&nbsp;кГц —
+            для контуров с жёсткими требованиями к частоте и динамике.
+          </dd>
+          <dt>Как выбирать IMU по частоте и интерфейсу?</dt>
+          <dd>
+            Оцените задержку контура и пропускную способность MCU: UART 200&nbsp;Гц достаточен для многих мобильных
+            задач; SPI 2&nbsp;кГц — когда инерциальные данные входят в быстрый контур движения или диагностику вибраций.
+          </dd>
+          <dt>Как IMU интегрируется с контроллером и сервоприводами?</dt>
+          <dd>
+            IMU подключается к Master Controller или ПЛК; сервоприводы KVT закрывают оси по шине TTL/RS-485. IMU участвует в
+            оценке наклона, ускорений и компенсации, не дублируя измерение на валу.
+          </dd>
+          <dt>Можно ли использовать IMU в промышленной среде с вибрациями?</dt>
+          <dd>
+            Оба модуля — промышленный температурный диапазон; критичны жёсткое крепление, экранирование и программная
+            фильтрация. IMU488 указан на высокую ударостойкость — уточняйте монтаж под вашу механику.
+          </dd>
+        </dl>
+      </section>
+
+      <p class="hub-page__footer-cta">
+        <a class="btn btn--primary" href="../../contacts.html">Запросить подбор IMU</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../platform/imu/">IMU в узле</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="../../script.js?v=kvt-v2-1"></script>
+  </body>
+</html>

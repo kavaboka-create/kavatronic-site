@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Роль smart-сервоприводов (actuators) в мехатронном узле: устройство, обратная связь, TTL и RS-485, интеграция с контроллером, IMU и питанием. Применения и линейка KVT."
+    />
+    <title>Servos / Actuators в мехатронном узле — устройство и интеграция | Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/platform/servo/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Чем smart-сервопривод отличается от обычного сервомотора?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В smart-модуле энкодер, контроллер и силовой драйвер встроены в корпус: привод замыкает контур по положению, скорости или моменту по шине, без отдельного сервоусилителя на каждую ось."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Когда выбирать TTL, а когда RS-485?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TTL/UART — короткие шины, компактные цепи и стенды. RS-485 — длинные линии, промышленная EMI-среда и манипуляторы с несколькими осями в daisy-chain."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Зачем энкодер внутри сервопривода?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Энкодер даёт измерение положения и скорости вала для ПИД-регулятора и режимов Position, Velocity, Torque; без обратной связи ось не удерживает положение под нагрузкой."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Где смотреть модели KVT для подбора?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Каталог линейки и сводное сравнение с аналогами Dynamixel — на странице /products/servos/; детальные параметры и сравнение по модели — на страницах KVT-30T … KVT-260R."
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../../index.html" class="logo-link logo-link--home" aria-label="KAVATRONIC — главная">
+        <img src="../../assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
+        <span class="site-brand__name">KAVATRONIC</span>
+      </a>
+      <a class="btn btn--orange btn--sm site-header__cta" href="../../contacts.html">Запросить подбор</a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container platform-page">
+      <p class="hub-page__back"><a href="../../index.html#platform">← Схема узла</a></p>
+
+      <header class="platform-page__header">
+        <h1>Servos / Actuators</h1>
+        <p class="section-intro platform-page__lead">
+          Smart-сервопривод в мехатронном узле — исполнительный контур: задаёт момент на оси, держит положение по обратной
+          связи и обменивается командами с контроллером по шине. Ниже — роль в системе, интеграция и краткая анатомия
+          модуля; подбор номиналов и моделей — в продуктовом каталоге KVT.
+        </p>
+      </header>
+
+      <section class="section platform-section" id="platform-servo-role" aria-labelledby="role-title">
+        <header class="section__header">
+          <h2 id="role-title" class="section-title">Роль в узле</h2>
+        </header>
+        <p class="section-intro">
+          В типовой схеме мобильной или стационарной платформы привод преобразует команды контроллера в движение
+          механизма. IMU и сенсоры дают состояние платформы; контроллер считает траекторию; PDU обеспечивает питание и
+          защиту; сервоприводы закрывают контур по каждой оси. Без предсказуемого привода на валу невозможны
+          повторяемость траектории, диагностика по току/температуре и устойчивость под переменной нагрузкой.
+        </p>
+      </section>
+
+      <section class="section platform-section" id="platform-servo-purpose" aria-labelledby="purpose-title">
+        <header class="section__header">
+          <h2 id="purpose-title" class="section-title">Назначение</h2>
+        </header>
+        <p class="section-intro">
+          Smart-сервопривод объединяет мотор, редуктор, энкодер, управляющую электронику и интерфейс в одном корпусе.
+          Интегратор получает готовый узел с режимами управления положением, скоростью и моментом, адресацией по шине и
+          типовыми регистрами статуса — без разводки отдельного усилителя и датчика на каждую ось. Граница применимости
+          задаётся моментом на валу, термикой, классом защиты корпуса и совместимостью протокола с вашим мастер-узлом.
+        </p>
+      </section>
+
+      <section class="section platform-section" id="platform-servo-apps" aria-labelledby="apps-title">
+        <header class="section__header">
+          <h2 id="apps-title" class="section-title">Где применяется</h2>
+        </header>
+        <ul class="applications-list">
+          <li><strong>Манипуляторы</strong> — оси плеча, локтя, запястья; удержание положения и контур по моменту.</li>
+          <li><strong>Мобильные платформы</strong> — поворотные и приводные оси шасси, стабилизация механизмов.</li>
+          <li><strong>AGV / AMR</strong> — приводы направления, подъёма и вспомогательных механизмов.</li>
+          <li><strong>Портальные и специализированные автоматы</strong> — линейные и поворотные оси с повторяемым циклом.</li>
+          <li><strong>R&amp;D-стенды и опытные мехатронные узлы</strong> — быстрая сборка цепи «контроллер — шина — ось».</li>
+        </ul>
+      </section>
+
+      <section class="section platform-section" id="platform-servo-interfaces" aria-labelledby="iface-title">
+        <header class="section__header">
+          <h2 id="iface-title" class="section-title">Интерфейсы и интеграция</h2>
+        </header>
+        <p class="section-intro">
+          В линейке Kavatronic KVT используются шины <strong>TTL</strong> (компактные цепи, образовательные и
+          прототипные узлы) и <strong>RS-485</strong> (промышленные манипуляторы, длинные линии, устойчивость к наводкам).
+          Приводы объединяются в daisy-chain с уникальным ID; мастер — контроллер узла (Master Controller или ваш ПЛК/ПК с
+          адаптером).
+        </p>
+        <ul class="platform-page__list">
+          <li>
+            <strong>С контроллером:</strong> цикл команд Position / Velocity / Torque, синхронизация нескольких осей,
+            ограничение тока и аварийная остановка по шине.
+          </li>
+          <li>
+            <strong>С питанием (PDU):</strong> согласование напряжения шины (12&nbsp;V / 24&nbsp;V), пусковые токи,
+            защита от просадки при одновременном ускорении осей.
+          </li>
+          <li>
+            <strong>С IMU:</strong> данные о динамике платформы для внешнего контура; привод остаётся локальным
+            исполнителем по оси, IMU не заменяет энкодер на валу.
+          </li>
+          <li>
+            <strong>С механикой:</strong> жёсткость крепления, соосность, допустимый люфт редуктора и режим нагрузки
+            (циклический / ударный) задаются совместно с выбором модели.
+          </li>
+        </ul>
+      </section>
+
+      <section id="how-servo-works" class="section education-block platform-section" aria-labelledby="anatomy-title">
+        <header class="section__header">
+          <h2 id="anatomy-title" class="section-title">Анатомия стальной мышцы</h2>
+          <p class="servo-section-lead">Что находится внутри smart-сервопривода — от корпуса до шины связи.</p>
+        </header>
+        <p class="servo-section-lead">
+          Краткая схема узлов для ориентации при проектировании. Детальные конструктивные решения, материалы и режимы
+          управления — в полном разборе по ссылке ниже.
+        </p>
+        <ul class="servo-intro-list">
+          <li>
+            <span class="servo-icon" aria-hidden="true">🔩</span>
+            <div>
+              <strong>Корпус и выходной вал</strong>
+              <p class="servo-intro__text">
+                Радиатор, силовая опора и интерфейс к механике. Жёсткость корпуса и качество подшипников задают допустимый
+                люфт и ресурс при боковой нагрузке на фланец.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">⚡</span>
+            <div>
+              <strong>Электродвигатель</strong>
+              <p class="servo-intro__text">
+                Источник момента на входе редуктора. DC (щёточный) — простая цепь, ограниченный ресурс и ЭМИ от щёток;
+                BLDC — выше ресурс в непрерывных режимах, типичен для силовых осей линейки KVT.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">⚙️</span>
+            <div>
+              <strong>Редуктор</strong>
+              <p class="servo-intro__text">
+                Преобразует высокие обороты мотора в низкую скорость и высокий момент на валу. Параметры зуба, смазки и
+                термообработки определяют шум, люфт и стойкость к ударному торможению.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">📡</span>
+            <div>
+              <strong>Энкодер</strong>
+              <p class="servo-intro__text">
+                Измерение положения и скорости вала для обратной связи. Без энкодера ось не удерживает угол под нагрузкой
+                и не обеспечивает повторяемость в режиме Position.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">🧠</span>
+            <div>
+              <strong>Управляющая плата</strong>
+              <p class="servo-intro__text">
+                Принимает команды по шине, реализует ПИД и режимы Position, Velocity, Torque; задаёт ограничения и отдаёт
+                статус (температура, ток, ошибки) для диагностики узла.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">🔋</span>
+            <div>
+              <strong>Драйвер силовой части</strong>
+              <p class="servo-intro__text">
+                Усиливает управляющие сигналы до токов мотора, обеспечивает плавный разгон и торможение; при аварийной
+                остановке должен переносить обратную ЭДС без деградации силовых ключей.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="servo-icon" aria-hidden="true">🔌</span>
+            <div>
+              <strong>Питание и коммуникационная шина</strong>
+              <p class="servo-intro__text">
+                Питание 12–24&nbsp;V и интерфейс TTL или RS-485. Несколько приводов на одной шине с адресацией по ID —
+                стандартная топология робототехнического узла.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <details class="servo-details">
+          <summary>Подробнее: связь мотора, обратной связи и шины</summary>
+          <div class="servo-details__body">
+            <p>
+              Контур замкнут на валу: энкодер измеряет положение и скорость, контроллер на плате сравнивает с заданием и
+              формирует токи через силовой драйвер. Для BLDC типично векторное управление (FOC), чтобы снизить пульсации
+              момента и стабилизировать удержание под переменной нагрузкой.
+            </p>
+            <p>
+              Редуктор задаёт передаточное отношение и упругость цепи; при высоких требованиях к точности учитывают
+              компенсацию деформации зуба — отсюда практика двух энкодеров (до и после редуктора) в тяжёлых манипуляторах.
+              Выбор типа редуктора (планетарный, волновой, циклоидальный) определяется осью, скоростью и допустимым люфтом.
+            </p>
+            <p>
+              Драйвер ограничивает ток и температуру ключей; при торможении инерция механизма возвращает энергию в шину
+              питания — это нужно согласовать с PDU и ёмкостью DC-link, иначе возможны просадки или срабатывание защит.
+            </p>
+            <p>
+              По шине задают целевые регистры: в Position — угол вала, в Velocity — обороты, в Torque — усилие на
+              механике. TTL уместен на коротких линиях; RS-485 — при длинной топологии и промышленной EMI. Синхронизация
+              нескольких осей выполняется на уровне мастер-контроллера, а не внутри одного привода.
+            </p>
+          </div>
+        </details>
+
+        <a class="servo-read-more" href="../../articles/article-4.html">Читать полный инженерный разбор →</a>
+        <p class="hub-crosslink section-intro">
+          Для подбора номинала и сопоставления с аналогами Dynamixel перейдите в
+          <a href="../../products/servos/">продуктовый hub KVT</a>.
+        </p>
+      </section>
+
+      <section class="section platform-section" id="platform-servo-materials" aria-labelledby="materials-title">
+        <header class="section__header">
+          <h2 id="materials-title" class="section-title">Материалы</h2>
+        </header>
+        <ul class="platform-page__list platform-page__materials">
+          <li>
+            <a href="../../articles/article-4.html">Вскрытие покажет: глубокая анатомия интегрированного сервомодуля</a>
+            — корпус, мотор, редуктор, энкодеры, драйвер, шина.
+          </li>
+          <li>
+            <a href="../../articles/article-1.html">Стальная хватка: выбор сервопривода для манипулятора</a>
+            — термика, FOC, редукторы, шины, чек-лист перед закупкой.
+          </li>
+          <li>
+            <a href="../../articles/article-12.html">Энкодер, IMU и алгоритмы выживания сервосети</a>
+            — сенсорный фьюжн, защита механики, отказоустойчивость в полевых условиях.
+          </li>
+          <li>
+            <a href="../../articles/article-13.html">AGV/AMR: IMU, лидар и EKF</a> — контекст мобильных систем с
+            сервоприводами KVT.
+          </li>
+          <li>
+            <a href="../../articles/article-14.html">Safety Hub и STO вокруг сервосети</a> — аппаратный safety-контур при
+            отказе ПО.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section platform-section platform-section--cta" id="platform-servo-catalog" aria-labelledby="catalog-title">
+        <header class="section__header">
+          <h2 id="catalog-title" class="section-title">Продуктовая линейка</h2>
+        </header>
+        <p class="section-intro">
+          Номиналы, протоколы и сводное сравнение с аналогами Dynamixel — на hub линейки KVT. Детальное сопоставление по
+          каждой модели — на страницах KVT-30T, KVT-40D, KVT-40R, KVT-65R, KVT-80R, KVT-260R.
+        </p>
+        <p class="platform-page__actions">
+          <a class="btn btn--primary" href="../../products/servos/">Смотреть линейку KVT</a>
+          <a class="btn btn--secondary btn--sm" href="../../products/servos/#comparison">Сравнить модели линейки</a>
+        </p>
+        <p class="section-intro platform-next-models">
+          Следующий шаг — выбор исполнения:
+          <a href="../../products/kvt-80r.html">KVT-80R</a>,
+          <a href="../../products/kvt-65r.html">KVT-65R</a>,
+          <a href="../../products/kvt-30t.html">KVT-30T</a>
+          или <a href="../../products/servos/">весь каталог</a>.
+        </p>
+      </section>
+
+      <section class="section hub-faq platform-section" aria-labelledby="platform-servo-faq">
+        <header class="section__header">
+          <h2 id="platform-servo-faq" class="section-title">Частые вопросы</h2>
+        </header>
+        <dl class="hub-faq__list">
+          <dt>Чем smart-сервопривод отличается от обычного сервомотора?</dt>
+          <dd>
+            В корпусе объединены мотор, редуктор, энкодер, контроллер и драйвер: команды по шине, локальный ПИД и режимы
+            Position / Velocity / Torque. Отдельный сервоусилитель на ось не требуется — снижается объём разводки и
+            повышается повторяемость интеграции.
+          </dd>
+          <dt>Когда выбирать TTL, а когда RS-485?</dt>
+          <dd>
+            TTL — короткая шина, мало помех, прототип или компактный узел. RS-485 — длинные линии, несколько осей,
+            промышленная среда; типичен для KVT-40R … KVT-260R. Схему кабеля и терминирование согласуйте с длиной и EMI.
+          </dd>
+          <dt>Зачем энкодер внутри сервопривода?</dt>
+          <dd>
+            Без измерения вала нет удержания угла под нагрузкой и нет основы для ПИД. Энкодер также нужен для диагностики
+            (следование, проскальзывание) и для режима Torque с ограничением положения.
+          </dd>
+          <dt>Где смотреть модели KVT для подбора?</dt>
+          <dd>
+            <a href="../../products/servos/">Hub линейки KVT</a> — каталог и таблица сравнения; страницы моделей — полные
+            характеристики и блок «Сравнение с Dynamixel».
+          </dd>
+        </dl>
+      </section>
+
+      <p class="hub-page__footer-cta">
+        <a class="btn btn--secondary btn--sm" href="../../contacts.html">Запросить подбор узла</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../products/servos/">Сервоприводы KVT</a></li>
+          <li><a href="../../articles/article-4.html">Анатомия сервомодуля</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="../../script.js?v=kvt-v2-1"></script>
+  </body>
+</html>

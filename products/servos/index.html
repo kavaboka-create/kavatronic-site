@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hub линейки сервоприводов KVT: шесть моделей, предварительное сравнение с Dynamixel MX/XM по моменту, TTL и RS-485. Подбор для робототехники и промышленной автоматизации."
+    />
+    <title>Сервоприводы KVT — линейка, сравнение с Dynamixel | Kavatronic</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Чем KVT отличается от Dynamixel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KVT — smart-сервоприводы Kavatronic с магнитным энкодером, шинным управлением TTL или RS-485 и линейкой BLDC/DC под типовые классы момента. Сопоставление с Dynamixel MX/XM на hub даёт ориентир по классу задачи; детальные параметры — на страницах моделей."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как выбрать KVT по моменту и интерфейсу?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ориентируйтесь на требуемый момент на валу, напряжение питания (12 V или 24 V) и протокол шины: TTL для компактных цепей, RS-485 для промышленных манипуляторов и длинных линий. Сводная таблица на этой странице — для предварительного подбора; финальный выбор — по datasheet и режиму нагрузки."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Где смотреть детальное сравнение по конкретной модели?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "На странице каждой модели KVT (KVT-30T, KVT-40D, KVT-40R, KVT-65R, KVT-80R, KVT-260R) есть блок сравнения с указанным аналогом Dynamixel по ключевым параметрам."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Подходит ли линейка для интеграции по TTL и RS-485?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да. В линейке есть исполнения с TTL (KVT-30T, KVT-40D) и RS-485 (KVT-40R, KVT-65R, KVT-80R, KVT-260R) для daisy-chain и типовых контроллеров робототехники."
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="canonical" href="https://www.kavatronic.tech/products/servos/" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../../index.html" class="logo-link logo-link--home" aria-label="KAVATRONIC — главная">
+        <img src="../../assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
+        <span class="site-brand__name">KAVATRONIC</span>
+      </a>
+      <a class="btn btn--orange btn--sm site-header__cta" href="../../contacts.html">Запросить подбор</a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container hub-page">
+      <nav class="product-breadcrumb" aria-label="Навигация">
+        <ol class="product-breadcrumb__list">
+          <li class="product-breadcrumb__item"><a href="/">Главная</a></li>
+          <li class="product-breadcrumb__item product-breadcrumb__item--current" aria-current="page">Сервоприводы KVT</li>
+        </ol>
+      </nav>
+      <p class="hub-page__back"><a href="../../platform/servo/">← Роль в мехатронном узле</a></p>
+
+      <header class="hub-page__header">
+        <h1>Сервоприводы KVT</h1>
+        <p class="section-intro hub-page__intro">
+          Smart-приводы с магнитным энкодером и шинным управлением (TTL / RS-485). Шесть исполнений — от компактных осей
+          до тяговых 24&nbsp;V. Ниже — каталог моделей, сводное сравнение с аналогами Dynamixel для предварительного
+          подбора и переход к инженерному контексту роли привода в узле.
+        </p>
+      </header>
+
+      <section class="hub-catalog" aria-labelledby="hub-servos-catalog">
+        <h2 id="hub-servos-catalog" class="section-title hub-catalog__title">Модели линейки KVT</h2>
+        <div class="hub-sku-grid">
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../kvt-30t.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/kvt-30t.jpg"
+                  alt="Kavatronic KVT-30T сервопривод"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none'"
+                />
+                <div class="img-placeholder">Фото модели</div>
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">KVT-30T</h3>
+                <p class="hub-sku-card__tagline">Компактный привод для лёгких осей, образовательной робототехники и R&amp;D</p>
+                <p class="hub-sku-card__meta"><span>30 kg·cm</span><span>12V</span><span>TTL</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../kvt-40r.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/kvt-40r.jpg"
+                  alt="Kavatronic KVT-40R сервопривод"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none'"
+                />
+                <div class="img-placeholder">Фото модели</div>
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">KVT-40R</h3>
+                <p class="hub-sku-card__tagline">Универсальный модуль для AGV, упаковки и автоматизации</p>
+                <p class="hub-sku-card__meta"><span>40 kg·cm</span><span>12V</span><span>RS-485</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../kvt-40d.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/kvt-40d.jpg"
+                  alt="Kavatronic KVT-40D сервопривод, double shaft"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none'"
+                />
+                <div class="img-placeholder">Фото модели</div>
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">KVT-40D</h3>
+                <p class="hub-sku-card__tagline">Двусторонний вал — манипуляторы, антропоморфные кинематические цепи</p>
+                <p class="hub-sku-card__meta"><span>40 kg·cm</span><span>12V</span><span>TTL</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../kvt-65r.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/kvt-65r.jpg"
+                  alt="Kavatronic KVT-65R сервопривод"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none'"
+                />
+                <div class="img-placeholder">Фото модели</div>
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">KVT-65R</h3>
+                <p class="hub-sku-card__tagline">Высокая скорость вала (135 RPM) для динамичных манипуляторов</p>
+                <p class="hub-sku-card__meta"><span>65 kg·cm</span><span>12V</span><span>RS-485</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../kvt-80r.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/kvt-80r.jpg"
+                  alt="Kavatronic KVT-80R сервопривод"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none'"
+                />
+                <div class="img-placeholder">Фото модели</div>
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">KVT-80R</h3>
+                <p class="hub-sku-card__tagline">Промышленный BLDC-серво для манипуляторов и мобильных платформ</p>
+                <p class="hub-sku-card__meta"><span>80 kg·cm</span><span>12V</span><span>RS-485</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="hub-sku-card">
+            <a class="hub-sku-card__link" href="../kvt-260r.html">
+              <div class="hub-sku-card__media product-img">
+                <img
+                  src="../../assets/images/kvt-260r.jpg"
+                  alt="Kavatronic KVT-260R сервопривод"
+                  width="320"
+                  height="220"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.style.display='none'"
+                />
+                <div class="img-placeholder">Фото модели</div>
+              </div>
+              <div class="hub-sku-card__body">
+                <h3 class="hub-sku-card__title">KVT-260R</h3>
+                <p class="hub-sku-card__tagline">Тяговый привод 24&nbsp;V для тяжёлых осей и портальных систем</p>
+                <p class="hub-sku-card__meta"><span>260 kg·cm</span><span>24V</span><span>RS-485</span></p>
+                <span class="btn btn--primary btn--sm hub-sku-card__cta">Страница модели</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="comparison" class="section" aria-labelledby="comparison-title">
+        <header class="section__header">
+          <h2 id="comparison-title" class="section-title">Сравнение линейки KVT с аналогами Dynamixel</h2>
+        </header>
+        <p class="section-intro">
+          Таблица ниже — ориентир для предварительного подбора по классу момента, напряжению, скорости и интерфейсу. Она
+          не заменяет datasheet и не учитывает конкретную механику узла; детальное сопоставление по модели — на
+          страницах KVT в блоке «Сравнение с Dynamixel».
+        </p>
+        <div
+          class="table-scroll table-wrapper"
+          role="region"
+          aria-label="Сводная таблица сравнения сервоприводов KVT и Dynamixel"
+          tabindex="0"
+        >
+          <table class="compare-table comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Модель Kavatronic</th>
+                <th scope="col">Аналог Dynamixel</th>
+                <th scope="col">Напряжение</th>
+                <th scope="col">Момент (kg·cm)</th>
+                <th scope="col">Скорость (RPM)</th>
+                <th scope="col">Протокол</th>
+                <th scope="col">Тип мотора</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="../kvt-30t.html"><strong>KVT-30T</strong></a></td>
+                <td>MX-28 / XM430-W210</td>
+                <td>12&nbsp;V</td>
+                <td>30</td>
+                <td>50</td>
+                <td>TTL</td>
+                <td>DC</td>
+              </tr>
+              <tr>
+                <td><a href="../kvt-40d.html"><strong>KVT-40D</strong></a></td>
+                <td>XM430-W350</td>
+                <td>12&nbsp;V</td>
+                <td>40</td>
+                <td>85</td>
+                <td>TTL</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><a href="../kvt-40r.html"><strong>KVT-40R</strong></a></td>
+                <td>MX-64AR</td>
+                <td>12&nbsp;V</td>
+                <td>40</td>
+                <td>65</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><a href="../kvt-65r.html"><strong>KVT-65R</strong></a></td>
+                <td>MX-64AR</td>
+                <td>12&nbsp;V</td>
+                <td>65</td>
+                <td>135</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><a href="../kvt-80r.html"><strong>KVT-80R</strong></a></td>
+                <td>MX-64AR</td>
+                <td>12&nbsp;V</td>
+                <td>80</td>
+                <td>62</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+              <tr>
+                <td><a href="../kvt-260r.html"><strong>KVT-260R</strong></a></td>
+                <td>XM540-W270</td>
+                <td>24&nbsp;V</td>
+                <td>260</td>
+                <td>52</td>
+                <td>RS-485</td>
+                <td>BLDC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footnote">
+          DC — щёточный мотор, BLDC — бесщёточный мотор. KVT-40D: ориентир XM430-W350; у Dynamixel в этом классе нет
+          исполнения с double shaft — отличие KVT-40D см. на странице модели.
+        </p>
+        <p class="hub-crosslink section-intro">
+          Для понимания роли smart-сервопривода в мехатронном узле (шина, обратная связь, контроллер, питание) см.
+          <a href="../../platform/servo/">technical page Servos / Actuators</a>. Полный разбор конструкции модуля —
+          <a href="../../articles/article-4.html">статья «анатомия интегрированного сервомодуля»</a>.
+        </p>
+        <p class="comparison-disclaimer">
+          Сопоставление носит ориентировочный характер и используется для предварительного подбора по классу задач и
+          ключевым параметрам (момент, напряжение, скорость, тип мотора, интерфейс). Финальный выбор зависит от режима
+          работы, механики узла, нагрузки, питания и требований к управлению.
+        </p>
+      </section>
+
+      <section class="section hub-materials" aria-labelledby="hub-servos-materials">
+        <header class="section__header">
+          <h2 id="hub-servos-materials" class="section-title">Инженерные материалы</h2>
+        </header>
+        <ul class="platform-page__list">
+          <li>
+            <a href="../../platform/servo/#how-servo-works">Анатомия smart-сервопривода</a> — краткий обзор узлов
+            (technical layer).
+          </li>
+          <li>
+            <a href="../../articles/article-4.html">Глубокая анатомия интегрированного сервомодуля</a> — полный
+            инженерный разбор.
+          </li>
+          <li>
+            <a href="../../articles/article-1.html">Выбор сервопривода для манипулятора</a> — термика, редукторы, шины.
+          </li>
+          <li>
+            <a href="../../articles/article-12.html">Эксплуатация сервосети в тяжёлых условиях</a> — энкодер, IMU,
+            сенсорный фьюжн и защитные алгоритмы.
+          </li>
+          <li>
+            <a href="../../articles/article-13.html">AGV/AMR: навигация, IMU и EKF</a> — кейс мобильных платформ с
+            приводами KVT.
+          </li>
+          <li>
+            <a href="../../articles/article-14.html">Аппаратный рефлекс: Safety Hub и STO</a> — функциональная
+            безопасность вокруг сервосети.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section hub-platform-link" aria-labelledby="hub-servo-platform">
+        <header class="section__header">
+          <h2 id="hub-servo-platform" class="section-title">Роль сервопривода в мехатронном узле</h2>
+        </header>
+        <p class="section-intro">
+          Для проектирования узла важны не только номиналы на валу, но и место привода в архитектуре: шина, обратная
+          связь, связь с контроллером и питанием. Краткий инженерный контекст — на технической странице направления.
+        </p>
+        <p>
+          <a class="btn btn--secondary btn--sm" href="../../platform/servo/">Роль сервопривода в узле</a>
+        </p>
+      </section>
+
+      <section class="section hub-faq" aria-labelledby="hub-servos-faq">
+        <header class="section__header">
+          <h2 id="hub-servos-faq" class="section-title">Частые вопросы</h2>
+        </header>
+        <dl class="hub-faq__list">
+          <dt>Чем KVT отличается от Dynamixel?</dt>
+          <dd>
+            KVT — smart-сервоприводы Kavatronic с энкодером и шиной TTL или RS-485. Линейка закрывает те же классы
+            момента, что популярные MX/XM, с акцентом на BLDC-исполнения и промышленную интеграцию; точные отличия по
+            модели — в datasheet и в блоке сравнения на странице SKU.
+          </dd>
+          <dt>Как выбрать KVT по моменту и интерфейсу?</dt>
+          <dd>
+            Задайте целевой момент на валу, напряжение (12&nbsp;V / 24&nbsp;V) и протокол: TTL — компактные цепи и
+            образовательные проекты, RS-485 — манипуляторы и длинные шины. Сводная таблица выше сужает класс; далее
+            сверяйте RPM, тип мотора и механику редуктора с режимом нагрузки.
+          </dd>
+          <dt>Где смотреть детальное сравнение по конкретной модели?</dt>
+          <dd>
+            На странице каждой модели (ссылки в каталоге и в таблице) — раздел «Сравнение с Dynamixel» с парными
+            параметрами KVT и указанного аналога.
+          </dd>
+          <dt>Подходит ли линейка для интеграции по TTL и RS-485?</dt>
+          <dd>
+            Да. TTL: KVT-30T, KVT-40D. RS-485: KVT-40R, KVT-65R, KVT-80R, KVT-260R. Daisy-chain и ID-адресация — в
+            документации на модель; контроллер и кабельная схема подбираются под длину шины и EMI-среду.
+          </dd>
+        </dl>
+      </section>
+
+      <p class="hub-page__footer-cta">
+        <a class="btn btn--primary" href="../../contacts.html">Запросить подбор по линейке</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../platform/servo/">Servos в узле</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="../../script.js?v=kvt-v2-1"></script>
+  </body>
+</html>

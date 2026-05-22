@@ -63,13 +63,20 @@
           <li><a href="/#platform">Продукты</a></li>
           <li><a href="/#applications">Применения</a></li>
           <li><a href="/articles/">Полезная информация</a></li>
-          <li><a href="/#contacts">Контакты</a></li>
+          <li><a href="/contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="product-page">
-      <a class="product-page__back" href="/#platform">← Назад к продуктам</a>
+      <nav class="product-breadcrumb" aria-label="Навигация">
+        <ol class="product-breadcrumb__list">
+          <li class="product-breadcrumb__item"><a href="/">Главная</a></li>
+          <li class="product-breadcrumb__item"><a href="imu/">IMU</a></li>
+          <li class="product-breadcrumb__item product-breadcrumb__item--current" aria-current="page">IMU118</li>
+        </ol>
+      </nav>
+      <a class="product-page__back" href="imu/">← Линейка IMU</a>
 
       <header class="product-page__header">
         <h1>Инерциальный модуль IMU118 (UART) для AGV и мобильных платформ</h1>
@@ -217,6 +224,9 @@
           Allan deviation и VRW — показатели шума и стабильности сенсоров; при выборе IMU для конкретного контура навигации
           их стоит сопоставлять с требуемой точностью и временем работы без внешней коррекции.
         </p>
+        <p class="product-compare__hub-link">
+          <a href="imu/#imu-compare">Сводное сравнение IMU118 и IMU488</a> — предварительный выбор по интерфейсу и частоте.
+        </p>
       </section>
 
       <section class="section" aria-labelledby="interfaces-imu118">
@@ -352,11 +362,11 @@
             Условия поставки зависят от объёма, задачи и схемы интеграции.
           </p>
           <div class="article-promo__actions">
-            <a class="btn btn--primary" href="/#contacts">Запросить подбор</a>
+            <a class="btn btn--primary" href="/contacts.html">Запросить подбор</a>
             <a class="btn btn--secondary" href="mailto:info@kavatronic.tech?subject=IMU118%20—%20ТЗ%20на%20подбор">
               Отправить ТЗ на email
             </a>
-            <a class="btn btn--outline" href="/#contacts">Запросить тестовый образец</a>
+            <a class="btn btn--outline" href="/contacts.html">Запросить тестовый образец</a>
           </div>
           <p class="product-page__note">
             Для корректного подбора укажите платформу/узел, тип контроллера, частоты обновления и требования к задержке в
@@ -365,27 +375,22 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="related-imu118">
-        <header class="section__header">
-          <h2 id="related-imu118">Связанные материалы</h2>
-        </header>
-        <div class="workflow" aria-label="Связанные материалы по IMU (будут добавлены)">
-          <h3 class="workflow__title">Скоро в “Полезной информации”</h3>
-          <div class="workflow__steps" role="list">
-            <div class="workflow__step" role="listitem">
-              <div class="workflow__step-title">IMU в сервосети</div>
-              <div class="workflow__step-text">Как связать энкодер, IMU и защитные алгоритмы в мехатронном узле.</div>
-            </div>
-            <div class="workflow__step" role="listitem">
-              <div class="workflow__step-title">Пространственная обратная связь</div>
-              <div class="workflow__step-text">Практика интеграции IMU в AGV/AMR: частоты, задержки, фильтрация.</div>
-            </div>
-          </div>
-          <p class="product-page__note">
-            Ссылки будут добавлены после публикации статей, без изменения структуры страницы.
-          </p>
-        </div>
-      </section>
+      <nav class="product-cluster-links" aria-label="Связанные разделы линейки IMU">
+        <p class="product-cluster-links__title">Далее по линейке и узлу</p>
+        <ul>
+          <li><a href="imu/">Линейка IMU (IMU118 + IMU488)</a></li>
+          <li><a href="../imu488.html">Сравнить с IMU488</a></li>
+          <li><a href="../platform/imu/">Роль IMU в мехатронном узле</a></li>
+          <li><a href="../articles/article-4.html">Анатомия узла: энкодер и инерциальная обратная связь</a></li>
+          <li><a href="../articles/article-12.html">Энкодер, IMU и защита сервосети</a></li>
+          <li><a href="../articles/article-13.html">AGV/AMR: IMU, лидар и EKF</a></li>
+        </ul>
+      </nav>
+
+      <p class="product-page__cta-links">
+        <a href="imu/">Смотреть линейку IMU</a> ·
+        <a href="../platform/imu/">Как IMU встраивается в узел</a>
+      </p>
     </main>
 
     <footer class="site-footer">

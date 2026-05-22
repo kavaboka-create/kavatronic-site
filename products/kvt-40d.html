@@ -60,13 +60,20 @@
           <li><a href="/#platform">Продукты</a></li>
           <li><a href="/#applications">Применения</a></li>
           <li><a href="/articles/">Полезная информация</a></li>
-          <li><a href="/#contacts">Контакты</a></li>
+          <li><a href="/contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="product-page">
-      <a class="product-page__back" href="/#platform">← Назад к продуктам</a>
+      <nav class="product-breadcrumb" aria-label="Навигация">
+        <ol class="product-breadcrumb__list">
+          <li class="product-breadcrumb__item"><a href="/">Главная</a></li>
+          <li class="product-breadcrumb__item"><a href="servos/">Сервоприводы KVT</a></li>
+          <li class="product-breadcrumb__item product-breadcrumb__item--current" aria-current="page">KVT-40D</li>
+        </ol>
+      </nav>
+      <a class="product-page__back" href="servos/">← Все сервоприводы KVT</a>
 
       <header class="product-page__header">
         <h1>KVT-40D</h1>
@@ -208,7 +215,20 @@
             </dl>
           </div>
         </div>
+        <p class="product-compare__hub-link">
+          <a href="servos/#comparison">Сводное сравнение линейки KVT с Dynamixel</a> — предварительный подбор по классу
+          момента и интерфейсу.
+        </p>
       </section>
+
+      <nav class="product-cluster-links" aria-label="Связанные разделы линейки KVT">
+        <p class="product-cluster-links__title">Далее по линейке и узлу</p>
+        <ul>
+          <li><a href="servos/">Вся линейка KVT</a></li>
+          <li><a href="../platform/servo/">Роль smart-сервопривода в мехатронном узле</a></li>
+          <li><a href="../articles/article-4.html">Полный инженерный разбор устройства модуля</a></li>
+        </ul>
+      </nav>
 
       <section class="section product-applications" aria-labelledby="apps-kvt-40d">
         <header class="section__header">
@@ -223,7 +243,11 @@
       </section>
 
       <p class="product-page__cta">
-        <a class="btn btn--primary" href="/#contacts">Запросить цену / консультацию</a>
+        <a class="btn btn--primary" href="/contacts.html">Запросить подбор модели</a>
+      </p>
+      <p class="product-page__cta-links">
+        <a href="servos/">Смотреть линейку KVT</a> ·
+        <a href="../platform/servo/">Как привод встраивается в узел</a>
       </p>
     </main>
 

@@ -60,7 +60,7 @@
           <li><a href="/#platform">Продукты</a></li>
           <li><a href="/#applications">Применения</a></li>
           <li><a href="/articles/">Полезная информация</a></li>
-          <li><a href="/#contacts">Контакты</a></li>
+          <li><a href="/contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </header>
@@ -131,8 +131,10 @@
           В системах, где важно поведение механизма <em>в пространстве</em> (AGV/AMR, мобильные платформы, динамически
           нагруженные узлы), энкодера уже недостаточно: он видит вал, но не видит проскальзывание и реальные ускорения.
           Для таких задач добавляют инерциальную обратную связь (IMU) как отдельный компонент узла —
-          <a href="../products/imu118.html">IMU118</a> (UART, 200&nbsp;Гц) и <a href="../products/imu488.html">IMU488</a>
-          (SPI, высокие частоты).
+          <a href="../products/imu/">линейка IMU</a>:
+          <a href="../products/imu118.html">IMU118</a> (UART, 200&nbsp;Гц) и
+          <a href="../products/imu488.html">IMU488</a> (SPI, высокие частоты). Роль IMU в архитектуре узла —
+          <a href="../platform/imu/">technical page</a>.
         </p>
 
         <h2>ПЛАТА УПРАВЛЕНИЯ: Математика войны</h2>
@@ -171,6 +173,21 @@
           <li>Лимиты — размер, вес, потолок бюджета.</li>
         </ol>
       </article>
+
+      <aside class="article-cluster-links" aria-label="Линейки KVT, IMU и technical pages">
+        <p class="article-cluster-links__title">Подбор и архитектура узла</p>
+        <ul>
+          <li><a href="../platform/servo/">Сервопривод в мехатронном узле</a></li>
+          <li><a href="../products/servos/">Линейка KVT — каталог и сравнение</a></li>
+          <li><a href="../platform/imu/">IMU в мехатронном узле</a></li>
+          <li><a href="../products/imu/">Линейка IMU (IMU118 + IMU488)</a></li>
+          <li>
+            <a href="article-12.html">Сенсорный фьюжн: энкодер, IMU и защита сервосети</a> — продолжение темы анатомии
+            модуля
+          </li>
+          <li><a href="../contacts.html">Запросить подбор</a></li>
+        </ul>
+      </aside>
 
       <nav class="article-nav" aria-label="Навигация по статьям">
         <div class="article-nav__prev">

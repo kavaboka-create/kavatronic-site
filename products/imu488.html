@@ -63,13 +63,20 @@
           <li><a href="/#platform">Продукты</a></li>
           <li><a href="/#applications">Применения</a></li>
           <li><a href="/articles/">Полезная информация</a></li>
-          <li><a href="/#contacts">Контакты</a></li>
+          <li><a href="/contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="product-page">
-      <a class="product-page__back" href="/#platform">← Назад к продуктам</a>
+      <nav class="product-breadcrumb" aria-label="Навигация">
+        <ol class="product-breadcrumb__list">
+          <li class="product-breadcrumb__item"><a href="/">Главная</a></li>
+          <li class="product-breadcrumb__item"><a href="imu/">IMU</a></li>
+          <li class="product-breadcrumb__item product-breadcrumb__item--current" aria-current="page">IMU488</li>
+        </ol>
+      </nav>
+      <a class="product-page__back" href="imu/">← Линейка IMU</a>
 
       <header class="product-page__header">
         <h1>Промышленный модуль IMU488 (SPI 12 MHz) для многоосевой робототехники и ЧПУ</h1>
@@ -251,6 +258,9 @@
             </tbody>
           </table>
         </div>
+        <p class="product-compare__hub-link">
+          <a href="imu/#imu-compare">Сводное сравнение IMU118 и IMU488</a> — предварительный выбор по интерфейсу и частоте.
+        </p>
       </section>
 
       <section class="section" aria-labelledby="interfaces-imu488">
@@ -340,11 +350,11 @@
             сценария применения, объёма и требований к системе управления. Возможны спецусловия под проект и серию.
           </p>
           <div class="article-promo__actions">
-            <a class="btn btn--primary" href="/#contacts">Запросить подбор</a>
+            <a class="btn btn--primary" href="/contacts.html">Запросить подбор</a>
             <a class="btn btn--secondary" href="mailto:info@kavatronic.tech?subject=IMU488%20—%20ТЗ%20на%20подбор">
               Отправить ТЗ на email
             </a>
-            <a class="btn btn--outline" href="/#contacts">Запросить тестовый образец</a>
+            <a class="btn btn--outline" href="/contacts.html">Запросить тестовый образец</a>
           </div>
           <p class="product-page__note">
             Для подбора укажите архитектуру управления, требуемые частоты, допустимые задержки, характер перегрузок и место
@@ -353,27 +363,22 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="related-imu488">
-        <header class="section__header">
-          <h2 id="related-imu488">Связанные материалы</h2>
-        </header>
-        <div class="workflow" aria-label="Связанные материалы по IMU (будут добавлены)">
-          <h3 class="workflow__title">Скоро в “Полезной информации”</h3>
-          <div class="workflow__steps" role="list">
-            <div class="workflow__step" role="listitem">
-              <div class="workflow__step-title">IMU и вибрации</div>
-              <div class="workflow__step-text">Как использовать IMU для диагностики вибраций и защиты мехатронного узла.</div>
-            </div>
-            <div class="workflow__step" role="listitem">
-              <div class="workflow__step-title">Интеграция в привод</div>
-              <div class="workflow__step-text">Где размещать IMU и как выбирать частоты/интерфейсы под систему.</div>
-            </div>
-          </div>
-          <p class="product-page__note">
-            Ссылки будут добавлены после публикации статей, без изменения структуры страницы.
-          </p>
-        </div>
-      </section>
+      <nav class="product-cluster-links" aria-label="Связанные разделы линейки IMU">
+        <p class="product-cluster-links__title">Далее по линейке и узлу</p>
+        <ul>
+          <li><a href="imu/">Линейка IMU (IMU118 + IMU488)</a></li>
+          <li><a href="../imu118.html">Сравнить с IMU118</a></li>
+          <li><a href="../platform/imu/">Роль IMU в мехатронном узле</a></li>
+          <li><a href="../articles/article-4.html">Анатомия узла: энкодер и инерциальная обратная связь</a></li>
+          <li><a href="../articles/article-12.html">Энкодер, IMU и защита сервосети</a></li>
+          <li><a href="../articles/article-13.html">AGV/AMR: IMU, лидар и EKF</a></li>
+        </ul>
+      </nav>
+
+      <p class="product-page__cta-links">
+        <a href="imu/">Смотреть линейку IMU</a> ·
+        <a href="../platform/imu/">Как IMU встраивается в узел</a>
+      </p>
     </main>
 
     <footer class="site-footer">

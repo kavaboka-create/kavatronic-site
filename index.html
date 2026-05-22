@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Kavatronic — мехатронная платформа компонентов для робототехники и промышленной автоматизации: сервоприводы KVT, IMU, контроллер, PDU и LiDAR. Подбор для integrator и OEM."
+      content="Kavatronic — компоненты для робототехники и промышленной автоматизации: сервоприводы, IMU, контроллер, PDU, LiDAR. Пять ролей в мехатронном узле. Integrator и OEM."
     />
     <meta
       property="og:title"
-      content="Kavatronic — мехатронная платформа для робототехники и автоматизации"
+      content="Kavatronic — компоненты для робототехники и промышленной автоматизации"
     />
     <meta
       property="og:description"
-      content="Промышленные компоненты для мехатронных узлов: исполнение, измерение движения, вычисление, питание и восприятие среды. Сервоприводы KVT — ядро линейки."
+      content="Пять продуктовых линеек: исполнение, измерение, вычисление, питание и восприятие среды. B2B-подбор для integrator и OEM."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.kavatronic.tech/" />
@@ -21,14 +21,14 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Kavatronic — мехатронная платформа для робототехники и автоматизации"
+      content="Kavatronic — компоненты для робототехники и промышленной автоматизации"
     />
     <meta
       name="twitter:description"
-      content="Kavatronic — мехатронная платформа компонентов: сервоприводы KVT, IMU, контроллер, PDU и LiDAR. Подбор для integrator и OEM."
+      content="Сервоприводы, IMU, контроллер, PDU и сенсорика для мехатронных узлов. Integrator и OEM."
     />
     <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
-    <title>Kavatronic — мехатронная платформа для робототехники и промышленной автоматизации</title>
+    <title>Kavatronic — компоненты для робототехники и промышленной автоматизации</title>
     <link rel="canonical" href="https://www.kavatronic.tech/" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
@@ -43,7 +43,7 @@
         <img src="assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
         <span class="site-brand__name">KAVATRONIC</span>
       </a>
-      <a class="btn btn--orange btn--sm site-header__cta" href="#contacts">Запросить подбор</a>
+      <a class="btn btn--orange btn--sm site-header__cta" href="contacts.html">Запросить подбор</a>
       <button
         type="button"
         class="hamburger"
@@ -56,11 +56,11 @@
       </button>
       <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
         <ul>
-          <li><a href="#home">Главная</a></li>
+          <li><a href="/">Главная</a></li>
           <li><a href="#platform">Продукты</a></li>
           <li><a href="#applications">Применения</a></li>
           <li><a href="/articles/">Полезная информация</a></li>
-          <li><a href="#contacts">Контакты</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </header>
@@ -72,7 +72,7 @@
         <div class="hero__inner">
           <div class="hero-platform">
             <aside class="hero-side hero-side--left" aria-label="Линейки платформы — слева">
-              <article class="hero-mini-card hero-mini-card--imu">
+              <a class="hero-mini-card hero-mini-card--imu" href="products/imu/">
                 <div class="hero-mini-card__media">
                   <img
                     src="assets/images/imu488.jpg"
@@ -84,9 +84,9 @@
                   />
                 </div>
                 <span class="hero-mini-card__label">Измерение</span>
-                <p class="hero-mini-card__title">IMU</p>
-              </article>
-              <article class="hero-mini-card hero-mini-card--controller">
+                <span class="hero-mini-card__title">IMU</span>
+              </a>
+              <a class="hero-mini-card hero-mini-card--controller" href="products/controller/">
                 <div class="hero-mini-card__media">
                   <img
                     src="assets/images/robotics-controller-hero-banner.jpg"
@@ -98,8 +98,8 @@
                   />
                 </div>
                 <span class="hero-mini-card__label">Вычисление</span>
-                <p class="hero-mini-card__title">Master Controller</p>
-              </article>
+                <span class="hero-mini-card__title">Master Controller</span>
+              </a>
             </aside>
 
             <div class="hero-center">
@@ -109,11 +109,11 @@
                   Сервоприводы, IMU, контроллеры, питание и сенсорика для интеграторов и OEM
                 </p>
                 <div class="hero__actions">
-                  <a class="btn btn--primary" href="#contacts">Запросить подбор</a>
-                  <a class="btn btn--secondary" href="#platform">Смотреть линейки</a>
+                  <a class="btn btn--primary" href="contacts.html">Запросить подбор</a>
+                  <a class="btn btn--secondary" href="#platform">Из чего состоит узел</a>
                 </div>
               </div>
-              <div class="hero-product-visual">
+              <a class="hero-product-visual" href="products/servos/">
                 <img
                   class="hero-product-image"
                   src="assets/images/home-hero-servo-banner.jpg"
@@ -123,11 +123,11 @@
                   loading="eager"
                   decoding="async"
                 />
-              </div>
+              </a>
             </div>
 
             <aside class="hero-side hero-side--right" aria-label="Линейки платформы — справа">
-              <article class="hero-mini-card hero-mini-card--pdu">
+              <a class="hero-mini-card hero-mini-card--pdu" href="products/pdu/">
                 <div class="hero-mini-card__media">
                   <img
                     src="assets/images/smart-pdu-industrial-banner.jpg"
@@ -139,9 +139,9 @@
                   />
                 </div>
                 <span class="hero-mini-card__label">Питание</span>
-                <p class="hero-mini-card__title">Smart PDU</p>
-              </article>
-              <article class="hero-mini-card hero-mini-card--lidar">
+                <span class="hero-mini-card__title">Smart PDU</span>
+              </a>
+              <a class="hero-mini-card hero-mini-card--lidar" href="products/lidar/">
                 <div class="hero-mini-card__media">
                   <img
                     src="assets/images/lidar-sensor-robotics-banner.jpg"
@@ -153,8 +153,8 @@
                   />
                 </div>
                 <span class="hero-mini-card__label">Восприятие</span>
-                <p class="hero-mini-card__title">2D/3D LiDAR / Depth</p>
-              </article>
+                <span class="hero-mini-card__title">2D/3D LiDAR / Depth</span>
+              </a>
             </aside>
           </div>
         </div>
@@ -169,31 +169,31 @@
           узла подбирается по нагрузке, интерфейсам и требованиям к контуру управления.
         </p>
         <div class="platform-scheme" role="list" aria-label="Роли платформы Kavatronic">
-          <div class="platform-role" role="listitem">
+          <a class="platform-role" href="platform/servo/" role="listitem">
             <span class="platform-role__label">Исполнение</span>
             <strong class="platform-role__name">Servos / Actuators</strong>
             <p class="platform-role__text">Момент, энкодер, шина — движение привода</p>
-          </div>
-          <div class="platform-role" role="listitem">
+          </a>
+          <a class="platform-role" href="platform/imu/" role="listitem">
             <span class="platform-role__label">Измерение</span>
             <strong class="platform-role__name">IMU</strong>
             <p class="platform-role__text">Угловые скорости и ускорения платформы</p>
-          </div>
-          <div class="platform-role" role="listitem">
+          </a>
+          <a class="platform-role" href="platform/controller/" role="listitem">
             <span class="platform-role__label">Вычисление</span>
             <strong class="platform-role__name">Master Controller</strong>
             <p class="platform-role__text">Синхронизация данных и контур узла</p>
-          </div>
-          <div class="platform-role" role="listitem">
+          </a>
+          <a class="platform-role" href="platform/pdu/" role="listitem">
             <span class="platform-role__label">Питание</span>
             <strong class="platform-role__name">Smart PDU</strong>
             <p class="platform-role__text">Питание, защита, телеметрия узла</p>
-          </div>
-          <div class="platform-role" role="listitem">
+          </a>
+          <a class="platform-role" href="platform/lidar/" role="listitem">
             <span class="platform-role__label">Восприятие</span>
             <strong class="platform-role__name">LiDAR / Depth</strong>
             <p class="platform-role__text">Дальность и облако точек среды</p>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -202,7 +202,7 @@
           <h2 id="product-lines-title" class="section-title">Продуктовые линейки Kavatronic</h2>
         </header>
         <p class="section-intro">
-          Пять согласованных направлений — от исполнения до восприятия среды. Карточки ведут в линейку или в форму подбора.
+          Пять согласованных направлений — от исполнения до восприятия среды. Карточки ведут в product hub линейки.
         </p>
         <div class="product-lines-grid">
           <article class="product-line-card">
@@ -210,103 +210,36 @@
             <span class="product-line-card__status product-line-card__status--available">Доступно</span>
             <h3 class="product-line-card__title">Servos / Actuators</h3>
             <p class="product-line-card__text">Smart-приводы KVT: момент, энкодер, RS-485/TTL — ядро исполнения в узле</p>
-            <a class="btn btn--outline btn--sm" href="#servos-highlight">К линейке KVT</a>
+            <a class="btn btn--outline btn--sm" href="products/servos/">В линейку</a>
           </article>
           <article class="product-line-card">
             <span class="product-line-card__role">Измерение</span>
             <span class="product-line-card__status product-line-card__status--available">Доступно</span>
             <h3 class="product-line-card__title">IMU</h3>
             <p class="product-line-card__text">Инерциальные модули для динамики платформы и навигационного контура</p>
-            <a class="btn btn--outline btn--sm" href="products/imu118.html">Линейка IMU</a>
+            <a class="btn btn--outline btn--sm" href="products/imu/">В линейку</a>
           </article>
           <article class="product-line-card">
             <span class="product-line-card__role">Вычисление</span>
             <span class="product-line-card__status product-line-card__status--request">По запросу</span>
             <h3 class="product-line-card__title">Master Controller</h3>
             <p class="product-line-card__text">Вычислительный модуль и шлюз данных для синхронизации узла</p>
-            <a class="btn btn--outline btn--sm" href="#contacts">Обсудить линейку</a>
+            <a class="btn btn--outline btn--sm" href="products/controller/">В линейку</a>
           </article>
           <article class="product-line-card">
             <span class="product-line-card__role">Питание</span>
             <span class="product-line-card__status product-line-card__status--request">По запросу</span>
             <h3 class="product-line-card__title">Smart PDU</h3>
             <p class="product-line-card__text">Интеллектуальное питание, защита и телеметрия мехатронного узла</p>
-            <a class="btn btn--outline btn--sm" href="#contacts">Обсудить линейку</a>
+            <a class="btn btn--outline btn--sm" href="products/pdu/">В линейку</a>
           </article>
           <article class="product-line-card">
             <span class="product-line-card__role">Восприятие</span>
             <span class="product-line-card__status product-line-card__status--request">По запросу</span>
             <h3 class="product-line-card__title">2D/3D LiDAR / Depth Camera</h3>
             <p class="product-line-card__text">Сенсорика восприятия среды для мобильных и промышленных систем</p>
-            <a class="btn btn--outline btn--sm" href="#contacts">Обсудить линейку</a>
+            <a class="btn btn--outline btn--sm" href="products/lidar/">В линейку</a>
           </article>
-        </div>
-      </section>
-
-      <section id="servos-highlight" class="section" aria-labelledby="servos-highlight-title">
-        <header class="section__header">
-          <h2 id="servos-highlight-title" class="section-title">Сервоприводы KVT</h2>
-        </header>
-        <p class="section-intro">
-          Основной коммерческий продукт Kavatronic — smart-сервоприводы с магнитным энкодером и шинным управлением. Ниже —
-          флагманские модели; полная линейка — шесть исполнений KVT.
-        </p>
-        <div class="cards-grid products-grid servos-highlight__grid">
-          <article class="product-card">
-            <div class="product-card__image product-img">
-              <img
-                src="assets/images/kvt-80r.jpg"
-                alt="Kavatronic KVT-80R сервопривод"
-                onerror="this.style.display='none'"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="img-placeholder">📷 Фото модели</div>
-            </div>
-            <h3 class="product-card__title">KVT-80R</h3>
-            <p class="product-card__tagline">Универсальный модуль для средних осей и мобильных платформ.</p>
-            <p class="product-card__meta">80 kg·cm • 12V • RS-485</p>
-            <a class="btn btn--primary btn--sm" href="products/kvt-80r.html">Страница модели</a>
-          </article>
-          <article class="product-card">
-            <div class="product-card__image product-img">
-              <img
-                src="assets/images/kvt-260r.jpg"
-                alt="Kavatronic KVT-260R сервопривод"
-                onerror="this.style.display='none'"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="img-placeholder">📷 Фото модели</div>
-            </div>
-            <h3 class="product-card__title">KVT-260R</h3>
-            <p class="product-card__tagline">Тяговый привод для тяжёлых осей и силовых механизмов.</p>
-            <p class="product-card__meta">260 kg·cm • 24V • RS-485</p>
-            <a class="btn btn--primary btn--sm" href="products/kvt-260r.html">Страница модели</a>
-          </article>
-          <article class="product-card">
-            <div class="product-card__image product-img">
-              <img
-                src="assets/images/kvt-40r.jpg"
-                alt="Kavatronic KVT-40R сервопривод"
-                onerror="this.style.display='none'"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="img-placeholder">📷 Фото модели</div>
-            </div>
-            <h3 class="product-card__title">KVT-40R</h3>
-            <p class="product-card__tagline">Сервопривод общего назначения для робототехники и автоматизации.</p>
-            <p class="product-card__meta">40 kg·cm • 12V • RS-485</p>
-            <a class="btn btn--primary btn--sm" href="products/kvt-40r.html">Страница модели</a>
-          </article>
-        </div>
-        <div class="servos-highlight__footer">
-          <p class="servos-highlight__footer-text">
-            Линейка KVT — шесть исполнений: 30–260 kg·cm, 12–24 V, TTL и RS-485. На главной — три флагманские модели; полный
-            перечень — на страницах моделей.
-          </p>
-          <a class="btn btn--secondary btn--sm" href="products/kvt-80r.html">Вся линейка KVT</a>
         </div>
       </section>
 
@@ -314,122 +247,16 @@
         <header class="section__header">
           <h2 id="applications-title" class="section-title">Применения</h2>
         </header>
-        <p class="section-intro">
-          Типовые задачи, где уместен состав из нескольких линеек Kavatronic. Конкретный набор модулей зависит от механики,
-          шины и требований к контуру управления.
-        </p>
         <ul class="applications-list">
-          <li><strong>AGV / AMR</strong> — привод, IMU для динамики платформы, питание узла, сенсорика среды</li>
-          <li><strong>Манипуляторы и cobots</strong> — сервоприводы по осям, обратная связь, синхронизация контроллера</li>
-          <li><strong>ЧПУ и порталы</strong> — высокие перегрузки, IMU/вибродиагностика, стабильное питание</li>
-          <li><strong>Мобильные платформы</strong> — исполнение, инерциальные данные, восприятие для навигации</li>
-          <li><strong>Промышленная автоматизация</strong> — узлы с жёсткими требованиями к ресурсу и повторяемости</li>
-          <li><strong>Инженерные R&amp;D-проекты</strong> — пилотные сборки и поэтапная интеграция линеек</li>
+          <li><strong>AGV / AMR</strong> — привод, IMU, питание узла, сенсорика среды</li>
+          <li><strong>Манипуляторы</strong> — сервоприводы по осям, обратная связь, контроллер</li>
+          <li><strong>ЧПУ и портальные системы</strong> — перегрузки, IMU/диагностика, стабильное питание</li>
+          <li><strong>Мобильные платформы</strong> — исполнение, инерциальные данные, восприятие</li>
+          <li><strong>Промышленная автоматизация</strong> — ресурс, повторяемость, жёсткий контур</li>
+          <li><strong>R&amp;D</strong> — пилотные узлы и поэтапная интеграция линеек</li>
         </ul>
         <p class="applications-cta">
-          <a class="btn btn--primary" href="#contacts">Обсудить задачу</a>
-        </p>
-      </section>
-
-      <section id="insights" class="section" aria-labelledby="insights-title">
-        <header class="section__header">
-          <h2 id="insights-title" class="section-title">Полезная информация</h2>
-        </header>
-        <p class="section-intro">
-          Инженерные материалы по приводам, шинам и сборке узла — без маркетинговых обещаний, с опорой на практику цеха и
-          лаборатории.
-        </p>
-        <div class="articles-grid insights-grid">
-          <article class="article-card insight-card">
-            <span class="article-card__badge">Выбор привода</span>
-            <h3 class="article-card__title">Как выбрать сервопривод для манипулятора</h3>
-            <p class="article-card__excerpt">Момент, редуктор, энкодер и шина — чек-лист перед закупкой.</p>
-            <a class="article-card__link" href="articles/article-1.html">Читать →</a>
-          </article>
-          <article class="article-card insight-card">
-            <span class="article-card__badge">Анатомия узла</span>
-            <h3 class="article-card__title">Анатомия smart-сервопривода и роль IMU</h3>
-            <p class="article-card__excerpt">От корпуса до шины — и когда энкодера по валу недостаточно.</p>
-            <a class="article-card__link" href="articles/article-4.html">Читать →</a>
-          </article>
-          <article class="article-card insight-card">
-            <span class="article-card__badge">Интерфейсы</span>
-            <h3 class="article-card__title">TTL против RS-485 в сервосети</h3>
-            <p class="article-card__excerpt">Как проложить «нервную систему» робота без помех и обрывов.</p>
-            <a class="article-card__link" href="articles/article-2.html">Читать →</a>
-          </article>
-          <article class="article-card insight-card">
-            <span class="article-card__badge">Моторы</span>
-            <h3 class="article-card__title">BLDC и щёточные сервоприводы</h3>
-            <p class="article-card__excerpt">Ресурс, помехи и термодинамика — что считать до старта проекта.</p>
-            <a class="article-card__link" href="articles/article-3.html">Читать →</a>
-          </article>
-        </div>
-        <p class="insights-more">
-          <a class="btn btn--secondary btn--sm" href="/articles/">Все материалы</a>
-        </p>
-      </section>
-
-      <section id="contacts" class="section">
-        <header class="section__header">
-          <h2 class="section-title">Запросить подбор / консультацию</h2>
-        </header>
-        <p class="section-form-intro">
-          Опишите узел, платформу или задачу — поможем подобрать линейку и состав компонентов. Ответим в течение 2 рабочих
-          дней.
-        </p>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
-          <input type="hidden" name="_subject" value="Новая заявка — Kavatronic" />
-          <p id="contact-form-error" class="contact-form__error" role="alert" aria-live="polite" hidden></p>
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Имя *" required />
-            <input type="text" name="company" placeholder="Компания" />
-          </div>
-          <div class="form-row">
-            <input type="email" name="email" placeholder="Email *" required />
-            <input type="tel" name="phone" placeholder="Телефон" />
-          </div>
-          <label class="contact-form__label" for="contact-interest">Интерес</label>
-          <select id="contact-interest" name="model">
-            <option value="">Выберите интерес</option>
-            <optgroup label="Продуктовые линейки">
-              <option value="line-servos">Сервоприводы KVT (линейка)</option>
-              <option value="line-imu">IMU (линейка)</option>
-              <option value="line-controller">Master Controller</option>
-              <option value="line-pdu">Smart PDU</option>
-              <option value="line-lidar">LiDAR / Depth Camera</option>
-              <option value="line-system">Весь узел / несколько линеек</option>
-              <option value="consult">Нужна консультация / не определился</option>
-            </optgroup>
-            <optgroup label="Модели KVT">
-              <option value="KVT-30T">KVT-30T (12V, 30 кг·см, TTL)</option>
-              <option value="KVT-80R">KVT-80R (12V, 80 кг·см, RS-485)</option>
-              <option value="KVT-260R">KVT-260R (24V, 260 кг·см, RS-485)</option>
-              <option value="KVT-40R">KVT-40R (12V, 40 кг·см, RS-485)</option>
-              <option value="KVT-40D">KVT-40D (12V, 40 кг·см, double shaft)</option>
-              <option value="KVT-65R">KVT-65R (12V, 65 кг·см, 135 RPM)</option>
-            </optgroup>
-            <optgroup label="Модели IMU">
-              <option value="IMU118">IMU118 (UART, 200 Гц)</option>
-              <option value="IMU488">IMU488 (SPI до 12 МГц, до 2 кГц)</option>
-            </optgroup>
-          </select>
-          <textarea name="message" placeholder="Задача, узел, интерфейсы, требования к контуру" rows="4"></textarea>
-          <button type="submit" class="btn btn-accent2">Отправить заявку</button>
-          <p class="contact-form__micro">
-            Ответим на email или Telegram. При необходимости предложим варианты под вашу механику и шину.
-          </p>
-        </form>
-        <p class="contacts-direct">Если удобнее, можно написать напрямую:</p>
-        <p class="contacts-note">
-          Telegram:
-          <a href="https://t.me/kavatronic" aria-label="Telegram контакт">@kavatronic</a>
-          — быстрые вопросы по подбору компонентов
-        </p>
-        <p class="contacts-note">
-          Email:
-          <a href="mailto:info@kavatronic.tech">info@kavatronic.tech</a>
-          — технические запросы и спецификации
+          <a class="btn btn--primary" href="contacts.html">Обсудить задачу</a>
         </p>
       </section>
     </main>
@@ -443,28 +270,6 @@
       </div>
     </footer>
 
-    <div
-      id="kvt-success-modal"
-      class="kvt-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="kvt-success-modal-title"
-      aria-describedby="kvt-success-modal-desc"
-      hidden
-    >
-      <div class="kvt-modal__backdrop" data-kvt-modal-dismiss tabindex="-1" aria-hidden="true"></div>
-      <div class="kvt-modal__panel">
-        <div class="kvt-modal__brand">
-          <img src="assets/logo.png" alt="" class="kvt-modal__logo" />
-        </div>
-        <h2 id="kvt-success-modal-title" class="kvt-modal__title">Отправлено</h2>
-        <p id="kvt-success-modal-desc" class="kvt-modal__text">
-          Заявка отправлена. Мы свяжемся с вами в ближайшее время.
-        </p>
-        <button type="button" class="btn btn--primary kvt-modal__close" data-kvt-modal-dismiss>Понятно</button>
-      </div>
-    </div>
-
-    <script src="script.js?v=kvt-p0-1"></script>
+    <script src="script.js?v=kvt-v2-1"></script>
   </body>
 </html>

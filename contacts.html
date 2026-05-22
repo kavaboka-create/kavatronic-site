@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Запросить подбор компонентов Kavatronic: сервоприводы KVT, IMU, контроллер, PDU, LiDAR. Integrator и OEM."
+    />
+    <title>Контакты — Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/contacts.html" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="logo-link logo-link--home" aria-label="KAVATRONIC — главная">
+        <img src="assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
+        <span class="site-brand__name">KAVATRONIC</span>
+      </a>
+      <a class="btn btn--orange btn--sm site-header__cta" href="contacts.html">Запросить подбор</a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contacts" class="container section contacts-page">
+      <header class="section__header">
+        <h1 class="section-title">Запросить подбор / консультацию</h1>
+      </header>
+      <p class="section-form-intro">
+        Опишите узел, платформу или задачу — поможем подобрать линейку и состав компонентов. Ответим в течение 2 рабочих
+        дней.
+      </p>
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xwvwdzre" method="POST">
+        <input type="hidden" name="_subject" value="Новая заявка — Kavatronic" />
+        <p id="contact-form-error" class="contact-form__error" role="alert" aria-live="polite" hidden></p>
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Имя *" required />
+          <input type="text" name="company" placeholder="Компания" />
+        </div>
+        <div class="form-row">
+          <input type="email" name="email" placeholder="Email *" required />
+          <input type="tel" name="phone" placeholder="Телефон" />
+        </div>
+        <label class="contact-form__label" for="contact-interest">Интерес</label>
+        <select id="contact-interest" name="model">
+          <option value="">Выберите интерес</option>
+          <optgroup label="Продуктовые линейки">
+            <option value="line-servos">Сервоприводы KVT (линейка)</option>
+            <option value="line-imu">IMU (линейка)</option>
+            <option value="line-controller">Master Controller</option>
+            <option value="line-pdu">Smart PDU</option>
+            <option value="line-lidar">LiDAR / Depth Camera</option>
+            <option value="line-system">Весь узел / несколько линеек</option>
+            <option value="consult">Нужна консультация / не определился</option>
+          </optgroup>
+          <optgroup label="Модели KVT">
+            <option value="KVT-30T">KVT-30T (12V, 30 кг·см, TTL)</option>
+            <option value="KVT-80R">KVT-80R (12V, 80 кг·см, RS-485)</option>
+            <option value="KVT-260R">KVT-260R (24V, 260 кг·см, RS-485)</option>
+            <option value="KVT-40R">KVT-40R (12V, 40 кг·см, RS-485)</option>
+            <option value="KVT-40D">KVT-40D (12V, 40 кг·см, double shaft)</option>
+            <option value="KVT-65R">KVT-65R (12V, 65 кг·см, 135 RPM)</option>
+          </optgroup>
+          <optgroup label="Модели IMU">
+            <option value="IMU118">IMU118 (UART, 200 Гц)</option>
+            <option value="IMU488">IMU488 (SPI до 12 МГц, до 2 кГц)</option>
+          </optgroup>
+        </select>
+        <textarea name="message" placeholder="Задача, узел, интерфейсы, требования к контуру" rows="4"></textarea>
+        <button type="submit" class="btn btn-accent2">Отправить заявку</button>
+        <p class="contact-form__micro">
+          Ответим на email или Telegram. При необходимости предложим варианты под вашу механику и шину.
+        </p>
+      </form>
+      <p class="contacts-direct">Если удобнее, можно написать напрямую:</p>
+      <p class="contacts-note">
+        Telegram:
+        <a href="https://t.me/kavatronic" aria-label="Telegram контакт">@kavatronic</a>
+        — быстрые вопросы по подбору компонентов
+      </p>
+      <p class="contacts-note">
+        Email:
+        <a href="mailto:info@kavatronic.tech">info@kavatronic.tech</a>
+        — технические запросы и спецификации
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="/articles/">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <div
+      id="kvt-success-modal"
+      class="kvt-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kvt-success-modal-title"
+      aria-describedby="kvt-success-modal-desc"
+      hidden
+    >
+      <div class="kvt-modal__backdrop" data-kvt-modal-dismiss tabindex="-1" aria-hidden="true"></div>
+      <div class="kvt-modal__panel">
+        <div class="kvt-modal__brand">
+          <img src="assets/logo.png" alt="" class="kvt-modal__logo" />
+        </div>
+        <h2 id="kvt-success-modal-title" class="kvt-modal__title">Отправлено</h2>
+        <p id="kvt-success-modal-desc" class="kvt-modal__text">
+          Заявка отправлена. Мы свяжемся с вами в ближайшее время.
+        </p>
+        <button type="button" class="btn btn--primary kvt-modal__close" data-kvt-modal-dismiss>Понятно</button>
+      </div>
+    </div>
+
+    <script src="script.js?v=kvt-v2-1"></script>
+  </body>
+</html>

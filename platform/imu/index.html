@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Роль IMU в мехатронном узле: измерение движения платформы, UART и SPI, интеграция с контроллером и сервоприводами. Линейка IMU118 и IMU488 Kavatronic."
+    />
+    <title>IMU в мехатронном узле — измерение движения и интеграция | Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/platform/imu/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Зачем IMU, если есть энкодер на приводе?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Энкодер измеряет вал привода; IMU — угловые скорости и ускорения корпуса или платформы. Для AGV, стабилизации и навигации при проскальзывании или движении корпуса нужен инерциальный канал."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Когда выбирать IMU118, а когда IMU488?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "IMU118 — UART 200 Гц для мобильных платформ и стабилизации. IMU488 — SPI до 2 кГц для контуров движения с минимальной задержкой. Сравнение на hub /products/imu/."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Где каталог моделей IMU?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Продуктовый hub /products/imu/ — IMU118 и IMU488 с таблицей сравнения и ссылками на datasheet-страницы моделей."
+            }
+          }
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../../index.html" class="logo-link logo-link--home" aria-label="KAVATRONIC — главная">
+        <img src="../../assets/logo.png" alt="" class="logo-img logo-img--home" width="200" height="60" />
+        <span class="site-brand__name">KAVATRONIC</span>
+      </a>
+      <a class="btn btn--orange btn--sm site-header__cta" href="../../contacts.html">Запросить подбор</a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container platform-page">
+      <p class="hub-page__back"><a href="../../index.html#platform">← Схема узла</a></p>
+
+      <header class="platform-page__header">
+        <h1>IMU в мехатронном узле</h1>
+        <p class="section-intro platform-page__lead">
+          Инерциальный модуль (IMU) — роль <strong>измерения движения</strong> в платформе Kavatronic: угловые скорости,
+          ускорения и при необходимости магнитное поле / барометрия для контура стабилизации, навигации и диагностики
+          динамики. Номиналы и выбор между IMU118 и IMU488 — на продуктовом hub; здесь — место IMU в архитектуре узла.
+        </p>
+      </header>
+
+      <section class="section platform-section" id="platform-imu-role" aria-labelledby="role-title">
+        <header class="section__header">
+          <h2 id="role-title" class="section-title">Роль в узле</h2>
+        </header>
+        <p class="section-intro">
+          Сервоприводы с энкодером закрывают положение и момент на оси. IMU дополняет картину состоянием корпуса или
+          платформы: наклон, угловые скорости, линейные ускорения. Без этого канала затруднены стабилизация шасси,
+          компенсация крена, оценка динамики при проскальзывании и согласование с внешней навигацией (GNSS, SLAM).
+        </p>
+      </section>
+
+      <section class="section platform-section" id="platform-imu-purpose" aria-labelledby="purpose-title">
+        <header class="section__header">
+          <h2 id="purpose-title" class="section-title">Назначение</h2>
+        </header>
+        <p class="section-intro">
+          IMU нужна, когда контур управления опирается на динамику <em>тела</em>, а не только на кинематику привода.
+          Можно обойтись без неё на статичных осях с жёсткой механикой и достаточным энкодером; IMU обязательна в типовых
+          AGV/AMR, стабилизированных головах, мобильных манипуляторах и высокочастотных контурах движения. Границы —
+          требуемая частота, допустимая задержка, диапазон перегрузок и условия EMI на монтаже.
+        </p>
+      </section>
+
+      <section class="section platform-section" id="platform-imu-apps" aria-labelledby="apps-title">
+        <header class="section__header">
+          <h2 id="apps-title" class="section-title">Где применяется</h2>
+        </header>
+        <ul class="applications-list">
+          <li><strong>Мобильные платформы и AGV/AMR</strong> — оценка динамики шасси, стабилизация, связка с навигацией.</li>
+          <li><strong>Стабилизированные модули</strong> — подвесы, платформы с компенсацией вибраций.</li>
+          <li><strong>Многоосевая робототехника и ЧПУ</strong> — высокочастотная инерциальная обратная связь (класс IMU488).</li>
+          <li><strong>Промышленные мехатронные узлы</strong> — диагностика ударов и вибраций, защита механики.</li>
+          <li><strong>R&amp;D-стенды</strong> — верификация алгоритмов фильтрации и fusion до выхода в серию.</li>
+        </ul>
+      </section>
+
+      <section class="section platform-section" id="platform-imu-interfaces" aria-labelledby="iface-title">
+        <header class="section__header">
+          <h2 id="iface-title" class="section-title">Интерфейсы и интеграция</h2>
+        </header>
+        <p class="section-intro">
+          В линейке Kavatronic: <strong>IMU118</strong> — UART + PPS, поток 200&nbsp;Гц; <strong>IMU488</strong> — SPI
+          (до 12&nbsp;МГц, обновление до 2&nbsp;кГц) и UART (до 1000&nbsp;Гц). Выбор канала задаётся пропускной
+          способностью MCU/FPGA и допустимой задержкой контура.
+        </p>
+        <ul class="platform-page__list">
+          <li>
+            <strong>С Master Controller:</strong> IMU — источник измерений для фильтра ориентации, стабилизации, fusion с
+            GNSS; синхронизация по PPS (IMU118) или высокочастотный SPI-поток (IMU488).
+          </li>
+          <li>
+            <strong>С сервоприводами KVT:</strong> приводы закрывают оси по TTL/RS-485; IMU не подменяет энкодер на валу,
+            но позволяет контроллеру учитывать движение платформы при команде осям.
+          </li>
+          <li>
+            <strong>С питанием (PDU):</strong> согласование 5&nbsp;В (IMU118) и 3.3&nbsp;В (IMU488) с шиной узла, разводка
+            земли и экранирование кабеля от силовых цепей приводов.
+          </li>
+          <li>
+            <strong>Монтаж:</strong> жёсткое крепление к корпусу, минимизация резонансов кабеля; при вибрациях — фильтрация и
+            калибровка на стороне ПО.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section platform-section" id="platform-imu-materials" aria-labelledby="materials-title">
+        <header class="section__header">
+          <h2 id="materials-title" class="section-title">Материалы</h2>
+        </header>
+        <ul class="platform-page__list platform-page__materials">
+          <li>
+            <a href="../../products/imu118.html">IMU118</a> — характеристики, UART, PPS, применения AGV/AMR.
+          </li>
+          <li>
+            <a href="../../products/imu488.html">IMU488</a> — SPI/UART, высокая частота, магнетометр, барометр.
+          </li>
+          <li>
+            <a href="../../articles/article-4.html">Анатомия сервомодуля</a> — контекст узла: энкодер vs инерциальная
+            обратная связь.
+          </li>
+          <li>
+            <a href="../../articles/article-12.html">Слепой энкодер и вестибулярный аппарат</a> — IMU и сервоприводы в
+            реальных условиях: фьюжн, защита, limp-home.
+          </li>
+          <li>
+            <a href="../../articles/article-13.html">Пространственная обратная связь в AGV/AMR</a> — IMU, лидар, EKF,
+            задержки и слепые зоны навигации.
+          </li>
+          <li>
+            <a href="../../articles/article-14.html">Аппаратная безопасность и Safety Hub для AGV/AMR</a> — STO, OSSD,
+            PL&nbsp;d / SIL2 и контроль поставок.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section platform-section platform-section--cta" id="platform-imu-catalog" aria-labelledby="catalog-title">
+        <header class="section__header">
+          <h2 id="catalog-title" class="section-title">Продуктовая линейка</h2>
+        </header>
+        <p class="section-intro">
+          Сводное сравнение IMU118 и IMU488 по интерфейсу и частоте — на hub; детальные таблицы параметров — на страницах
+          моделей.
+        </p>
+        <p class="platform-page__actions">
+          <a class="btn btn--primary" href="../../products/imu/">Смотреть линейку IMU</a>
+          <a class="btn btn--secondary btn--sm" href="../../products/imu/#imu-compare">Сравнить IMU118 и IMU488</a>
+        </p>
+        <p class="section-intro platform-next-models">
+          Модели:
+          <a href="../../products/imu118.html">IMU118</a>,
+          <a href="../../products/imu488.html">IMU488</a>.
+        </p>
+      </section>
+
+      <section class="section hub-faq platform-section" aria-labelledby="platform-imu-faq">
+        <header class="section__header">
+          <h2 id="platform-imu-faq" class="section-title">Частые вопросы</h2>
+        </header>
+        <dl class="hub-faq__list">
+          <dt>Зачем IMU, если есть энкодер на приводе?</dt>
+          <dd>
+            Энкодер — состояние вала; IMU — динамика корпуса. Для колёсных и мобильных систем, стабилизации и навигации
+            нужны оба класса измерений.
+          </dd>
+          <dt>Когда выбирать IMU118, а когда IMU488?</dt>
+          <dd>
+            IMU118 — UART 200&nbsp;Гц, компактный 6-осевой модуль. IMU488 — SPI до 2&nbsp;кГц и расширенный набор сенсоров
+            для жёстких контуров движения.
+          </dd>
+          <dt>Где каталог и сравнение моделей?</dt>
+          <dd>
+            <a href="../../products/imu/">Hub линейки IMU</a> — карточки, таблица сравнения, CTA на подбор.
+          </dd>
+        </dl>
+      </section>
+
+      <p class="hub-page__footer-cta">
+        <a class="btn btn--secondary btn--sm" href="../../contacts.html">Запросить подбор узла</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="../../products/imu/">Линейка IMU</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script src="../../script.js?v=kvt-v2-1"></script>
+  </body>
+</html>

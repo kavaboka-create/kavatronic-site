@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Пространственная обратная связь в AGV/AMR: IMU и лидар, EKF, задержки шин и выживание навигации в промышленной среде склада и цеха."
+    />
+    <meta
+      property="og:title"
+      content="Пространственная обратная связь в AGV/AMR — IMU, EKF и выживание в стальных джунглях | Kavatronic"
+    />
+    <meta
+      property="og:description"
+      content="Как IMU и error-state EKF удерживают позу AGV/AMR, когда лидар слепнет, а одометрия проскальзывает."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kavatronic.tech/articles/article-13.html" />
+    <meta property="og:image" content="https://www.kavatronic.tech/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Пространственная обратная связь в AGV/AMR — IMU, EKF и выживание в стальных джунглях | Kavatronic"
+    />
+    <meta
+      name="twitter:description"
+      content="IMU и лидар в AGV/AMR: EKF, задержки, промышленная среда. Инженерный разбор навигационного контура."
+    />
+    <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
+    <title>Пространственная обратная связь в AGV/AMR — IMU, EKF и выживание в стальных джунглях | Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/articles/article-13.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Пространственная обратная связь в AGV/AMR: Инстинкт выживания в стальных джунглях",
+        "description": "IMU, лидар и EKF в навигации AGV/AMR: слепые зоны, задержки, промышленная среда.",
+        "url": "https://www.kavatronic.tech/articles/article-13.html",
+        "image": "https://www.kavatronic.tech/assets/logo.png",
+        "author": { "@type": "Organization", "name": "Kavatronic" }
+      }
+    </script>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/#home">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="/contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article-page">
+      <ol class="breadcrumbs" aria-label="Хлебные крошки">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="index.html">Полезная информация</a></li>
+        <li aria-current="page">статья</li>
+      </ol>
+
+      <header class="article-head">
+        <span class="article-head__badge">AGV / AMR · навигация</span>
+        <h1 class="article-head__title">
+          Пространственная обратная связь в AGV/AMR: Инстинкт выживания в стальных джунглях
+        </h1>
+        <p class="article-head__meta">Записки выжившего инженера | Май 2026 | ~14 минут чтения</p>
+      </header>
+
+      <aside class="article-cluster-links" aria-label="Архитектура узла и линейки">
+        <p class="article-cluster-links__title">Материалы по узлу</p>
+        <ul>
+          <li><a href="../platform/imu/">Роль IMU в мехатронном узле</a></li>
+          <li><a href="../platform/servo/">Роль сервоприводов в узле</a></li>
+          <li><a href="../products/imu/">Линейка IMU (IMU118 и IMU488)</a></li>
+          <li><a href="../products/servos/">Линейка сервоприводов KVT</a></li>
+          <li>
+            <a href="article-12.html">Энкодер, IMU и защита сервосети</a> — базовая связка исполнения и динамики
+          </li>
+          <li>
+            <a href="article-14.html">Safety Hub и аппаратная безопасность</a> — STO, OSSD, SIL/PL, сертифицируемость
+          </li>
+        </ul>
+      </aside>
+
+      <article class="article-body">
+        <p class="section-intro">
+          Цех и склад — среда, где лидар слепнет, колёса проскальзывают, а задержка шины съедает сотни герц IMU. Статья
+          про то, как инерциальный контур и EKF удерживают AGV/AMR в строю между редкими «чистыми» измерениями лидара.
+        </p>
+
+        <p>
+          Влад, давай смотреть правде в глаза. Заводской цех или современный склад — это настоящая планета смерти для
+          любого механизма, осмелившегося назваться автономным. Визг погрузчиков, стальные колонны, лужи машинного масла
+          на бетонном полу, поверх которых слепнет и скользит всё, что движется.
+        </p>
+        <p>
+          Ты уже захватил плацдарм, разработав отличные сервоприводы с интегрированными контроллерами. Теперь ты добавил к
+          ним IMU (инерциальные измерительные модули) и целишься в лидары, чтобы подмять под себя львиную долю стоимости
+          комплектации робота — это правильный расчёт. Захват навигационного контура и системы управления приводом
+          позволяет жёстко контролировать финансовый цикл проекта. Но чтобы эту систему покупали, она должна выживать
+          там, где другие превращаются в груду дорогого металлолома.
+        </p>
+        <p>
+          Давай разберём, как именно IMU спасает жизнь мобильному роботу (AGV/AMR), превращая его из слепого котёнка в
+          устойчивого хищника на полу цеха.
+        </p>
+
+        <h2>1. Выживание в слепых зонах: роль IMU в навигации</h2>
+        <p>
+          Лидары и оптические алгоритмы (SLAM, визуально-инерциальная одометрия) — сильные инструменты, когда сцена
+          предсказуема. На практике лидар обновляет данные на 10–30&nbsp;Гц. Стоит перед роботом блестящая паллета в
+          стретч-плёнке или облако пыли — внешний контур «слепнет». Одометрия? Колесо на масляном пятне — и пройденный путь
+          уходит в мусор.
+        </p>
+        <p>
+          Здесь на сцену выходит IMU — внутреннее ухо робота. Акселерометры и гироскопы не требуют внешнего света и
+          сцепления с грунтом: они выдают ориентацию, линейные и угловые ускорения напрямую.
+        </p>
+        <p>
+          Когда внешние сенсоры деградируют, fusion данных IMU и колесной одометрии удерживает оценку позы. IMU даёт
+          двигаться по инерции ровно столько, сколько нужно, чтобы вырваться из слепой зоны и снова поймать отражение
+          лазерного луча. Подробнее про связку энкодера на валу и IMU на корпусе — в
+          <a href="article-12.html">статье про сервосеть и вестибулярный контур</a>.
+        </p>
+
+        <h2>2. Скорость мысли: частоты обновления и задержки</h2>
+        <p>В мире робототехники опоздать на пару миллисекунд — значит врезаться в стену.</p>
+        <p>
+          Пока тяжёлые навигационные алгоритмы переваривают облако точек лидара, IMU выдаёт данные на частотах от 100 до
+          1000&nbsp;Гц. Это тактическое преимущество — но только если архитектура не убивает его задержкой.
+        </p>
+        <p>
+          Передача 1000&nbsp;Гц в центральный контроллер по медленной шине обнуляет смысл высокой частоты: latency
+          деградирует контуры стабилизации и безопасности.
+        </p>
+        <ul>
+          <li>
+            Низкоуровневый слой (датчики + моторные контроллеры) — минимальные задержки, жёсткая приоритизация критичных
+            PDO/кадров.
+          </li>
+          <li>
+            Шины с предсказуемой доставкой: EtherCAT, CANopen с корректной приоритизацией PDO, высокоскоростной UART или
+            RS-485 там, где это оправдано топологией.
+          </li>
+          <li>
+            Целевая метрика: суммарная задержка от MEMS до силовых ключей — существенно меньше периода дискретизации IMU.
+          </li>
+        </ul>
+        <p>
+          Для высокочастотного контура смотри <a href="../products/imu488.html">IMU488</a> (SPI, до 2&nbsp;кГц); для
+          мобильных платформ с UART и PPS — <a href="../products/imu118.html">IMU118</a> (200&nbsp;Гц).
+        </p>
+
+        <h2>3. Электронный мозг: расширенный фильтр Калмана (EKF)</h2>
+        <p>
+          Бешеный поток зашумлённых данных IMU и редкие, но точные подсказки лидара нельзя надёжно сплавить
+          комплементарным фильтром уровня «коптер-любитель». Нужен error-state EKF: постоянное предсказание и периодическая
+          коррекция разведкой.
+        </p>
+        <ol>
+          <li>
+            <strong>Цикл предсказания (prediction).</strong> На каждом тике IMU EKF интегрирует strapdown inertial
+            navigation: положение, скорость, ориентация (кватернионы), модель дрейфа гироскопов и смещения
+            акселерометров.
+          </li>
+          <li>
+            <strong>Цикл коррекции (update).</strong> Когда лидар или камера (10–30&nbsp;Гц) даёт оценку позиции, фильтр
+            корректирует накопленную ошибку предсказания.
+          </li>
+        </ol>
+        <p>
+          EKF доверяет IMU на коротких дистанциях, лидару — на длинных. Архитектура «быстрый прогноз / редкая коррекция» —
+          базовый способ плавной кинематики и устойчивой локализации в хаосе завода.
+        </p>
+
+        <h2>Стратегия победы</h2>
+        <p>
+          Влад, если ты объединишь сервоприводы, собственные модули IMU и в перспективе лидары, ты получаешь контроль над
+          аппаратной платформой AGV не по отдельным SKU, а по мехатронному контуру: исполнение, инерция, восприятие среды.
+        </p>
+        <p>
+          Собирай матрицу OEM-лидаров, валидируй их на вибрацию и перепады температур склада, закладывай EKF и бюджет
+          задержек в контроллеры. Интегратору нужен не набор датчиков в коробках, а связка, которая стартует в цехе без
+          месяца отладки шин и фильтров. В этой экосистеме выживает тот, кто контролирует ключевые контуры обратной связи —
+          от вала до облака точек.
+        </p>
+
+        <aside class="article-promo article-promo--card" aria-label="Следующие шаги">
+          <p class="article-cluster-links__title">Следующие шаги</p>
+          <p class="article-promo__text">
+            <a href="article-14.html">Safety Hub: аппаратный рефлекс и STO</a> ·
+            <a href="../platform/lidar/">Роль LiDAR / Depth в мехатронном узле</a> ·
+            <a href="../products/lidar/">Направление LiDAR в линейке</a> ·
+            <a href="../platform/imu/">IMU в узле</a> ·
+            <a href="../contacts.html">Обсудить архитектуру AGV/AMR</a>
+          </p>
+        </aside>
+      </article>
+
+      <nav class="article-nav" aria-label="Навигация по статьям">
+        <div class="article-nav__prev">
+          <a href="article-12.html">← Предыдущая: энкодер и IMU в сервосети</a>
+        </div>
+        <div class="article-nav__center">
+          <a href="index.html">Все статьи</a>
+        </div>
+        <div class="article-nav__next">
+          <a href="article-14.html">Следующая: Safety Hub →</a>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

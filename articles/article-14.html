@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Safety Hub и аппаратная безопасность AGV/AMR: PL d / SIL2, STO, OSSD, децентрализованная архитектура и контроль цепочки поставок для мехатронного узла."
+    />
+    <meta
+      property="og:title"
+      content="Аппаратный рефлекс: Safety Hub и функциональная безопасность AGV/AMR | Kavatronic"
+    />
+    <meta
+      property="og:description"
+      content="Hardware safety, STO и OSSD: как Safety Hub защищает сервосеть и навигационный контур при отказе ПО."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.kavatronic.tech/articles/article-14.html" />
+    <meta property="og:image" content="https://www.kavatronic.tech/assets/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Аппаратный рефлекс: Safety Hub и функциональная безопасность AGV/AMR | Kavatronic"
+    />
+    <meta
+      name="twitter:description"
+      content="Safety Hub, STO, OSSD, SIL/PL и IQC для автономной платформы — инженерный разбор."
+    />
+    <meta name="twitter:image" content="https://www.kavatronic.tech/assets/logo.png" />
+    <title>Аппаратный рефлекс: Safety Hub и функциональная безопасность AGV/AMR | Kavatronic</title>
+    <link rel="canonical" href="https://www.kavatronic.tech/articles/article-14.html" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Аппаратный рефлекс: Safety Hub как спинной мозг автономной платформы",
+        "description": "Функциональная безопасность AGV/AMR: STO, OSSD, edge-архитектура и контроль поставок.",
+        "url": "https://www.kavatronic.tech/articles/article-14.html",
+        "image": "https://www.kavatronic.tech/assets/logo.png",
+        "author": { "@type": "Organization", "name": "Kavatronic" }
+      }
+    </script>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../about.html" class="logo-link">
+        <img src="../assets/logo.png" alt="Kavatronic" class="logo-img" width="160" height="48" />
+      </a>
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="mobile-menu" class="site-nav desktop-nav mobile-menu" aria-label="Основная навигация">
+        <ul>
+          <li><a href="/#home">Главная</a></li>
+          <li><a href="/#platform">Продукты</a></li>
+          <li><a href="/#applications">Применения</a></li>
+          <li><a href="/articles/">Полезная информация</a></li>
+          <li><a href="/contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="article-page">
+      <ol class="breadcrumbs" aria-label="Хлебные крошки">
+        <li><a href="../index.html">Главная</a></li>
+        <li><a href="index.html">Полезная информация</a></li>
+        <li aria-current="page">статья</li>
+      </ol>
+
+      <header class="article-head">
+        <span class="article-head__badge">Функциональная безопасность</span>
+        <h1 class="article-head__title">
+          Аппаратный рефлекс: как Safety Hub становится «спинным мозгом» автономной платформы и защищает вашу маржу
+        </h1>
+        <p class="article-head__meta">Записки выжившего инженера | Май 2026 | ~13 минут чтения</p>
+      </header>
+
+      <aside class="article-cluster-links" aria-label="Архитектура узла и линейки">
+        <p class="article-cluster-links__title">Контекст кластера</p>
+        <ul>
+          <li><a href="../platform/servo/">Роль сервоприводов в узле</a></li>
+          <li><a href="../platform/imu/">Роль IMU в узле</a></li>
+          <li>
+            <a href="article-13.html">Мобильные платформы AGV/AMR и EKF</a> — пространственная обратная связь и навигация
+          </li>
+          <li>
+            <a href="article-12.html">Энкодер, IMU и защита сервосети</a> — базовый сенсорный контур исполнения
+          </li>
+        </ul>
+      </aside>
+
+      <article class="article-body">
+        <p class="section-intro">
+          Когда планировщик зависает, а шина захлебнулась, двухтонная AGV не должна оставаться без аппаратного стопа. Статья
+          про Safety Hub, STO/OSSD и PL&nbsp;d / SIL2 — слой поверх
+          <a href="article-12.html">сервоприводов с IMU</a> и
+          <a href="article-13.html">навигации AGV/AMR</a>.
+        </p>
+
+        <p>
+          Мы уже выяснили, что энкодер слеп без IMU, а голый MEMS-кристалл — лишь генератор шума без виброразвязки и
+          бортового EKF. Мы поняли, как сделать каждый сервопривод «осознающим» свою динамику узлом. Теперь посмотрим
+          правде в глаза: каким бы умным ни был сервомодуль, интегратор всё равно вставит его в систему, которой управляет
+          софт.
+        </p>
+        <p>А софт имеет свойство зависать.</p>
+        <p>
+          Когда двухосевой планировщик траекторий в ROS2 ловит ошибку сегментации или шина данных захлебывается от
+          коллизий, двухтонная AGV-тележка превращается в неуправляемый снаряд. Если этот снаряд снесёт стеллаж на складе,
+          маржинальность проекта и финансовый цикл сгорят в пламени первой рекламации.
+        </p>
+        <p>
+          Чтобы этого не произошло, системе нужен безусловный аппаратный рефлекс. Здесь на сцену выходит четвёртый контур
+          платформы — <strong>Safety Hub</strong> (модуль аппаратной безопасности). Он замыкает экосистему «привод + IMU +
+          лидар» в единый отказоустойчивый контур.
+        </p>
+
+        <h2>1. Иллюзия программной безопасности и стандарт SIL/PL</h2>
+        <p>
+          Частая схема: лидар по Ethernet в центральный контроллер, алгоритм видит препятствие и по CAN говорит приводам
+          «стоп». В лаборатории работает. В цехе при −10&nbsp;°C, под ЭМИ от сварки и вибрации на стыках плит — нет.
+        </p>
+        <p>
+          Промышленный стандарт функциональной безопасности (ISO&nbsp;13849 / IEC&nbsp;61508) для мобильных платформ часто
+          требует уровня <strong>PL&nbsp;d / SIL2</strong>. Отказ управляющего софта не должен приводить к травмам.
+        </p>
+        <p>
+          Решение: Safety Hub как «спинной мозг». OSSD-выходы лидара заводятся напрямую в Safety Hub; хаб аппаратно
+          соединяется с клеммами <strong>STO</strong> (Safe Torque Off) на серводрайверах.
+        </p>
+        <p>
+          Лидар видит человека в красной зоне — или сам отвалился, ушёл в перезагрузку, не прошёл самотест — сигнал OSSD
+          падает. Safety Hub, в обход ПО и ПЛК, обесточивает силовые ключи. Вал останавливается. Ни сбойный планировщик, ни
+          зависший ПК не принудит движение.
+        </p>
+
+        <h2>2. Разгрузка шины: архитектура edge computing</h2>
+        <p>Децентрализованная матрица снимает нагрузку с центрального «мозга» (ПЛК или ПК):</p>
+        <ul>
+          <li>
+            <strong>Уровень 1 — исполнение и инерция.</strong> Сервопривод локально обрабатывает энкодер и IMU, компенсирует
+            дрейф, гасит резонансы. Наверх — одометрия и флаги состояния (EtherCAT / CANopen).
+          </li>
+          <li>
+            <strong>Уровень 2 — зрение.</strong> Лидар сканирует пространство; аппаратная реакция на слепые зоны через OSSD.
+          </li>
+          <li>
+            <strong>Уровень 3 — рефлексы.</strong> Safety Hub держит STO, мониторит E-stop, концевики и safety-сигналы
+            лидаров.
+          </li>
+        </ul>
+        <p>
+          Для интегратора это предсобранный «комплект выживания шасси»: меньше месяцев на стыковке шин, выше предсказуемость
+          ввода в эксплуатацию. Экономика проекта опирается на снижение риска полевых сбоев, а не на обещания «умного софта».
+        </p>
+
+        <h2>3. Защита цепочки поставок: отбраковка на старте</h2>
+        <p>
+          Комплексное решение несовместимо с плавающим качеством. Safety Hub — сердце защиты; контрактная сборка — зона
+          риска. Нельзя везти контейнер лидаров или IMU, чтобы на объекте обнаружить мёртвые зоны или плывущий нуль.
+        </p>
+        <p>Как защищается финансовый цикл:</p>
+        <ol>
+          <li>
+            <strong>Жёсткий IQC-инжиниринг.</strong> Даташит — отправная точка. У OEM-контрактника нужна валидационная оснастка
+            на входе партии.
+          </li>
+          <li>
+            <strong>Температурно-вибрационный стресс.</strong> Лидар, IMU и Safety Hub — вибростенд и термокамера. Для хаба —
+            проверка детерминированности STO (целевая задержка срабатывания строго &lt; 10&nbsp;мс).
+          </li>
+          <li>
+            <strong>Кросс-референс матрица.</strong> Для MCU, компараторов, гальваноразвязок в хабе — footprint-совместимые
+            аналоги (GigaDevice, Artery, Novosense), чтобы дефицит одной позиции не остановил конвейер.
+          </li>
+        </ol>
+
+        <h2>4. Итог: переход от компонентов к экосистеме</h2>
+        <p>
+          С модулем аппаратной безопасности вы переходите от «продавца моторов с датчиками» к поставщику
+          сертифицируемой двигательной базы. Архитектура для тяжёлых условий:
+        </p>
+        <ul>
+          <li>динамическая устойчивость — сервопривод + IMU на оси и корпусе;</li>
+          <li>прогнозируемое зрение — отобранный и откалиброванный лидар;</li>
+          <li>безусловная безопасность — Safety Hub + STO.</li>
+        </ul>
+        <p>
+          С инженерной точки зрения это жизнеспособная концепция для цеха и склада. С точки зрения проекта — контроль
+          аппаратной части робота, где надёжность и сертификация закрывают главную боль интегратора.
+        </p>
+
+        <aside class="article-cluster-links" aria-label="Материалы по архитектуре">
+          <p class="article-cluster-links__title">Материалы по архитектуре</p>
+          <ul>
+            <li>
+              Питание и аппаратная безопасность в узле (Smart PDU / Safety Hub) — отдельная тема technical layer; страница
+              платформы в разработке, без отдельного product hub.
+            </li>
+            <li><a href="../products/servos/">Линейка сервоприводов KVT</a> — исполнение и STO на драйвере</li>
+            <li><a href="../products/imu/">Линейка IMU (IMU118 и IMU488)</a> — инерциальный контур</li>
+            <li><a href="article-12.html">Энкодер + IMU в сервосети</a></li>
+            <li><a href="article-13.html">AGV/AMR: IMU, лидар, EKF</a></li>
+            <li><a href="../contacts.html">Обсудить архитектуру safety-контура и подбор узла</a></li>
+          </ul>
+        </aside>
+
+        <p class="product-page__note">
+          Мы готовы к этапу трассировки плат и подбору компонентной базы под Safety Hub. Если нужен разбор узла целиком —
+          начните с technical pages и линеек выше.
+        </p>
+      </article>
+
+      <nav class="article-nav" aria-label="Навигация по статьям">
+        <div class="article-nav__prev">
+          <a href="article-13.html">← Предыдущая: AGV/AMR и EKF</a>
+        </div>
+        <div class="article-nav__center">
+          <a href="index.html">Все статьи</a>
+        </div>
+        <div class="article-nav__next">
+          <a href="article-12.html">Связанная: энкодер и IMU →</a>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">Kavatronic © 2026</p>
+        <ul class="site-footer__links" aria-label="Дополнительные ссылки">
+          <li><a href="index.html">Полезная информация</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
