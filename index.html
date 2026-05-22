@@ -69,21 +69,93 @@
       <span id="products" class="page-anchor" aria-hidden="true"></span>
 
       <section id="hero" class="hero">
-        <div class="hero__content">
-          <h1>Мехатронная платформа компонентов Kavatronic для робототехники и промышленной автоматизации</h1>
-          <p class="hero__subtitle">
-            Сервоприводы KVT — ядро исполнения в узле: smart-приводы с энкодером и шиной RS-485/TTL. Вокруг них — согласованные
-            линейки IMU, Master Controller, Smart PDU и 2D/3D LiDAR / Depth Camera для полного контура движения, данных,
-            питания и восприятия среды.
-          </p>
-          <ul class="hero__bullets">
-            <li>Пять продуктовых линеек под типовой мехатронный узел — подбор по задаче, не «магазин SKU»</li>
-            <li>Инженерная поддержка integrator и OEM: спецификации, пилоты, консультация по интеграции</li>
-            <li>Промышленный B2B-фокус: AGV/AMR, манипуляторы, мобильные платформы, автоматизация и R&amp;D</li>
-          </ul>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#contacts">Запросить подбор</a>
-            <a class="btn btn--secondary" href="#platform">Смотреть линейки</a>
+        <div class="hero__inner">
+          <div class="hero-platform">
+            <aside class="hero-side hero-side--left" aria-label="Линейки платформы — слева">
+              <article class="hero-mini-card hero-mini-card--imu">
+                <div class="hero-mini-card__media">
+                  <img
+                    src="assets/images/imu488.jpg"
+                    alt=""
+                    width="160"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <span class="hero-mini-card__label">Измерение</span>
+                <p class="hero-mini-card__title">IMU</p>
+              </article>
+              <article class="hero-mini-card hero-mini-card--controller">
+                <div class="hero-mini-card__media">
+                  <img
+                    src="assets/images/robotics-controller-hero-banner.jpg"
+                    alt=""
+                    width="160"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <span class="hero-mini-card__label">Вычисление</span>
+                <p class="hero-mini-card__title">Master Controller</p>
+              </article>
+            </aside>
+
+            <div class="hero-center">
+              <div class="hero-copy">
+                <h1>Компоненты для робототехники и промышленной автоматизации</h1>
+                <p class="hero-tagline">
+                  Сервоприводы, IMU, контроллеры, питание и сенсорика для интеграторов и OEM
+                </p>
+                <div class="hero__actions">
+                  <a class="btn btn--primary" href="#contacts">Запросить подбор</a>
+                  <a class="btn btn--secondary" href="#platform">Смотреть линейки</a>
+                </div>
+              </div>
+              <div class="hero-product-visual">
+                <img
+                  class="hero-product-image"
+                  src="assets/images/home-hero-servo-banner.jpg"
+                  alt="Сервоприводы KVT — линейка Kavatronic"
+                  width="480"
+                  height="360"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <aside class="hero-side hero-side--right" aria-label="Линейки платформы — справа">
+              <article class="hero-mini-card hero-mini-card--pdu">
+                <div class="hero-mini-card__media">
+                  <img
+                    src="assets/images/smart-pdu-industrial-banner.jpg"
+                    alt=""
+                    width="160"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <span class="hero-mini-card__label">Питание</span>
+                <p class="hero-mini-card__title">Smart PDU</p>
+              </article>
+              <article class="hero-mini-card hero-mini-card--lidar">
+                <div class="hero-mini-card__media">
+                  <img
+                    src="assets/images/lidar-sensor-robotics-banner.jpg"
+                    alt=""
+                    width="160"
+                    height="120"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <span class="hero-mini-card__label">Восприятие</span>
+                <p class="hero-mini-card__title">2D/3D LiDAR / Depth</p>
+              </article>
+            </aside>
           </div>
         </div>
       </section>
@@ -229,15 +301,13 @@
             <a class="btn btn--primary btn--sm" href="products/kvt-40r.html">Страница модели</a>
           </article>
         </div>
-        <p class="servos-highlight__all">
-          <span class="servos-highlight__label">Вся линейка KVT:</span>
-          <a href="products/kvt-30t.html">KVT-30T</a>,
-          <a href="products/kvt-40d.html">KVT-40D</a>,
-          <a href="products/kvt-40r.html">KVT-40R</a>,
-          <a href="products/kvt-65r.html">KVT-65R</a>,
-          <a href="products/kvt-80r.html">KVT-80R</a>,
-          <a href="products/kvt-260r.html">KVT-260R</a>
-        </p>
+        <div class="servos-highlight__footer">
+          <p class="servos-highlight__footer-text">
+            Линейка KVT — шесть исполнений: 30–260 kg·cm, 12–24 V, TTL и RS-485. На главной — три флагманские модели; полный
+            перечень — на страницах моделей.
+          </p>
+          <a class="btn btn--secondary btn--sm" href="products/kvt-80r.html">Вся линейка KVT</a>
+        </div>
       </section>
 
       <section id="applications" class="section" aria-labelledby="applications-title">
@@ -319,9 +389,9 @@
             <input type="email" name="email" placeholder="Email *" required />
             <input type="tel" name="phone" placeholder="Телефон" />
           </div>
-          <p class="contact-form__hint">Выберите линейку, модель или опишите задачу целиком.</p>
-          <select name="model">
-            <option value="">Что интересует</option>
+          <label class="contact-form__label" for="contact-interest">Интерес</label>
+          <select id="contact-interest" name="model">
+            <option value="">Выберите интерес</option>
             <optgroup label="Продуктовые линейки">
               <option value="line-servos">Сервоприводы KVT (линейка)</option>
               <option value="line-imu">IMU (линейка)</option>
